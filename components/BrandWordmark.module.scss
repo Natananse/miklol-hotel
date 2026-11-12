@@ -1,0 +1,8 @@
+@use '@/styles/hero-tokens' as h;
+
+.brand { display: block; width: 100%; line-height: 1; }
+.brand svg { display: block; width: 100%; height: auto; overflow: visible; }
+.cupDetail { fill: h.$terracotta; }
+.tagline { display: block; margin-top: 5px; font-family: h.$sans; font-size: 11px; font-weight: 500; line-height: 1.2; letter-spacing: .16em; text-align: center; }
+
+@media (max-width: 600px) { .tagline { margin-top: 3px; font-size: 9px; letter-spacing: .035em; } }

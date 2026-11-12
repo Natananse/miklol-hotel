@@ -6,132 +6,202 @@
   padding: 7px 20px;
   background: h.$terracotta;
   color: h.$paper;
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.6;
-  letter-spacing: .025em;
   text-align: center;
-  a { text-decoration: underline; text-underline-offset: 3px; }
+  a { margin-left: 5px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
   a:focus-visible { outline-color: h.$paper; }
 }
 
+// The unscrolled surface merges into the cream hero, without a visible white block.
+.headerBackdrop { position: sticky; top: 0; z-index: 70; pointer-events: none; }
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: h.$paper;
+  position: relative;
+  isolation: isolate;
+  background: transparent;
   color: h.$charcoal;
-  border-bottom: 1px solid rgba(h.$charcoal, .12);
   color-scheme: light;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: transform .25s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: h.$paper;
+    transition: background .25s ease, box-shadow .25s ease;
+  }
+
   :where(a, button):focus-visible { outline-color: h.$terracotta; }
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  min-height: 102px;
-}
-
-.logo {
-  flex-shrink: 0;
-  font-size: 34px;
-  font-weight: 500;
-  letter-spacing: -.06em;
-  line-height: 1;
-  span {
-    display: block;
-    margin-top: 8px;
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: .055em;
-    text-align: center;
-  }
-}
-
+.hidden { transform: translateY(calc(-100% - 2px)); pointer-events: none; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 26px; min-height: 126px; transition: min-height .22s ease; }
+.logo { display: block; width: 260px; flex-shrink: 0; color: h.$charcoal; transition: width .22s ease; }
 .desktopNav {
   display: flex;
   align-items: center;
-  gap: clamp(24px, 3vw, 43px);
-  font-size: 12px;
+  gap: clamp(23px, 2.4vw, 36px);
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+
   a {
-    padding: 10px 0;
+    position: relative;
+    padding: 12px 0;
     transition: color .2s ease;
-    &:hover { color: h.$terracotta; }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6px;
+      height: 2px;
+      background: h.$terracotta;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+    }
+
+    &:hover, &:focus-visible, &.activeLink { color: h.$terracotta; &::after { transform: scaleX(1); } }
   }
 }
 
+.headerActions { display: flex; flex-shrink: 0; flex-direction: column; align-items: flex-end; gap: 8px; }
+.openingStatus { color: rgba(h.$charcoal, .85); font-size: 10px; line-height: 1.3; white-space: nowrap; }
 .reserve {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   flex-shrink: 0;
-  min-height: 47px;
-  padding: 13px 23px;
+  min-height: 51px;
+  padding: 13px 21px;
   border: 1px solid h.$terracotta;
-  border-radius: 3px;
+  border-radius: 5px;
   background: h.$terracotta;
   color: h.$paper;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.2;
-  transition: background .2s ease, color .2s ease;
-  &:hover { background: h.$paper; color: h.$terracotta; }
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+
+  &:hover { background: h.$charcoal; border-color: h.$charcoal; transform: translateY(-2px); }
+  &:active { transform: translateY(0); }
 }
 
-.menuButton {
-  display: none;
-  place-items: center;
-  width: 42px;
-  height: 44px;
-  padding: 9px;
-  border: 0;
-  background: transparent;
-  color: h.$charcoal;
+.menuButton, .closeMenu { display: none; place-items: center; width: 42px; height: 44px; padding: 8px; border: 1px solid rgba(h.$charcoal, .24); border-radius: 5px; background: transparent; color: h.$charcoal; flex-shrink: 0; }
+.compact {
+  &::before { background: rgba(h.$paper, .91); box-shadow: 0 6px 25px rgba(h.$charcoal, .08); backdrop-filter: blur(16px); }
+  .nav { min-height: 86px; }
+  .logo { width: 196px; }
+  .headerActions { gap: 5px; }
+  .reserve { min-height: 44px; padding-block: 10px; }
+  .openingStatus { font-size: 9px; }
 }
 
 .mobileNav {
-  overflow-x: hidden;
-  overflow-y: auto;
+  position: fixed;
+  z-index: 120;
+  inset: 0;
+  width: 100%;
+  height: 100svh;
+  height: 100dvh;
+  overflow: auto;
   overscroll-behavior: contain;
-  max-height: calc(100svh - 110px);
-  border-top: 1px solid rgba(h.$charcoal, .12);
   background: h.$paper;
-  nav { padding: 15px 25px 30px; }
+  color: h.$charcoal;
+  color-scheme: light;
+
+  :where(a, button):focus-visible { outline-color: h.$terracotta; }
+}
+
+.mobileMasthead { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 106px; border-bottom: 1px solid rgba(h.$charcoal, .15); }
+.mobileMasthead .reserve { margin-left: auto; }
+.closeMenu { display: grid; }
+.mobileContents { padding-top: clamp(28px, 6svh, 65px); padding-bottom: 35px; }
+.mobileEyebrow { font-size: 10px; letter-spacing: .12em; margin-bottom: 18px; }
+.mobileContents nav {
+  display: flex;
+  flex-direction: column;
+
   a {
-    display: block;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(h.$charcoal, .12);
+    position: relative;
+    width: fit-content;
+    padding: 11px 0;
     font-family: h.$serif;
-    font-size: 34px;
-    line-height: 1.2;
+    font-size: clamp(46px, 8.4vw, 72px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -.025em;
     transition: color .2s ease;
-    &:hover { color: h.$terracotta; }
+
+    &::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 2px; background: h.$terracotta; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    &:hover, &:focus-visible, &.activeLink { color: h.$terracotta; &::after { transform: scaleX(1); } }
   }
+}
+.mobileReserve { margin-top: 24px; .reserve { min-height: 52px; font-size: 16px; } }
+.mobileContact {
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(h.$charcoal, .15);
+  font-size: 16px;
+  line-height: 1.5;
+  a { display: flex; align-items: center; gap: 12px; min-height: 48px; }
+  svg { flex-shrink: 0; color: h.$terracotta; }
+  p { margin: 0; padding-block: 8px; }
+}
+.mobileSocials {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  a, button { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid rgba(h.$charcoal, .25); border-radius: 5px; background: transparent; color: h.$charcoal; }
+  button:disabled { opacity: .45; cursor: default; }
+  a:active { background: rgba(h.$terracotta, .1); }
 }
 
 .preloader { position: fixed; inset: 0; z-index: 150; display: flex; flex-direction: column; justify-content: center; align-items: center; background: $espresso; pointer-events: none; > span { font-size: clamp(55px, 10vw, 120px); letter-spacing: -.08em; line-height: 1; } small { font-size: 8px; letter-spacing: .4em; margin-top: 30px; color: $muted; } }
 .loaderDot { color: $orange; animation: breathe .7s infinite; display: inline-block; }
 .cursor { position: fixed; top: 0; left: 0; width: 25px; height: 25px; margin: -12.5px; border: 1px solid $orange; border-radius: 50%; pointer-events: none; z-index: 140; opacity: 0; transform: translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0); transition: width .2s, height .2s, margin .2s, opacity .2s; &[data-active='true'] { width: 45px; height: 45px; margin: -22.5px; background: rgba($orange, .1); } }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .desktopNav { display: none; }
   .menuButton { display: grid; }
-  .reserve { margin-left: auto; }
-  .nav { min-height: 88px; gap: 16px; }
+  .headerActions { margin-left: auto; }
+  .nav { min-height: 112px; gap: 18px; }
+  .logo { width: 230px; }
+  .compact { .nav { min-height: 82px; } .logo { width: 185px; } }
+  .mobileMasthead .logo { width: 230px; }
 }
 
 @media (max-width: 600px) {
-  .announcement { padding-inline: 14px; font-size: 9px; }
-  .nav { min-height: 80px; gap: 8px; }
-  .logo {
-    font-size: 30px;
-    span { font-size: 9px; letter-spacing: .025em; margin-top: 6px; }
-  }
-  .reserve { min-height: 42px; padding: 12px 13px; font-size: 10px; }
-  .menuButton { width: 38px; padding-inline: 7px; }
+  .announcement { display: none; }
+  .nav, .compact .nav { height: 64px; min-height: 64px; gap: 12px; transition: none; }
+  .logo, .compact .logo, .mobileMasthead .logo { display: flex; align-items: center; width: 170px; min-height: 48px; }
+  .headerActions { display: none; }
+  .menuButton, .closeMenu { width: 48px; height: 48px; padding: 11px; }
+  .hidden { transform: none; pointer-events: auto; }
+  .mobileMasthead { min-height: 64px; gap: 12px; }
+  .mobileContents { padding-top: 22px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+  .mobileEyebrow { font-size: 14px; line-height: 1.5; letter-spacing: .08em; margin-bottom: 12px; }
+  .mobileContents nav { gap: 8px; }
+  .mobileContents nav a { min-height: 48px; padding-block: 5px; font-size: clamp(32px, 9vw, 40px); line-height: 1.3; }
+  .mobileReserve .reserve { width: 100%; min-height: 52px; padding: 13px 20px; font-size: 16px; }
+  .reserve:hover { background: h.$terracotta; border-color: h.$terracotta; transform: none; }
+  .reserve:active { background: h.$charcoal; border-color: h.$charcoal; transform: scale(.98); }
+  .logo:active, .menuButton:active, .closeMenu:active { transform: scale(.98); }
+  .mobileContents nav a:active { color: h.$terracotta; }
+  .cursor { display: none; }
 }
 
-@media (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .cursor { display: none; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { .cursor { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .header, .header::before, .nav, .logo, .reserve, .desktopNav a, .desktopNav a::after, .mobileContents nav a, .mobileContents nav a::after { transition: none; }
+  .reserve:hover { transform: none; }
 }

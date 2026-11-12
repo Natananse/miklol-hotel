@@ -2,37 +2,37 @@
 export const heroImages = {
   "pasta": {
     "src": "/images/hero/pasta.jpg",
-    "alt": "Pesto farfalle pasta with cherry tomatoes and fresh basil on a white plate",
+    "alt": "Farfalle with green pesto, cherry tomatoes, and basil on a white plate",
     "blurDataURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAMABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABQb/xAAdEAACAgIDAQAAAAAAAAAAAAABAwACEiEEETFB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAXEQEAAwAAAAAAAAAAAAAAAAAAAQID/9oADAMBAAIRAxEAPwCg5bMUmDkr619i7QLVIPkIYuofiBqR1gqv/9k="
   },
   "pizza": {
     "src": "/images/hero/pizza.jpg",
-    "alt": "Golden pizza with tomato, cheese, mushrooms, and herbs on a wooden table",
+    "alt": "Pizza with cheese, mushrooms, tomatoes, and herbs on a wooden table",
     "blurDataURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAMABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQME/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAAxESIRP/xAAUAQEAAAAAAAAAAAAAAAAAAAAE/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIRAxEAPwA5kG2qytSADEzsSLeRCtB5Zx2F0TK//9k="
   },
   "burger": {
     "src": "/images/hero/burger.jpg",
-    "alt": "Beef burger with melted cheese, lettuce, tomato, and pickles in a golden bun",
+    "alt": "Cheeseburger with lettuce, tomato, and pickles in a bread bun",
     "blurDataURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAMABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwX/xAAbEAACAgMBAAAAAAAAAAAAAAABAgADBBEhMf/EABQBAQAAAAAAAAAAAAAAAAAAAAP/xAAXEQADAQAAAAAAAAAAAAAAAAAAESJB/9oADAMBAAIRAxEAPwCbjVjRLQclRvglY0ovghNRWx6IbpiYf//Z"
   },
   "salmon": {
     "src": "/images/hero/salmon.jpg",
-    "alt": "Plated salmon fillet topped with avocado beside a restaurant table setting",
+    "alt": "Salmon topped with avocado, served on a white plate",
     "blurDataURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAMABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAID/8QAHBAAAgMBAAMAAAAAAAAAAAAAAQMAAhIRBAUi/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAYEQADAQEAAAAAAAAAAAAAAAAAESEBAv/aAAwDAQACEQMRAD8ATbw1b+iIRvqVsb3Q5MFvZdh1bsuzbi4OjI51UNQ//9k="
   },
   "dessert": {
     "src": "/images/hero/dessert.jpg",
-    "alt": "Chocolate cake finished with piped chocolate cream and glossy ganache",
+    "alt": "Chocolate cake with ganache and piped chocolate frosting",
     "blurDataURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAMABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwT/xAAdEAACAgIDAQAAAAAAAAAAAAABAgAEAxEFFCEi/8QAFAEBAAAAAAAAAAAAAAAAAAAAA//EABURAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIRAxEAPwCq/d66giT1eSbI+ot7Grr9DcGphRT4IaSDf//Z"
   },
   "coffee": {
     "src": "/images/hero/coffee.jpg",
-    "alt": "Three cups of cappuccino with latte art along a cafe counter",
+    "alt": "Three cappuccinos with latte art on a cafe counter",
     "blurDataURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAMABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgMF/8QAHhAAAQQBBQAAAAAAAAAAAAAAAQACAwQRBRIhMTT/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABgRAAIDAAAAAAAAAAAAAAAAAAABESEx/9oADAMBAAIRAxEAPwACA1nZJ5KUdzG5ru1XU/WAsyyA2cYU8Yoo/9k="
   },
   "interior": {
     "src": "/images/hero/interior.jpg",
-    "alt": "Light-filled cafe with a leafy indoor tree, woven chairs, and a welcoming bar",
+    "alt": "Cafe seating beneath an indoor tree, with woven chairs and window light",
     "blurDataURL": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAMABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwT/xAAbEAACAwADAAAAAAAAAAAAAAABAgADERIUIf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/AB7DsuZANlik4JXYoUeCCQOOyEf/2Q=="
   }
 } as const;

@@ -1,0 +1,790 @@
+MIKLOL — COMPLETE COPY CHANGE LIST
+===================================
+
+Scope: header/wordmark, section copy, labels, image alt text, and SEO copy.
+Photos, menu names, prices, section layouts, and the existing palette were retained.
+The new SVG wordmark is 260px wide on desktop. Its O is a coffee cup with a terracotta handle and saucer.
+
+HEADER AND LOGO
+---------------
+# Header and logo copy inventory
+
+| Previous text | New text |
+| --- | --- |
+| Coffee, lunch & dinner. | Espresso, breakfast, pasta, pizza. |
+| Find your table at MIKLOL. | See the menu. |
+| MIKLOL text logo | Original SVG MIKLOL wordmark; Cafe & Restaurant tagline retained |
+| MIKLOL home (accessible label) | MIKLOL — back to top |
+| Our menu | Menu |
+| Our story | Our kitchen |
+| The space | Photos |
+| Visit us | Tables |
+| Reserve a table | Retained; stronger styling and calendar icon added |
+| No hours element | Proposed hours · 08:00 – 22:00 (uses site.openingHours while site.preview is true) |
+| No mobile menu intro | COFFEE, BREAKFAST, LUNCH & DINNER |
+| No fullscreen-dialog label | MIKLOL navigation |
+| A GOOD MOMENT IS BREWING (optional preloader) | COFFEE. BREAKFAST. LUNCH. DINNER. |
+
+Mobile controls: Open navigation → Open menu; Close navigation → Close menu. All labels remain literal and accessible. Menu destination labels match the desktop links. A supplied phone number replaces hours; confirmed non-preview business details may show Open today until plus configured closing time. No phone number or live opening claim is invented.
+
+
+HERO, HERO PHOTO ALT TEXT, AND 3D SELECTOR
+-----------------------------------------
+# Hero and 3D preview copy changes
+
+Photos, image paths, blur placeholders, prices, styles, and layout remain unchanged.
+
+## components/Hero.tsx
+
+- `label: 'Burgers'` → `label: 'Burger'`
+- `label: 'Dessert'` → `label: 'Cake'`
+- Added the `top` anchor for the clickable wordmark.
+- `Good food.<br />Great coffee.<br />Meet at MIKLOL.` → `Breakfast.<br />Lunch. Dinner.<br />All at MIKLOL.`
+- `From a quick coffee to a long lunch, there’s a seat for you. Bring your appetite. Bring your people.` → `Garden Pesto Pasta. The MIKLOL Burger.<br />Espresso and chocolate cake to finish.`
+- `View the menu` → `Browse the menu`
+- `menu categories</li>` → `menu sections</li>`
+- `Vegetarian choices` → `Vegetarian options`
+- `Parties of 1–8` → `1–8 guests`
+- `Food, coffee, and a place to sit down` → `Pasta, pizza, coffee, and cafe seating`
+- `A place to sit down. A reason to stay.` → `Daylight, plants, and woven chairs.`
+- `More from the table` → `Burger, salmon, and chocolate cake`
+
+## data/hero-images.ts
+
+- `Pesto farfalle pasta with cherry tomatoes and fresh basil on a white plate` → `Farfalle with green pesto, cherry tomatoes, and basil on a white plate`
+- `Golden pizza with tomato, cheese, mushrooms, and herbs on a wooden table` → `Pizza with cheese, mushrooms, tomatoes, and herbs on a wooden table`
+- `Beef burger with melted cheese, lettuce, tomato, and pickles in a golden bun` → `Cheeseburger with lettuce, tomato, and pickles in a bread bun`
+- `Plated salmon fillet topped with avocado beside a restaurant table setting` → `Salmon topped with avocado, served on a white plate`
+- `Chocolate cake finished with piped chocolate cream and glossy ganache` → `Chocolate cake with ganache and piped chocolate frosting`
+- `Three cups of cappuccino with latte art along a cafe counter` → `Three cappuccinos with latte art on a cafe counter`
+- `Light-filled cafe with a leafy indoor tree, woven chairs, and a welcoming bar` → `Cafe seating beneath an indoor tree, with woven chairs and window light`
+
+## components/ThreeScene.tsx
+
+- `A freshly prepared burger with golden bread and crisp vegetables` → `Cheeseburger with lettuce, tomato, and pickles in a bread bun`
+- `A golden margherita pizza with tomato, cheese, and basil` → `Pizza with cheese, mushrooms, tomatoes, and herbs`
+- `A golden flaky butter croissant` → `Two croissants dusted with powdered sugar on a dark board`
+- `A glazed donut ready for a sweet coffee break` → `Two chocolate-glazed donuts with white icing stripes`
+- `A rich slice of chocolate cake` → `Chocolate cake with ganache and piped chocolate frosting`
+- `Preparing the 3D scene` → `Loading the 3D preview`
+- `A little magic is brewing` → `Loading dish previews…`
+- `Freshly brewed coffee in a ceramic cup` → `Espresso in a dark ceramic cup`
+- `Explore floating dishes` → `Choose a dish to see its price`
+
+
+MENU, GALLERY, AND RESERVATION
+-----------------------------
+data/menu.ts — The House Espresso description
+Before: Deep cocoa notes. A bright finish. Your new daily ritual.
+After:  A short espresso with cocoa notes and a bright finish.
+
+data/menu.ts — Caramel Cloud Latte description
+Before: Espresso, cold milk, caramel, and a cloud of cream.
+After:  Espresso over cold milk, finished with caramel and cream.
+
+data/menu.ts — Good Morning Toast description
+Before: Smashed avocado, sourdough, poached egg, chili crunch.
+After:  Sourdough with avocado, a poached egg, and chili crunch.
+
+data/menu.ts — Slow Sunday Pancakes description
+Before: Fluffy stacks, seasonal berries, and warm maple syrup.
+After:  Pancakes with seasonal berries and maple syrup.
+
+data/menu.ts — Garden Pesto Pasta description
+Before: Basil pesto, cherry tomatoes, parmesan, toasted seeds.
+After:  Pasta with basil pesto, cherry tomatoes, parmesan, and seeds.
+
+data/menu.ts — Creamy Chicken Alfredo description
+Before: Silky cream sauce, grilled chicken, fresh fettuccine.
+After:  Fettuccine with grilled chicken and a creamy sauce.
+
+data/menu.ts — The Margherita description
+Before: Slow-fermented dough, tomato, mozzarella, fresh basil.
+After:  Tomato, mozzarella, and basil on a pizza base.
+
+data/menu.ts — Smoky Chicken Pizza description
+Before: Roast chicken, smoked cheese, peppers, a little heat.
+After:  Roast chicken, smoked cheese, peppers, and heat.
+
+data/menu.ts — The MIKLOL Burger description
+Before: Juicy beef, aged cheddar, pickles, our secret sauce.
+After:  Beef, cheddar, pickles, and house sauce.
+
+data/menu.ts — The Garden Burger description
+Before: A spiced chickpea patty, crunchy greens, lemon tahini.
+After:  Chickpea patty, greens, and lemon tahini.
+
+data/menu.ts — Chocolate After Hours description
+Before: Rich chocolate layers with a soft ganache finish.
+After:  Chocolate layers with a ganache finish.
+
+data/menu.ts — Golden Butter Croissant description
+Before: Delicate layers, golden edges, baked for slow mornings.
+After:  A butter croissant with crisp edges and flaky layers.
+
+data/menu.ts — Espresso label
+Before: note: 'HOUSE FAVORITE'
+After:  note: 'ESPRESSO'
+
+data/menu.ts — Burger label
+Before: note: 'CHEF’S PICK'
+After:  note: 'BEEF BURGER'
+
+data/menu.ts — The House Espresso image alt
+Before: The House Espresso
+After:  Espresso in a black cup on a dark table
+
+data/menu.ts — Caramel Cloud Latte image alt
+Before: Caramel Cloud Latte
+After:  Iced coffee and milk swirling in a tall glass
+
+data/menu.ts — Good Morning Toast image alt
+Before: Good Morning Toast
+After:  Avocado toast topped with a fried egg on a white plate
+
+data/menu.ts — Slow Sunday Pancakes image alt
+Before: Slow Sunday Pancakes
+After:  Pancakes with blueberries, banana slices, and syrup
+
+data/menu.ts — Garden Pesto Pasta image alt
+Before: Garden Pesto Pasta
+After:  Pesto farfalle with cherry tomatoes and basil
+
+data/menu.ts — Creamy Chicken Alfredo image alt
+Before: Creamy Chicken Alfredo
+After:  Pesto farfalle with cherry tomatoes and basil
+
+data/menu.ts — The Margherita image alt
+Before: The Margherita
+After:  Cheese and mushroom pizza on a wooden board
+
+data/menu.ts — Smoky Chicken Pizza image alt
+Before: Smoky Chicken Pizza
+After:  Cheese and mushroom pizza on a wooden board
+
+data/menu.ts — The MIKLOL Burger image alt
+Before: The MIKLOL Burger
+After:  Beef cheeseburger with lettuce, onion, pickles, and sauce
+
+data/menu.ts — The Garden Burger image alt
+Before: The Garden Burger
+After:  Beef cheeseburger with lettuce, onion, pickles, and sauce
+
+data/menu.ts — Chocolate After Hours image alt
+Before: Chocolate After Hours
+After:  Chocolate cake with piped frosting and ganache
+
+data/menu.ts — Golden Butter Croissant image alt
+Before: Golden Butter Croissant
+After:  Croissants dusted with flour on a dark surface
+
+components/MenuExplorer.tsx — Category image source preserved
+Before: const categoryImages: Record<MenuCategory, string> = {
+After:  const categoryImages: Record<MenuCategory, string> = {
+
+components/MenuExplorer.tsx — Menu eyebrow
+Before: MADE TO MAKE YOUR DAY
+After:  COFFEE, BREAKFAST & THE FULL MENU
+
+components/MenuExplorer.tsx — Menu heading
+Before: A little craving.<br /><em>A lot of possibilities.</em>
+After:  What are you<br />hungry for?
+
+components/MenuExplorer.tsx — Menu introduction
+Before: From your first sip to that one last bite.<br />Find something you love, any time of day.
+After:  Start with eggs or pancakes. Stay for pesto pasta,<br />pizza, burgers, and chocolate cake.
+
+components/MenuExplorer.tsx — Category navigation label
+Before: aria-label="Explore menu categories"
+After:  aria-label="Choose a menu category"
+
+components/MenuExplorer.tsx — Category image alt source
+Before: alt={`${item} at MIKLOL`}
+After:  alt={categoryAlt[item]}
+
+components/MenuExplorer.tsx — Category filter label
+Before: aria-label="Filter menu by category"
+After:  aria-label="Filter dishes by category"
+
+components/MenuExplorer.tsx — All category tab
+Before: 'All the good stuff'
+After:  'Full menu'
+
+components/MenuExplorer.tsx — Diet filter label
+Before: Dietary filter
+After:  Filter by diet
+
+components/MenuExplorer.tsx — Default diet option
+Before: All preferences
+After:  All dishes
+
+components/MenuExplorer.tsx — Menu image alt source
+Before: alt={item.name}
+After:  alt={item.imageAlt}
+
+components/MenuExplorer.tsx — Empty menu state
+Before: Nothing in this combination yet. Try another category.
+After:  No dishes match. Choose another category.
+
+components/MenuExplorer.tsx — Menu next step
+Before: <span>GOOD FOOD. NO COMPLICATED CHOICES.</span>
+After:  <span><a className="text-link" href="#reservation">Choose a table <ArrowUpRight size={13} aria-hidden="true" /></a></span>
+
+components/MenuExplorer.tsx — Menu disclosure
+Before: Illustrative menu · prices in Ethiopian birr · please confirm allergens with your server.
+After:  Sample menu · prices in ETB · ask your server about allergens.
+
+components/MenuExplorer.tsx — Coffee category image alt
+Before: Coffee at MIKLOL
+After:  Espresso in a black cup on a dark table
+
+components/MenuExplorer.tsx — Breakfast category image alt
+Before: Breakfast at MIKLOL
+After:  Fried eggs and toast with mushrooms and greens
+
+components/MenuExplorer.tsx — Pasta category image alt
+Before: Pasta at MIKLOL
+After:  Pesto farfalle with cherry tomatoes and basil
+
+components/MenuExplorer.tsx — Pizza category image alt
+Before: Pizza at MIKLOL
+After:  Cheese and mushroom pizza on a wooden board
+
+components/MenuExplorer.tsx — Burgers category image alt
+Before: Burgers at MIKLOL
+After:  Beef cheeseburger with lettuce, onion, pickles, and sauce
+
+components/MenuExplorer.tsx — Desserts category image alt
+Before: Desserts at MIKLOL
+After:  Creamy desserts topped with strawberries in glass jars
+
+components/Gallery.tsx — Photo 1 alt
+Before: Pour-over coffee equipment on a cafe counter beside a window
+After:  Coffee being poured into a dripper beside a cafe window
+
+components/Gallery.tsx — Photo 1 caption
+Before: A little morning magic
+After:  The coffee pour
+
+components/Gallery.tsx — Photo 2 alt
+Before: Three friends clinking their cups of latte together
+After:  Hands bringing two lattes and a black coffee together
+
+components/Gallery.tsx — Photo 2 caption
+Before: Coffee tastes better together
+After:  Coffee for the table
+
+components/Gallery.tsx — Photo 3 alt
+Before: A cheeseburger with crisp golden fries
+After:  A cheeseburger served with golden fries
+
+components/Gallery.tsx — Photo 3 caption
+Before: Worth getting your hands on
+After:  Burger and fries
+
+components/Gallery.tsx — Photo 4 alt
+Before: Colorful bowls of fresh salad and vegetables
+After:  Grain salad with tomatoes and asparagus, with fruit on the side
+
+components/Gallery.tsx — Photo 4 caption
+Before: A little color on the table
+After:  Grains, greens, and tomatoes
+
+components/Gallery.tsx — Photo 5 alt
+Before: Three vibrant yellow, orange, and red cocktails at a bar
+After:  Three fruit-topped cocktails on a bar counter
+
+components/Gallery.tsx — Photo 5 caption
+Before: A toast to good evenings
+After:  Drinks at the bar
+
+components/Gallery.tsx — Photo 6 alt
+Before: A cafe entrance with a cafe sign and people visible through the window
+After:  Large CAFE lettering above an indoor bar
+
+components/Gallery.tsx — Photo 6 caption
+Before: Come on in
+After:  At the cafe counter
+
+components/Gallery.tsx — Photo 7 alt
+Before: An overhead breakfast spread with eggs, croissants, fruit, and coffee
+After:  An overhead breakfast spread with eggs, waffles, fruit, and coffee
+
+components/Gallery.tsx — Photo 7 caption
+Before: Mornings made for more
+After:  Breakfast to share
+
+components/Gallery.tsx — Photo 8 alt
+Before: Brunch plates with avocado, eggs, and coffee on a wooden table
+After:  Rice topped with an egg and seaweed, with small side dishes
+
+components/Gallery.tsx — Photo 8 caption
+Before: Meet you for brunch
+After:  Lunch, served with sides
+
+components/Gallery.tsx — Gallery eyebrow
+Before: THROUGH THE MIKLOL LENS
+After:  COFFEE, PLATES & TABLES
+
+components/Gallery.tsx — Gallery heading
+Before: Looks like <em>a good time.</em>
+After:  Take a look around.
+
+components/Gallery.tsx — Gallery next step
+Before: A taste of the atmosphere
+After:  Select a photo to enlarge
+
+components/Gallery.tsx — Photo button label template
+Before: Open photo: ${photo.alt}
+After:  Enlarge photo: ${photo.alt}
+
+components/Gallery.tsx — Lightbox label
+Before: aria-label="Photo gallery"
+After:  aria-label="Enlarged restaurant photos"
+
+components/Gallery.tsx — Lightbox heading
+Before: MIKLOL / LITTLE MOMENTS
+After:  MIKLOL / FOOD & TABLES
+
+components/Gallery.tsx — Lightbox close label
+Before: aria-label="Close photo gallery"
+After:  aria-label="Close enlarged photo"
+
+components/Reservation.tsx — Reservation eyebrow
+Before: THERE’S A PLACE FOR YOU HERE
+After:  TABLES FOR 1–8
+
+components/Reservation.tsx — Reservation heading
+Before: Your next good<br />memory <em>starts here.</em>
+After:  Choose<br />your table.
+
+components/Reservation.tsx — Reservation introduction
+Before: Bring your favorite people. We’ll bring the warmth,<br className={styles.desktopBreak} /> the flavor, and a reason to stay a little longer.
+After:  Pick a date and time. Tell us how many.<br className={styles.desktopBreak} /> Preview the details before you visit.
+
+components/Reservation.tsx — Reservation photo alt
+Before: An intimate table setting in a warmly lit restaurant
+After:  Guests seated at a table with plated food and wine glasses
+
+components/Reservation.tsx — Reservation photo eyebrow
+Before: A TABLE. A CONVERSATION. A MOMENT.
+After:  COFFEE FOR TWO. LUNCH FOR EIGHT.
+
+components/Reservation.tsx — Reservation photo caption
+Before: Make room for something lovely.
+After:  Start with your date and guest count.
+
+components/Reservation.tsx — Reservation success eyebrow
+Before: YOUR PREVIEW IS READY
+After:  TABLE PLAN
+
+components/Reservation.tsx — Reservation success heading
+Before: Good plans,<br /><em>{fields.name.trim().split(' ')[0]}.</em>
+After:  Your table plan<br />is ready.
+
+components/Reservation.tsx — Reservation summary template
+Before: <p>A table for {fields.guests} on 
+After:  <p>{fields.name.trim().split(' ')[0]}, your preview is for {fields.guests} on 
+
+components/Reservation.tsx — Reservation success notice
+Before: This is a reservation preview. No booking or email has been sent.
+After:  No table has been reserved. No email has been sent.
+
+components/Reservation.tsx — Reservation success next step
+Before: Plan another visit
+After:  Change my table plan
+
+components/Reservation.tsx — Form heading
+Before: Save your favorite seat.
+After:  Plan a visit.
+
+components/Reservation.tsx — Form caption
+Before: 01 — THE GOOD PLAN
+After:  DATE · TIME · GUESTS
+
+components/Reservation.tsx — Name field label
+Before: >Your name</label>
+After:  >Name</label>
+
+components/Reservation.tsx — Name placeholder
+Before: How shall we call you?
+After:  Full name
+
+components/Reservation.tsx — Email label
+Before: >Email address</label>
+After:  >Email</label>
+
+components/Reservation.tsx — Date label
+Before: >Pick a day</label>
+After:  >Date</label>
+
+components/Reservation.tsx — Time label
+Before: >Pick a time <small>
+After:  >Time <small>
+
+components/Reservation.tsx — Guests label
+Before: >Your company</label>
+After:  >Guests</label>
+
+components/Reservation.tsx — Form submit label
+Before: Let’s make a date
+After:  Preview my table
+
+components/Reservation.tsx — Form disclosure
+Before: Reservation preview · no booking is sent
+After:  Preview only · no table is reserved
+
+SIGNATURES, AMBIENCE, KITCHEN, OCCASIONS, REVIEWS, FOOTER
+-------------------------------------------------------
+Home section — tag
+Before: THE HOUSE CLASSIC
+After:  BEEF & CHEDDAR
+
+Home section — detail
+Before: A juicy stack. A little crunch. Our kind of classic.
+After:  Beef, cheddar, pickles, and house sauce.
+
+Home section — tag
+Before: COMFORT, ON A PLATE
+After:  BASIL PESTO
+
+Home section — detail
+Before: Silky sauce, fresh herbs, and one more forkful.
+After:  Basil pesto, cherry tomatoes, parmesan, and seeds.
+
+Home section — tag
+Before: MORNINGS, MADE BETTER
+After:  BERRIES & MAPLE
+
+Home section — detail
+Before: Fluffy layers, seasonal fruit, a slow start.
+After:  Pancakes, seasonal berries, and maple syrup.
+
+Home section — alt
+Before: (new text)
+After:  Beef burger with cheese, lettuce, tomato, and pickles
+
+Home section — alt
+Before: (new text)
+After:  Farfalle pasta with green pesto, cherry tomatoes, and basil
+
+Home section — alt
+Before: (new text)
+After:  Stack of pancakes topped with berries and syrup
+
+Home section — detail
+Before: A sample guest impression
+After:  Menu suggestion
+
+Home section — text
+Before: The kind of place where “just one coffee” turns into the best part of your afternoon.
+After:  The House Espresso. A Golden Butter Croissant.
+
+Home section — name
+Before: For the coffee lover
+After:  From the MIKLOL team
+
+Home section — title
+Before: A moment worth slowing down for.
+After:  COFFEE & A CROISSANT
+
+Home section — detail
+Before: A sample guest impression
+After:  Menu suggestion
+
+Home section — text
+Before: A table full of beautiful food, the people you love, and absolutely no reason to rush.
+After:  Garden Pesto Pasta, with basil and parmesan.
+
+Home section — name
+Before: For the whole table
+After:  From the MIKLOL team
+
+Home section — title
+Before: Good company tastes even better.
+After:  PASTA FOR LUNCH
+
+Home section — detail
+Before: A sample guest impression
+After:  Menu suggestion
+
+Home section — text
+Before: Come for a little escape. Stay for that second bite, the warm light, and the feeling of being here.
+After:  Chocolate After Hours, finished with ganache.
+
+Home section — name
+Before: For your next little escape
+After:  From the MIKLOL team
+
+Home section — title
+Before: Your new favourite little ritual.
+After:  CHOCOLATE TO FINISH
+
+Home section — text
+Before: A cosy corner. Something delicious to share. Just the two of you.
+After:  Share a Margherita. Leave room for chocolate cake.
+
+Home section — title
+Before: A date to remember
+After:  Date night
+
+Home section — alt
+Before: (new text)
+After:  Dinner plates and wine glasses on a candlelit restaurant table
+
+Home section — text
+Before: Bring your favourite people. There is always room for another good story.
+After:  Pancakes for one, pizza for another. Choose for the whole table.
+
+Home section — title
+Before: The whole family, together
+After:  Family lunch
+
+Home section — alt
+Before: (new text)
+After:  Wooden tables and woven chairs in a spacious cafe dining room
+
+Home section — text
+Before: Candles, cake, and a table full of smiles. Make your next birthday a little sweeter.
+After:  Gather up to eight. Add chocolate cake to the plan.
+
+Home section — title
+Before: Another year, more joy
+After:  Birthday table
+
+Home section — alt
+Before: (new text)
+After:  Colourful helium balloons ready for a birthday celebration
+
+Home section — text
+Before: Take the meeting somewhere inspiring. Let the coffee keep the ideas flowing.
+After:  Meet over espresso or a caramel latte. Stay for lunch if you have time.
+
+Home section — title
+Before: Big ideas. Better coffee.
+After:  Coffee with colleagues
+
+Home section — alt
+Before: (new text)
+After:  Restaurant tables and dark chairs beside tall sunlit windows
+
+Before: Fresh coffee, hot food, good vibes
+After:  Coffee and breakfast, pasta and pizza, burgers and dessert
+
+Before: FRESH COFFEE ✳ HOT FOOD ✳ GOOD VIBES
+After:  COFFEE & BREAKFAST ✳ PASTA & PIZZA ✳ BURGERS & DESSERT
+
+Before: PLAY WITH YOUR FOOD. WE INSIST.
+After:  EXPLORE THE 3D MENU
+
+Before: A feast for / the curious.
+After:  Five dishes, / in 3D.
+
+Before: A little spin. A little temptation. / Pick a craving and discover your next favourite.
+After:  Hover or choose a dish below. / See its name and price.
+
+Before: MADE TO MAKE YOU COME BACK
+After:  BURGER, PASTA, OR PANCAKES
+
+Before: Some things just / hit different.
+After:  Three plates / to start with.
+
+Before: Find your favourite
+After:  Browse the full menu
+
+Before: A taste of what’s possible. Menu and prices are illustrative.
+After:  Sample menu and prices. Check the final menu before ordering.
+
+Before: A warmly lit restaurant with inviting tables and natural textures
+After:  Restaurant tables, upholstered chairs, and pendant lights around a central bar
+
+Before: YOUR PAUSE BUTTON, FOUND.
+After:  LUNCH AT MIKLOL
+
+Before: Dine. Unwind. / Create memories.
+After:  Stay for / lunch.
+
+Before: Some places feed you. / The best ones make you feel something.
+After:  Coffee by the window. / Pizza and conversation at the table.
+
+Before: Make yourself at home
+After:  Plan your lunch
+
+Before: DISHES TO DISCOVER
+After:  MENU ITEMS
+
+Before: MENU MOODS
+After:  CATEGORIES
+
+Before: PLAYFUL SIGNATURES
+After:  3D DISHES
+
+Before: A little something / for every appetite.
+After:  Coffee, lunch, / or dinner.
+
+Before: A chef carefully preparing a plate in the kitchen
+After:  Chef adding the finishing touches to a plate beneath copper heat lamps
+
+Before: A LITTLE CARE IN EVERY PLATE
+After:  FROM THE KITCHEN
+
+Before: MADE WITH / a little soul.
+After:  COFFEE / AND A FULL MENU
+
+Before: THE HEART BEHIND THE PLATE
+After:  OUR KITCHEN & COFFEE BAR
+
+Before: Good food. / No shortcuts. / Just heart.
+After:  Inside the / MIKLOL kitchen.
+
+Before: MIKLOL is a feeling. That first deep breath after a busy day. The smell of fresh coffee. A plate you can’t help but share. A table you don’t want to leave.
+After:  Espresso and pancakes. Pesto pasta and pizza. There’s room for both on this menu.
+
+Before: 01 / THE IDEA
+After:  01 / THE COFFEE BAR
+
+Before: A place to belong.
+After:  Start with espresso.
+
+Before: We imagine a neighbourhood favourite where everyday moments become something worth remembering.
+After:  The House Espresso or a caramel latte. Add avocado toast or pancakes.
+
+Before: Let the good things shine.
+After:  Lunch has options.
+
+Before: Honest ingredients, thoughtful plates, and a generous pinch of personality. That’s the MIKLOL way.
+After:  Basil pesto in the pasta. Mozzarella on the Margherita. Cheddar in the burger.
+
+Before: Come be part of the story
+After:  Choose a dish
+
+Before: THERE’S ALWAYS A GOOD REASON
+After:  MAKE PLANS AROUND THE TABLE
+
+Before: Your people. / Your moment. / Our place.
+After:  Dates, birthdays, / and family lunch.
+
+Before: Let’s make a plan
+After:  Plan this visit
+
+Before: HERE’S TO THE GOOD MOMENTS.
+After:  PIZZA TO SHARE. COFFEE TO FOLLOW.
+
+Before: aria-label="Sample guest impressions"
+After:  aria-label="Menu suggestions while guest reviews are pending"
+
+Before: THE FEELING WE’RE HERE TO CREATE
+After:  FROM THE MIKLOL TEAM
+
+Before: Good moments. / Better stories.
+After:  Guest / reviews.
+
+Before: A glimpse of the experience we’re dreaming up. / Sample guest notes, ready for your real stories.
+After:  No reviews are published yet. / Browse the menu
+
+Before: Previous guest impression
+After:  Previous menu suggestion
+
+Before: Next guest impression
+After:  Next menu suggestion
+
+Before: A little escape. A lot of flavour. / And a table with your name on it.
+After:  Espresso, pasta, pizza, and burgers. / Come hungry.
+
+Before: Instagram profile information
+After:  Check Instagram availability
+
+Before: Our social profiles are coming soon. Follow the flavour here in the meantime.
+After:  Our Instagram profile is not available yet.
+
+Before: Explore MIKLOL photos
+After:  View food and dining-room photos
+
+Before: TAKE A LOOK
+After:  EXPLORE MIKLOL
+
+Before: >Our menu<
+After:  >Menu<
+
+Before: >Our story<
+After:  >Our kitchen<
+
+Before: >The space<
+After:  >Photos<
+
+Before: >Find your table<
+After:  >Plan a table<
+
+Before: COME ON OVER
+After:  FIND US. COME HUNGRY.
+
+Before: Proposed opening hours
+After:  Hours (proposed)
+
+Before: MIKLOL’s contact details are being prepared. Use the reservation preview to explore your visit.
+After:  The phone number and email address are not listed yet.
+
+Before: >Contact details <
+After:  >Check contact details <
+
+Before: Your new favourite spot.
+After:  Find MIKLOL
+
+Before: Location to be announced
+After:  Address to be confirmed
+
+Before: MIKLOL. Made for good moments.
+After:  MIKLOL. Cafe & Restaurant.
+
+Before: Design preview · sample menu, imagery & guest notes
+After:  Website preview · sample menu and stock photography
+
+Before: BACK TO TOP ↑
+After:  TOP ↑
+
+Before: Dismiss contact information
+After:  Close contact notice
+
+Before: GOOD TOGETHER.
+After:  COME HUNGRY.
+
+BUSINESS PLACEHOLDERS AND SEARCH/SOCIAL COPY
+--------------------------------------------
+data/site.ts
+Before: Good food. Great company.
+After:  Coffee, breakfast, lunch, and dinner.
+
+data/site.ts
+Before: Our address is coming soon.
+After:  Address to be confirmed.
+
+app/layout.tsx
+Before: MIKLOL — Good food. Great company.
+After:  MIKLOL Cafe & Restaurant — Coffee, Breakfast, Lunch & Dinner
+
+app/layout.tsx
+Before: A little escape. A lot of flavour. Discover specialty coffee, beautiful plates, and slow moments at MIKLOL cafe & restaurant.
+After:  Browse espresso, pancakes, Garden Pesto Pasta, Margherita pizza, and the MIKLOL Burger. Explore the menu and plan a table at MIKLOL.
+
+app/layout.tsx
+Before: MIKLOL — A little escape. A lot of flavour.
+After:  MIKLOL — Coffee, Breakfast, Lunch & Dinner
+
+app/layout.tsx
+Before: Coffee with character. Food with soul. Make room for a good moment.
+After:  Espresso, pancakes, pesto pasta, pizza, and burgers. Browse the menu and plan your visit.
+
+app/layout.tsx
+Before: Warm, inviting cafe interior
+After:  Restaurant tables and upholstered chairs around a central bar
+
+app/layout.tsx
+Before: Good food. Great company.
+After:  Espresso, pasta, pizza, and burgers. Find your next order at MIKLOL.
+
+UNCHANGED ON PURPOSE
+--------------------
+The canonical menu item names, category names, prices, currency, and useful validation messages are unchanged.
+Guest reviews are not fabricated: the cards contain clearly attributed menu suggestions until real reviews are supplied.
+The booking form remains a preview and explicitly says no table is reserved.
+Opening hours are labelled proposed while the site remains in preview mode.

@@ -45,6 +45,12 @@
   p { margin: 0; font-size: 10px; }
 }
 .emptyState { grid-column: 1 / -1; padding: 30px; text-align: center; }
+.menuItemMeta { display: flex; align-items: center; gap: 8px; align-self: flex-start; flex-shrink: 0; }
+.menuFavorite { display: grid; place-items: center; width: 48px; height: 48px; flex-shrink: 0; padding: 0; border: 1px solid #c7b8a6; border-radius: 50%; color: $espresso; background: transparent;
+  &:focus-visible { outline: 2px solid #9a451d; outline-offset: 3px; }
+  &:active { transform: scale(.94); background: #e9dfd1; }
+}
+.menuFavorited { color: #a6491b; background: #e9dfd1; border-color: #a6491b; }
 .gallery { padding: $space-section 0; background: $espresso; color: $cream; scroll-margin-top: 90px;
   .sectionTop { margin-bottom: 35px; }
 }
@@ -131,6 +137,9 @@
   .previewNotice { padding: 15px; border: 1px solid #614b3b; font-size: 11px; }
 }
 .successIcon { display: inline-grid; place-items: center; height: 65px; width: 65px; border-radius: 50%; border: 1px solid $orange; color: $orange; margin-bottom: 20px; }
+.successActions { display: flex; flex-direction: column; gap: 12px; margin-top: 24px;
+  a, button { min-height: 52px; margin: 0; }
+}
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
 
 @media (max-width: $breakpoint-lg) {
@@ -205,4 +214,113 @@
 }
 @media (hover: none) and (pointer: coarse) {
   .formField input, .formField select, .dietFilter select { font-size: 16px; }
+}
+
+// Phone menus prioritize the dishes. Large category photography stays on wider screens.
+@media (max-width: 600px) {
+  .menu { padding-top: 48px; scroll-margin-top: 0; }
+  .menu .sectionTop { gap: 20px; margin-bottom: 24px; }
+  .sectionIntro { font-size: 16px; line-height: 1.5; }
+  .categories { display: none; }
+  .menuToolbar { display: contents; }
+  .menuTabs {
+    position: sticky;
+    top: var(--mobile-header-height, 64px);
+    z-index: 35;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 8px 0;
+    background: $cream;
+    border-bottom: 1px solid #d6cbbb;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+    button { flex: 0 0 auto; min-width: 48px; min-height: 48px; padding: 12px 17px; font-size: 16px; line-height: 1.5; }
+    button:active { background: #dfd5c7; color: $espresso; }
+    button.activeTab { background: $espresso; color: $cream; }
+  }
+  .dietFilter { width: fit-content; min-height: 48px; gap: 8px; margin: 8px 0; font-size: 16px; color: #675b4f;
+    select { min-width: 145px; min-height: 48px; padding: 8px 4px; font-size: 16px; line-height: 1.5; }
+  }
+  .menuList { gap: 12px; margin-top: 8px; }
+  .menuItem {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    grid-template-areas: 'photo copy' 'photo meta';
+    align-items: start;
+    gap: 8px 12px;
+    min-height: 0;
+    padding: 14px 12px;
+    border: 1px solid #d6cbbb;
+    border-radius: 7px;
+  }
+  .menuItemImage { grid-area: photo; width: 76px; height: 76px; border-radius: 6px; }
+  .menuItemCopy { grid-area: copy;
+    p { margin-top: 7px; font-size: 16px; line-height: 1.5; color: #675b4f; }
+  }
+  .menuItemHeading { align-items: flex-start; gap: 8px;
+    h3 { font-size: 16px; line-height: 1.5; font-weight: 600; }
+    svg { margin-top: 5px; }
+  }
+  .itemNote { display: none; }
+  .menuItemMeta { grid-area: meta; align-self: auto; justify-content: space-between; gap: 8px; min-width: 0; }
+  .price { align-self: center; padding-top: 0; font-size: 16px; line-height: 1.5; }
+  .menuFavorite { min-width: 48px; min-height: 48px; }
+  .menuFootnote { gap: 12px; padding-top: 24px;
+    > span, p { font-size: 16px; line-height: 1.5; letter-spacing: 0; }
+    a { min-height: 48px; }
+  }
+  .emptyState { padding: 24px 0; font-size: 16px; line-height: 1.5; }
+  .menuItem:hover .menuItemImage img { transform: none; }
+
+  .reservation { padding-block: 48px; scroll-margin-top: 0; }
+  .reservationLayout { gap: 28px; }
+  .reservationCopy > p:not(:first-child) { font-size: 16px; line-height: 1.5; }
+  .reservationDetail { gap: 16px; align-items: center;
+    > div { min-width: 0; }
+    > div > span { font-size: 14px; line-height: 1.5; letter-spacing: .03em; }
+    p { font-size: 21px; line-height: 1.3; }
+  }
+  .reservationPhoto { width: 64px; height: 64px; }
+  .reservationPanel { min-width: 0; padding: 24px 16px; border-radius: 7px; backdrop-filter: none; }
+  .formHeading { gap: 10px; margin-bottom: 24px;
+    h3 { font-size: 30px; }
+    > span { font-size: 14px; line-height: 1.5; white-space: normal; }
+  }
+  .formGrid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .formField { grid-column: 1;
+    &:nth-child(n) { grid-column: 1; }
+    label { margin-bottom: 8px; color: $cream; font-size: 16px; line-height: 1.5;
+      small { font-size: 14px; color: #c8bbae; }
+    }
+    input, select { height: 52px; min-height: 52px; padding-inline: 12px; font-size: 16px; line-height: 1.5; border-color: rgba($cream, .52);
+      &::placeholder { color: #c8bbae; }
+    }
+  }
+  .inputIcon {
+    > svg { left: 13px; top: 17px; width: 18px; height: 18px; }
+    input, select { padding-left: 42px; padding-right: 12px; }
+  }
+  .fieldError { margin-top: 8px; font-size: 16px; line-height: 1.5; overflow-wrap: anywhere; }
+  .submitButton { min-height: 56px; margin-top: 24px; font-size: 16px; line-height: 1.5; }
+  .formDisclaimer { margin-top: 16px; font-size: 16px; line-height: 1.5; }
+  .success { padding-block: 4px;
+    h3 { font-size: 44px; line-height: 1.1; }
+    > p, .previewNotice { font-size: 16px; line-height: 1.5; }
+  }
+  .successActions { gap: 12px;
+    a, button { min-height: 52px; font-size: 16px; line-height: 1.5; }
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .category:hover .categoryImage img, .menuItem:hover .menuItemImage img { transform: none; }
+  .category:active .categoryImage img { transform: scale(.98); }
+  .menuFavorite:active { background: #dfd5c7; }
 }

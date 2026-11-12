@@ -8,14 +8,14 @@ const body = DM_Sans({ subsets: ['latin'], variable: '--font-body', display: 'sw
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   alternates: { canonical: '/' },
-  title: 'MIKLOL — Good food. Great company.',
-  description: 'A little escape. A lot of flavour. Discover specialty coffee, beautiful plates, and slow moments at MIKLOL cafe & restaurant.',
+  title: 'MIKLOL Cafe & Restaurant — Coffee, Breakfast, Lunch & Dinner',
+  description: 'Browse espresso, pancakes, Garden Pesto Pasta, Margherita pizza, and the MIKLOL Burger. Explore the menu and plan a table at MIKLOL.',
   applicationName: 'MIKLOL Cafe & Restaurant',
-  openGraph: { title: 'MIKLOL — A little escape. A lot of flavour.', description: 'Coffee with character. Food with soul. Make room for a good moment.', type: 'website', locale: 'en_US', images: [{ url: '/images/interior/ambience.jpg', width: 1400, height: 1000, alt: 'Warm, inviting cafe interior' }] },
-  twitter: { card: 'summary_large_image', title: 'MIKLOL Cafe & Restaurant', description: 'Good food. Great company.', images: ['/images/interior/ambience.jpg'] },
+  openGraph: { title: 'MIKLOL — Coffee, Breakfast, Lunch & Dinner', description: 'Espresso, pancakes, pesto pasta, pizza, and burgers. Browse the menu and plan your visit.', type: 'website', locale: 'en_US', images: [{ url: '/images/interior/ambience.jpg', width: 1400, height: 1000, alt: 'Restaurant tables and upholstered chairs around a central bar' }] },
+  twitter: { card: 'summary_large_image', title: 'MIKLOL Cafe & Restaurant', description: 'Espresso, pasta, pizza, and burgers. Find your next order at MIKLOL.', images: ['/images/interior/ambience.jpg'] },
   robots: { index: true, follow: true },
 };
-export const viewport: Viewport = { themeColor: '#211813' };
+export const viewport: Viewport = { themeColor: '#211813', width: 'device-width', initialScale: 1, viewportFit: 'cover' };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en" className={`${display.variable} ${body.variable}`}><body><a href="#main" className="skip-link">Skip to content</a>{children}</body></html>;

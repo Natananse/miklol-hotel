@@ -81,27 +81,28 @@
   padding: 11px 23px;
   background: rgba(v.$cream, .035);
   backdrop-filter: blur(12px);
-  font-size: 13px;
+  font-size: 16px;
   color: v.$cream;
 
-  strong { color: v.$orange; font-size: 12px; white-space: nowrap; }
+  strong { color: v.$orange; font-size: 16px; white-space: nowrap; }
 }
 
 .foodChoices {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 8px;
 
   button {
     appearance: none;
+    min-height: 48px;
     border: 1px solid transparent;
     padding: 8px 14px;
     background: transparent;
     color: v.$muted;
     border-radius: 22px;
     font: inherit;
-    font-size: 11px;
+    font-size: 16px;
     cursor: pointer;
     transition: color .2s, border-color .2s, background .2s;
 
@@ -125,13 +126,31 @@
 
 @media (max-width: v.$breakpoint-sm) {
   .coffee { min-height: 390px; }
-  .food { min-height: 410px; }
-  .foodDetail { font-size: 11px; gap: 14px; }
-  .foodChoices {
-    gap: 0;
-    button { padding: 7px 10px; font-size: 10px; }
+  .food { min-height: 500px; }
+  .foodInterface { gap: 16px; }
+  .foodDetail {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    backdrop-filter: none;
+
+    strong { display: block; margin-top: 6px; font-size: 16px; }
   }
-  .food .fallback { inset: 0 8% 115px; }
+  .foodChoices {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+
+    button { min-width: 0; min-height: 48px; padding: 8px 4px; font-size: 16px; line-height: 1.5; border-radius: 6px; }
+    button:active { color: v.$espresso; background: v.$orange; border-color: v.$orange; }
+  }
+  .food .fallback { inset: 0 0 225px; border-radius: 12px; }
+  .loader small { font-size: 16px; line-height: 1.5; letter-spacing: 0; text-transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
