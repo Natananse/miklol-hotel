@@ -298,3 +298,7 @@
   .copy h1 { font-size: 36px; }
   .collage { height: 96px; }
 }
+
+// A kitchen photograph keeps its entire frame; captions stay below it.
+.kitchenPhoto img { object-fit: contain; }
+.interior figcaption small { display: block; margin-top: 4px; font-size: 11px; }

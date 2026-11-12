@@ -2,6 +2,7 @@ import { getImageProps } from 'next/image';
 import { heroImages } from '@/data/hero-images';
 import { mobilePastaSrc } from '@/data/hero-mobile';
 import { categories } from '@/data/menu';
+import { heroKitchenPhoto } from '@/data/kitchen-team';
 import styles from './Hero.module.scss';
 
 const tablePhotos = [
@@ -42,7 +43,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className={styles.collage} aria-label="Pasta, pizza, coffee, and cafe seating">
+        <div className={styles.collage} aria-label={heroKitchenPhoto ? 'Pasta, pizza, coffee, and kitchen photography' : 'Pasta, pizza, coffee, and cafe seating'}>
           <figure className={`${styles.photo} ${styles.mainPhoto}`}>
             <picture>
               <source media="(max-width: 600px)" type="image/avif" srcSet={mobilePastaSrc} />
@@ -56,10 +57,10 @@ export default function Hero() {
             <img {...photoProps(heroImages.coffee, '(max-width: 850px) 25vw, (max-width: 1200px) 14vw, 180px')} />
           </figure>
           <figure className={styles.interior}>
-            <div className={`${styles.photo} ${styles.interiorPhoto}`}>
-              <img {...photoProps(heroImages.interior, '(max-width: 600px) 35vw, (max-width: 850px) 65vw, (max-width: 1200px) 35vw, 450px')} />
+            <div className={`${styles.photo} ${styles.interiorPhoto} ${heroKitchenPhoto ? styles.kitchenPhoto : ''}`}>
+              <img {...photoProps(heroKitchenPhoto ?? heroImages.interior, '(max-width: 600px) 35vw, (max-width: 850px) 65vw, (max-width: 1200px) 35vw, 450px')} />
             </div>
-            <figcaption>Daylight, plants, and woven chairs.</figcaption>
+            <figcaption>{heroKitchenPhoto ? 'Fresh from the kitchen' : 'Daylight, plants, and woven chairs.'}{heroKitchenPhoto?.credit && <small>Illustrative stock photograph</small>}</figcaption>
           </figure>
         </div>
 

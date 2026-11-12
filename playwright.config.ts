@@ -15,9 +15,9 @@ export default defineConfig({
   },
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3000',
-    channel: 'chrome',
+    channel: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ? undefined : 'chrome',
     headless: true,
-    launchOptions: { chromiumSandbox: true },
+    launchOptions: { chromiumSandbox: true, executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE },
     reducedMotion: 'reduce',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',

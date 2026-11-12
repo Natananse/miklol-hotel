@@ -5,8 +5,10 @@ import Image from 'next/image';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Plus, X } from 'lucide-react';
 import styles from './InteractiveSections.module.scss';
 import mobile from './GalleryMobile.module.scss';
+import { availableKitchenPhotos } from '@/data/kitchen-team';
 
-const photos = [
+type GalleryPhoto = { src: string; alt: string; label: string; kitchen?: boolean; stock?: boolean };
+const basePhotos: GalleryPhoto[] = [
   { src: '/images/gallery/gallery-01.jpg', alt: 'Coffee being poured into a dripper beside a cafe window', label: 'The coffee pour' },
   { src: '/images/gallery/gallery-02.jpg', alt: 'Hands bringing two lattes and a black coffee together', label: 'Coffee for the table' },
   { src: '/images/gallery/gallery-03.jpg', alt: 'A cheeseburger served with golden fries', label: 'Burger and fries' },
@@ -16,6 +18,10 @@ const photos = [
   { src: '/images/gallery/gallery-07.jpg', alt: 'An overhead breakfast spread with eggs, waffles, fruit, and coffee', label: 'Breakfast to share' },
   { src: '/images/gallery/gallery-08.jpg', alt: 'Rice topped with an egg and seaweed, with small side dishes', label: 'Lunch, served with sides' },
 ];
+
+// Only genuine photographs enter the lightbox. Empty slots remain in the team section.
+const kitchenGallery: GalleryPhoto[] = availableKitchenPhotos.map(photo => ({ src: photo.src, alt: photo.alt, label: photo.caption, kitchen: true, stock: Boolean(photo.credit) }));
+const photos: GalleryPhoto[] = [...basePhotos.slice(0, Math.max(0, 8 - kitchenGallery.length)), ...kitchenGallery];
 
 const blur = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjODU2YTUwIi8+PC9zdmc+';
 
@@ -105,7 +111,7 @@ export default function Gallery() {
           <span className={`${styles.galleryHint} ${mobile.hint}`}>Select a photo to enlarge <ArrowUpRight size={19} aria-hidden="true" /></span>
         </div>
         <div className={`${styles.galleryGrid} ${mobile.grid}`}>
-          {photos.map((photo, index) => <button className={`${styles.galleryTile} ${mobile.tile}`} key={photo.src} type="button" onClick={(event) => { openerRef.current = event.currentTarget; setSelected(index); }} aria-label={`${photo.label}. Enlarge photo: ${photo.alt}`}><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 600px) calc(50vw - 24px), (max-width: 900px) 32vw, 25vw" placeholder="blur" blurDataURL={blur} /><span className={`${styles.galleryTileOverlay} ${mobile.tileOverlay}`}><span>{photo.label}</span><Plus size={23} aria-hidden="true" /></span></button>)}
+          {photos.map((photo, index) => <button className={`${styles.galleryTile} ${mobile.tile}`} key={photo.src} data-kitchen-photo={photo.kitchen || undefined} type="button" onClick={(event) => { openerRef.current = event.currentTarget; setSelected(index); }} aria-label={`${photo.label}. Enlarge photo: ${photo.alt}`}><span className={photo.kitchen ? mobile.kitchenImage : undefined}><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 600px) calc(50vw - 24px), (max-width: 900px) 32vw, 25vw" placeholder="blur" blurDataURL={blur} /></span><span className={`${styles.galleryTileOverlay} ${mobile.tileOverlay}`}><span>{photo.label}{photo.stock && <small>Illustrative stock photograph</small>}</span><Plus size={23} aria-hidden="true" /></span></button>)}
         </div>
       </div>
       <dialog className={`${styles.lightbox} ${mobile.mobileLightbox}`} ref={dialogRef} aria-label="Enlarged restaurant photos" aria-describedby="gallery-gesture-help" data-lenis-prevent onClose={() => setSelected(null)} onCancel={(event) => { event.preventDefault(); close(); }} onClick={(event) => { if (event.target === event.currentTarget) close(); }} onKeyDown={(event) => { if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); } if (event.key === 'ArrowRight') { event.preventDefault(); move(1); } }}>
@@ -113,7 +119,7 @@ export default function Gallery() {
           <div className={`${styles.lightboxTop} ${mobile.mobileTop}`}><span>MIKLOL / FOOD & TABLES</span><button type="button" onClick={close} aria-label="Close enlarged photo" autoFocus><X size={23} aria-hidden="true" /></button></div>
           <div className={`${styles.lightboxImage} ${mobile.gestureSurface}`} onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={cancelPointers}><Image src={photos[selected].src} alt={photos[selected].alt} fill sizes="(max-width: 600px) calc(100vw - 32px), (max-width: 800px) 90vw, 1000px" className={styles.contain} loading="eager" /></div>
           <p className={mobile.gestureHelp} id="gallery-gesture-help">Swipe for photos. Pinch inward to close.</p>
-          <div className={`${styles.lightboxBottom} ${mobile.mobileBottom}`}><p aria-live="polite">{photos[selected].label} <span>{String(selected + 1).padStart(2, '0')} / {String(photos.length).padStart(2, '0')}</span></p><div><button type="button" aria-label="Previous photo" onClick={() => move(-1)}><ArrowLeft size={21} aria-hidden="true" /></button><button type="button" aria-label="Next photo" onClick={() => move(1)}><ArrowRight size={21} aria-hidden="true" /></button></div></div>
+          <div className={`${styles.lightboxBottom} ${mobile.mobileBottom}`}><p aria-live="polite">{photos[selected].label}{photos[selected].stock ? ' · Illustrative stock photograph' : ''} <span>{String(selected + 1).padStart(2, '0')} / {String(photos.length).padStart(2, '0')}</span></p><div><button type="button" aria-label="Previous photo" onClick={() => move(-1)}><ArrowLeft size={21} aria-hidden="true" /></button><button type="button" aria-label="Next photo" onClick={() => move(1)}><ArrowRight size={21} aria-hidden="true" /></button></div></div>
         </div>}
       </dialog>
     </section>

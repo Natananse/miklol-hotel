@@ -60,3 +60,14 @@
   .tile img { transition: none; }
   .tile:active img { transform: none; }
 }
+
+// People are never beneath a caption or a colour overlay.
+.tile.tile[data-kitchen-photo] {
+  display: flex; flex-direction: column;
+  .kitchenImage { position: relative; display: block; flex: 1; min-height: 0; width: 100%; }
+  img { object-fit: contain; transform: none; filter: none; }
+  .tileOverlay.tileOverlay { position: relative; inset: auto; flex-shrink: 0; width: 100%; opacity: 1; background: $espresso; padding: 12px; align-items: center; }
+  .tileOverlay.tileOverlay span { font-family: $font-body; font-size: 14px; line-height: 1.4; }
+  .tileOverlay small { display: block; font-size: 11px; margin-top: 4px; }
+  .tileOverlay svg { width: 16px; flex-shrink: 0; }
+}

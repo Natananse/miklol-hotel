@@ -1,0 +1,42 @@
+name: Kitchen team checks
+
+on:
+  push:
+    branches: [feat/kitchen-team]
+  pull_request:
+    paths:
+      - 'components/**'
+      - 'data/**'
+      - 'styles/**'
+      - 'public/images/team/**'
+      - 'tests/**'
+      - 'package*.json'
+      - 'playwright.config.ts'
+      - '.github/workflows/kitchen-team.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - run: npm run typecheck
+      - run: npx playwright install --with-deps chrome
+      - name: Responsive, swipe, motion, accessibility and regression checks
+        run: npm run test:e2e
+      - name: Save screenshots and failure traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kitchen-team-browser-checks
+          path: test-results/
+          retention-days: 7
