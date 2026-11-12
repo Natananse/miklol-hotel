@@ -1,0 +1,274 @@
+@use '@/styles/hero-tokens' as h;
+
+.hero {
+  background: h.$paper;
+  color: h.$charcoal;
+  color-scheme: light;
+  overflow: clip;
+
+  ::selection { background: h.$terracotta; color: h.$paper; }
+  a:focus-visible { outline-color: h.$terracotta; }
+}
+
+.inner {
+  display: grid;
+  grid-template-areas: 'copy' 'collage' 'table';
+  gap: 36px;
+  padding-block: 42px 48px;
+}
+
+.eyebrow {
+  margin-bottom: 19px;
+  font-size: 10px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: .14em;
+}
+
+.copy {
+  grid-area: copy;
+
+  h1 {
+    font-family: h.$serif;
+    font-size: clamp(45px, 10vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -.035em;
+    font-weight: 500;
+  }
+}
+
+.intro {
+  max-width: 375px;
+  margin-top: 22px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(h.$charcoal, .78);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 27px;
+}
+
+.primary, .secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 13px 23px;
+  border: 1px solid h.$terracotta;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 500;
+  transition: background .2s, color .2s, border-color .2s;
+}
+
+.primary {
+  background: h.$terracotta;
+  color: h.$paper;
+
+  &:hover { background: h.$charcoal; border-color: h.$charcoal; }
+}
+
+.secondary {
+  color: h.$charcoal;
+  background: transparent;
+  border-color: rgba(h.$charcoal, .45);
+
+  &:hover { background: h.$charcoal; color: h.$paper; border-color: h.$charcoal; }
+}
+
+.trustPoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 0;
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+  color: rgba(h.$charcoal, .82);
+
+  li {
+    font-size: 10px;
+    line-height: 1.4;
+    padding-inline: 12px;
+    border-left: 1px solid rgba(h.$charcoal, .24);
+    white-space: nowrap;
+
+    &:first-child { padding-left: 0; border-left: 0; }
+  }
+}
+
+.collage {
+  grid-area: collage;
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: .98;
+}
+
+.photo {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  background: rgba(h.$charcoal, .06);
+  animation: photograph-in .65s ease-out both;
+
+  img {
+    object-fit: cover;
+    transition: transform .6s cubic-bezier(.2, .65, .3, 1);
+  }
+}
+
+.mainPhoto {
+  left: 4%;
+  top: 0;
+  width: 75%;
+  height: 79%;
+  border-radius: 48% 48% 10px 10px;
+
+  img { object-position: 50% 50%; }
+}
+
+.pizzaPhoto {
+  top: 9%;
+  right: -1%;
+  width: 30%;
+  height: 31%;
+  z-index: 2;
+  border: 5px solid h.$paper;
+  border-radius: 12px;
+  animation-delay: .1s;
+}
+
+.coffeePhoto {
+  top: 46%;
+  right: 0;
+  width: 26%;
+  height: 34%;
+  z-index: 2;
+  border: 5px solid h.$paper;
+  border-radius: 100px 100px 10px 10px;
+  animation-delay: .2s;
+
+  img { object-position: 50% 45%; }
+}
+
+.interior {
+  position: absolute;
+  left: -2%;
+  bottom: 0;
+  width: 72%;
+  height: 34%;
+  z-index: 3;
+  margin: 0;
+
+  figcaption {
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 5px;
+    font-size: 9px;
+    color: rgba(h.$charcoal, .75);
+  }
+}
+
+.interiorPhoto {
+  inset: 0;
+  border: 5px solid h.$paper;
+  border-radius: 10px;
+  animation-delay: .3s;
+
+  img { object-position: 50% 48%; }
+}
+
+.tablePhotos {
+  grid-area: table;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  padding-top: 23px;
+  border-top: 1px solid rgba(h.$charcoal, .18);
+}
+
+.tablePhoto {
+  min-width: 0;
+  margin: 0;
+
+  figcaption { margin-top: 8px; font-size: 11px; line-height: 1.4; }
+}
+
+.thumbnail {
+  position: relative;
+  aspect-ratio: 1.25;
+  overflow: hidden;
+  border-radius: 5px;
+  background: rgba(h.$charcoal, .06);
+  animation: photograph-in .65s .15s ease-out both;
+
+  img { object-fit: cover; transition: transform .6s cubic-bezier(.2, .65, .3, 1); }
+}
+
+@keyframes photograph-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .photo:hover img, .tablePhoto:hover img { transform: scale(1.045); }
+}
+
+@media (min-width: 601px) {
+  .inner { padding-block: 54px 65px; }
+  .eyebrow { font-size: 11px; }
+  .copy h1 { font-size: clamp(62px, 8.8vw, 78px); }
+  .intro { max-width: 460px; font-size: 15px; }
+  .trustPoints li { font-size: 11px; padding-inline: 16px; }
+  .collage { max-width: 650px; justify-self: center; }
+  .interior figcaption { font-size: 11px; }
+  .tablePhoto { display: flex; align-items: center; gap: 12px; figcaption { margin: 0; max-width: 70px; font-size: 12px; } }
+  .thumbnail { width: 66px; height: 66px; aspect-ratio: auto; flex-shrink: 0; }
+}
+
+@media (min-width: 851px) {
+  .inner {
+    grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+    grid-template-areas: 'copy collage' 'table collage';
+    column-gap: clamp(30px, 4vw, 65px);
+    row-gap: 30px;
+    align-items: center;
+    padding-block: 48px 65px;
+  }
+
+  .copy { align-self: end; }
+  .copy h1 { font-size: clamp(52px, 5.3vw, 78px); }
+  .intro { max-width: 365px; font-size: 14px; }
+  .collage { align-self: center; aspect-ratio: .94; }
+  .tablePhotos { align-self: start; padding-top: 24px; gap: 12px; }
+  .trustPoints li { font-size: 10px; padding-inline: 11px; }
+  .primary, .secondary { padding-inline: 25px; }
+  .tablePhoto { gap: 10px; figcaption { font-size: 11px; max-width: 60px; } }
+  .thumbnail { width: 58px; height: 64px; }
+}
+
+@media (min-width: 1201px) {
+  .intro { max-width: 390px; font-size: 15px; }
+  .trustPoints li { font-size: 11px; padding-inline: 15px; }
+  .tablePhoto { gap: 12px; figcaption { font-size: 12px; } }
+  .thumbnail { width: 70px; height: 70px; }
+}
+
+@media (max-width: 360px) {
+  .copy h1 { font-size: 40px; }
+  .actions { gap: 9px; }
+  .primary, .secondary { padding-inline: 16px; font-size: 11px; }
+  .trustPoints li { padding-inline: 8px; font-size: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo, .thumbnail { animation: none; }
+  .photo img, .thumbnail img, .primary, .secondary { transition: none; }
+  .photo:hover img, .tablePhoto:hover img { transform: none; }
+}

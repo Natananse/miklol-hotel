@@ -1,18 +1,137 @@
 @use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
-.announcement { background: $orange; color: $espresso; display: flex; align-items: center; justify-content: center; gap: 60px; min-height: 31px; padding: 5px 20px; font-size: 9px; font-weight: 500; > span:last-child { display: flex; align-items: center; gap: 8px; } }
-.announcementStar { font-size: 17px; line-height: 12px; margin-left: 30px; }
-.header { position: sticky; top: 0; z-index: 50; background: rgba($espresso, .95); backdrop-filter: blur(18px); border-bottom: 1px solid rgba($cream, .08); }
-.nav { display: flex; align-items: center; justify-content: space-between; min-height: 90px; gap: 25px; }
-.logo { font-size: 32px; font-weight: 500; letter-spacing: -.065em; line-height: 1; span { display: block; font-size: 6px; font-weight: 500; letter-spacing: .32em; text-align: center; margin-top: 7px; } }
-.desktopNav { display: flex; gap: 32px; font-size: 10px; a { color: rgba($cream, .72); transition: color .2s; &:hover { color: $orange; } } }
-.reserve { padding: 13px 18px; font-size: 10px; }
-.menuButton { display: none; background: transparent; color: $cream; border: 0; padding: 10px; }
-.mobileNav { overflow: hidden; border-top: 1px solid rgba($cream, .1); nav { padding: 20px 25px 35px; } a { display: flex; align-items: center; gap: 20px; border-bottom: 1px solid rgba($cream, .1); padding: 14px 0; font-family: $font-display; font-size: 35px; span { font: 10px $font-body; color: $orange; } svg { margin-left: auto; } } }
+@use '@/styles/hero-tokens' as h;
+
+.announcement {
+  min-height: 34px;
+  padding: 7px 20px;
+  background: h.$terracotta;
+  color: h.$paper;
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: .025em;
+  text-align: center;
+  a { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline-color: h.$paper; }
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: h.$paper;
+  color: h.$charcoal;
+  border-bottom: 1px solid rgba(h.$charcoal, .12);
+  color-scheme: light;
+  :where(a, button):focus-visible { outline-color: h.$terracotta; }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-height: 102px;
+}
+
+.logo {
+  flex-shrink: 0;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: -.06em;
+  line-height: 1;
+  span {
+    display: block;
+    margin-top: 8px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .055em;
+    text-align: center;
+  }
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3vw, 43px);
+  font-size: 12px;
+  a {
+    padding: 10px 0;
+    transition: color .2s ease;
+    &:hover { color: h.$terracotta; }
+  }
+}
+
+.reserve {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 47px;
+  padding: 13px 23px;
+  border: 1px solid h.$terracotta;
+  border-radius: 3px;
+  background: h.$terracotta;
+  color: h.$paper;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: background .2s ease, color .2s ease;
+  &:hover { background: h.$paper; color: h.$terracotta; }
+}
+
+.menuButton {
+  display: none;
+  place-items: center;
+  width: 42px;
+  height: 44px;
+  padding: 9px;
+  border: 0;
+  background: transparent;
+  color: h.$charcoal;
+}
+
+.mobileNav {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  max-height: calc(100svh - 110px);
+  border-top: 1px solid rgba(h.$charcoal, .12);
+  background: h.$paper;
+  nav { padding: 15px 25px 30px; }
+  a {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(h.$charcoal, .12);
+    font-family: h.$serif;
+    font-size: 34px;
+    line-height: 1.2;
+    transition: color .2s ease;
+    &:hover { color: h.$terracotta; }
+  }
+}
+
 .preloader { position: fixed; inset: 0; z-index: 150; display: flex; flex-direction: column; justify-content: center; align-items: center; background: $espresso; pointer-events: none; > span { font-size: clamp(55px, 10vw, 120px); letter-spacing: -.08em; line-height: 1; } small { font-size: 8px; letter-spacing: .4em; margin-top: 30px; color: $muted; } }
 .loaderDot { color: $orange; animation: breathe .7s infinite; display: inline-block; }
 .cursor { position: fixed; top: 0; left: 0; width: 25px; height: 25px; margin: -12.5px; border: 1px solid $orange; border-radius: 50%; pointer-events: none; z-index: 140; opacity: 0; transform: translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0); transition: width .2s, height .2s, margin .2s, opacity .2s; &[data-active='true'] { width: 45px; height: 45px; margin: -22.5px; background: rgba($orange, .1); } }
-.scrollCue { display: flex; align-items: center; gap: 12px; color: $muted; font-size: 7px; letter-spacing: .2em; svg { border: 1px solid rgba($cream, .25); border-radius: 20px; padding: 6px; width: 23px; height: 34px; } }
-@include tablet { .desktopNav { display: none; } .menuButton { display: block; } .reserve { margin-left: auto; } .nav { min-height: 76px; } }
-@include mobile { .announcement { gap: 12px; min-height: 30px; font-size: 8px; > span:first-child { display: none; } } .nav { gap: 10px; min-height: 72px; } .logo { font-size: 29px; } .reserve { padding: 12px; gap: 9px; font-size: 9px; } }
-@media (pointer: coarse), (prefers-reduced-motion: reduce) { .cursor { display: none; } }
+
+@media (max-width: 900px) {
+  .desktopNav { display: none; }
+  .menuButton { display: grid; }
+  .reserve { margin-left: auto; }
+  .nav { min-height: 88px; gap: 16px; }
+}
+
+@media (max-width: 600px) {
+  .announcement { padding-inline: 14px; font-size: 9px; }
+  .nav { min-height: 80px; gap: 8px; }
+  .logo {
+    font-size: 30px;
+    span { font-size: 9px; letter-spacing: .025em; margin-top: 6px; }
+  }
+  .reserve { min-height: 42px; padding: 12px 13px; font-size: 10px; }
+  .menuButton { width: 38px; padding-inline: 7px; }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor { display: none; }
+}

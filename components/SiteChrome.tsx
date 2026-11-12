@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowDown, ArrowUpRight, Clock3, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import styles from './SiteChrome.module.scss';
 
 const links = [{ href: '#menu', label: 'Our menu' }, { href: '#story', label: 'Our story' }, { href: '#gallery', label: 'The space' }, { href: '#reservation', label: 'Visit us' }];
@@ -29,28 +29,35 @@ export function Header() {
     document.addEventListener('keydown', close);
     return () => { document.body.style.overflow = previous; document.removeEventListener('keydown', close); };
   }, [open]);
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 901px)');
+    const closeOnDesktop = () => { if (desktop.matches) setOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
   return <>
-    <div className={styles.announcement}><span>A little pick-me-up, every day.</span><span><Clock3 size={11} /> Proposed hours · Every day, 08:00–22:00 <span className={styles.announcementStar}>✳</span></span></div>
-    <header className={styles.header}>
+    <div className={styles.announcement} data-calm-surface><p>Coffee, lunch & dinner. <a href="#reservation">Find your table at MIKLOL.</a></p></div>
+    <header className={styles.header} data-calm-surface>
       <div className={`container ${styles.nav}`}>
-        <a className={styles.logo} href="#" aria-label="MIKLOL home">MIKLOL<span>CAFE & RESTAURANT</span></a>
+        <a className={styles.logo} href="#" aria-label="MIKLOL home">MIKLOL<span>Cafe & Restaurant</span></a>
         <nav className={styles.desktopNav} aria-label="Main navigation">{links.map(link => <a key={link.href} href={link.href}>{link.label}</a>)}</nav>
-        <a className={`button ${styles.reserve}`} href="#reservation">Reserve a table <ArrowUpRight size={14} /></a>
+        <a className={styles.reserve} href="#reservation" onClick={() => setOpen(false)}>Reserve a table</a>
         <button ref={menuButton} className={styles.menuButton} onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? 'Close navigation' : 'Open navigation'}>{open ? <X /> : <Menu />}</button>
       </div>
-      <AnimatePresence>{open && <motion.div ref={panel} id="mobile-navigation" className={styles.mobileNav} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: reduced ? 0 : .3 }}><nav aria-label="Mobile navigation">{links.map((link, index) => <a key={link.href} href={link.href} onClick={() => setOpen(false)}><span>0{index + 1}</span>{link.label}<ArrowUpRight /></a>)}</nav></motion.div>}</AnimatePresence>
+      <AnimatePresence>{open && <motion.div ref={panel} id="mobile-navigation" className={styles.mobileNav} data-lenis-prevent initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: reduced ? 0 : .25 }}><nav aria-label="Mobile navigation">{links.map(link => <a key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}</a>)}</nav></motion.div>}</AnimatePresence>
     </header>
   </>;
 }
 
-export function SiteEffects() {
-  const [loading, setLoading] = useState(true);
+export function SiteEffects({ showIntro = true }: { showIntro?: boolean }) {
+  const [loading, setLoading] = useState(showIntro);
   const cursor = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   useEffect(() => {
+    if (!showIntro) return;
     const timer = window.setTimeout(() => setLoading(false), 650);
     return () => clearTimeout(timer);
-  }, []);
+  }, [showIntro]);
   useEffect(() => {
     if (reduced) return;
     let cleanup = () => {};
@@ -85,6 +92,10 @@ export function SiteEffects() {
     if (reduced || !window.matchMedia('(pointer: fine)').matches) return;
     const move = (event: MouseEvent) => {
       if (!cursor.current) return;
+      if ((event.target as HTMLElement).closest('[data-calm-surface]')) {
+        cursor.current.style.opacity = '0';
+        return;
+      }
       cursor.current.style.setProperty('--cursor-x', `${event.clientX}px`);
       cursor.current.style.setProperty('--cursor-y', `${event.clientY}px`);
       cursor.current.dataset.active = String(Boolean((event.target as HTMLElement).closest('a,button')));
@@ -100,5 +111,3 @@ export function SiteEffects() {
     <div ref={cursor} className={styles.cursor} aria-hidden="true" />
   </>;
 }
-
-export function ScrollCue() { return <a className={styles.scrollCue} href="#menu"><ArrowDown size={12} /> SCROLL TO SAVOUR</a>; }

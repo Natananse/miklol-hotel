@@ -41,3 +41,17 @@ Each image is stored locally as an optimized progressive JPEG. Exact source imag
 ## Rebuild the collection
 
 Run `python3 scripts/download-images.py` with the `requests` and `Pillow` Python packages installed. Internet access is required. This refreshes only the image files and this credits file.
+
+## Hero collage photographs
+
+The light hero uses these locally optimized derivatives of the credited Unsplash photographs above. They remain illustrative stock images; their source license is unchanged. Original images elsewhere on the page are untouched.
+
+| Local hero file | Local original | Original image source |
+| --- | --- | --- |
+| `public/images/hero/pasta.jpg` | Optimized derivative of `public/images/food/pasta.jpg` | [Unsplash source](https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1100&q=82) |
+| `public/images/hero/pizza.jpg` | Optimized derivative of `public/images/food/pizza.jpg` | [Unsplash source](https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1100&q=82) |
+| `public/images/hero/burger.jpg` | Optimized derivative of `public/images/food/burger.jpg` | [Unsplash source](https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1100&q=82) |
+| `public/images/hero/salmon.jpg` | Optimized derivative of `public/images/food/salmon.jpg` | [Unsplash source](https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1100&q=82) |
+| `public/images/hero/dessert.jpg` | Optimized derivative of `public/images/food/cake.jpg` | [Unsplash source](https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1100&q=82) |
+| `public/images/hero/coffee.jpg` | Optimized derivative of `public/images/coffee/hero-coffee.jpg` | [Unsplash source](https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=82) |
+| `public/images/hero/interior.jpg` | Optimized derivative of `public/images/interior/cafe.jpg` | [Unsplash source](https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1100&q=82) |

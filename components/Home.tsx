@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowDownRight, ArrowLeft, ArrowRight, ArrowUpRight, CakeSlice, CalendarDays, Check, ChefHat, Coffee, Heart, Instagram, Leaf, MapPin, Minus, Plus, Sparkles, Utensils, Users, Wine } from 'lucide-react';
-import { Header, ScrollCue, SiteEffects } from './SiteChrome';
+import { ArrowLeft, ArrowRight, ArrowUpRight, CakeSlice, CalendarDays, Check, ChefHat, Coffee, Heart, Instagram, MapPin, Minus, Plus, Sparkles, Users, Wine } from 'lucide-react';
+import { Header, SiteEffects } from './SiteChrome';
+import Hero from './Hero';
 import ThreeScene from './ThreeScene';
 import MenuExplorer from './MenuExplorer';
 import Gallery from './Gallery';
@@ -44,27 +45,9 @@ export default function Home() {
     { title: 'Big ideas. Better coffee.', text: 'Take the meeting somewhere inspiring. Let the coffee keep the ideas flowing.', image: '/images/interior/business.jpg', icon: Coffee },
   ];
   return <>
-    <SiteEffects /><Header />
+    <SiteEffects showIntro={false} /><Header />
     <main id="main">
-      <section className={s.hero} aria-labelledby="hero-title">
-        <div className={`container ${s.heroInner}`}>
-          <div className={s.heroCopy}>
-            <div className={s.heroEyebrow}><span /> A GOOD MOMENT STARTS HERE</div>
-            <motion.h1 id="hero-title" initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .65 }}>A little escape.<br />A lot of <em>flavour.</em><span className={s.headingStar} aria-hidden="true">✳</span></motion.h1>
-            <p>For the first sip. The last bite.<br />And all the good moments in between.</p>
-            <div className={s.heroActions}><a className="button" href="#menu">Explore the menu <ArrowUpRight size={15} /></a><a className="button-outline" href="#reservation">Find your table <ArrowUpRight size={15} /></a></div>
-            <div className={s.highlights}><span><Coffee /> Coffee with character</span><span><Utensils /> Food with soul</span><span><Leaf /> Fresh, always</span></div>
-          </div>
-          <div className={s.heroVisual}>
-            <div className={s.heroOrbit} aria-hidden="true" /><div className={s.heroOrbitSmall} aria-hidden="true" />
-            <div className={s.visualCaption}><span>YOUR DAILY</span><span>little ritual.</span></div>
-            <ThreeScene kind="coffee" />
-            <div className={s.coffeeNote}><span className={s.noteIcon}><Coffee size={19} /></span><div>Happiness, freshly brewed.<small>One beautiful cup at a time.</small></div><span className={s.noteStar}>✦</span></div>
-            <span className={s.heroCoordinate}>CRAFTED TO BE SAVOURED — MIKLOL</span>
-          </div>
-          <div className={s.heroBottom}><ScrollCue /><span>GOOD FOOD. GREAT COMPANY. <span>ALWAYS.</span></span><a href="#story">Get to know us <ArrowDownRight size={15} /></a></div>
-        </div>
-      </section>
+      <Hero />
 
       <div className={s.marquee} aria-label="Fresh coffee, hot food, good vibes"><div aria-hidden="true">{Array.from({ length: 4 }, (_, i) => <span key={i}>FRESH COFFEE <b>✳</b> HOT FOOD <b>✳</b> GOOD VIBES <b>✳</b> </span>)}</div></div>
 

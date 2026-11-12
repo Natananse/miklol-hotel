@@ -56,7 +56,10 @@ CREDITS.md                 Exact photo sources and license links
 | --- | --- |
 | Menu names, descriptions, prices, images, categories | `data/menu.ts` |
 | Contact details, address, map link, social links, opening hours | `data/site.ts` |
-| Hero, story, signature dishes, occasions, sample guest notes, footer copy | `components/Home.tsx` |
+| Hero headline, buttons, and collage | `components/Hero.tsx` and `components/Hero.module.scss` |
+| Hero photo paths, alt text, and blur placeholders | `data/hero-images.ts` |
+| Hero and navigation palette | `styles/_hero-tokens.scss` |
+| Story, signature dishes, occasions, sample guest notes, footer copy | `components/Home.tsx` |
 | Floating food names and prices | `floatingFoods` in `components/ThreeScene.tsx` |
 | Gallery images and descriptive alt text | `components/Gallery.tsx` |
 | Reservation fields, time slots, validation, confirmation | `components/Reservation.tsx` |
