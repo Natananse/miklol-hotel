@@ -1,6 +1,7 @@
 @use '@/styles/variables' as *;
 
 .gestureSurface { touch-action: none; user-select: none; }
+.originalImage { position: absolute; inset: 0; }
 .gestureHelp { margin-top: 12px; color: $muted; font-size: 14px; line-height: 1.5; }
 .mobileLightbox button { min-width: 48px; min-height: 48px; }
 .mobileLightbox button:active { background: #4d3524; }
