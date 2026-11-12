@@ -37,10 +37,14 @@ jobs:
       - run: npx playwright install --with-deps chrome
       - name: Responsive, swipe, motion, accessibility and regression checks
         run: npm run test:e2e
+      - name: Repeat interrupted phone gestures
+        run: npm run test:e2e -- tests/kitchen-team.spec.ts --grep 'native phone swipe' --repeat-each=5 --output=gesture-test-results
       - name: Save screenshots and failure traces
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: kitchen-team-browser-checks
-          path: test-results/
+          path: |
+            test-results/
+            gesture-test-results/
           retention-days: 7

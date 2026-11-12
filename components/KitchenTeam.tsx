@@ -9,6 +9,7 @@ import s from './KitchenTeam.module.scss';
 export default function KitchenTeam() {
   const track = useRef<HTMLDivElement>(null);
   const navigationFrame = useRef(0);
+  const navigationTarget = useRef<number | null>(null);
   const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
   const pending = kitchenPhotos.filter(isKitchenPlaceholder).length;
@@ -37,13 +38,18 @@ export default function KitchenTeam() {
     let frame = 0;
     const update = () => {
       frame = 0;
+      // A compositor-driven fling can outlive a dot tap. Keep the explicit
+      // destination until the visitor starts another gesture on the track.
+      if (navigationTarget.current !== null && Math.abs(element.scrollLeft - navigationTarget.current) > 1) {
+        element.scrollTo({ left: navigationTarget.current, behavior: 'instant' });
+      }
       const left = element.getBoundingClientRect().left;
       const distances = Array.from(element.children).map(card => Math.abs(card.getBoundingClientRect().left - left));
       setActive(distances.indexOf(Math.min(...distances)));
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
     element.addEventListener('scroll', schedule, { passive: true });
-    const resize = new ResizeObserver(schedule);
+    const resize = new ResizeObserver(() => { navigationTarget.current = null; schedule(); });
     resize.observe(element);
     return () => { element.removeEventListener('scroll', schedule); resize.disconnect(); cancelAnimationFrame(frame); };
   }, []);
@@ -53,6 +59,7 @@ export default function KitchenTeam() {
     const card = element?.children[index] as HTMLElement | undefined;
     if (!element || !card) return;
     const left = card.getBoundingClientRect().left - element.getBoundingClientRect().left + element.scrollLeft;
+    navigationTarget.current = left;
     // Cancel an in-flight touch fling before a dot/keyboard jump. Otherwise the
     // browser's pending native snap can undo the requested destination.
     cancelAnimationFrame(navigationFrame.current);
@@ -84,7 +91,7 @@ export default function KitchenTeam() {
       </div>
       {pending > 0 && <p className={s.notice}>{pending} photo {pending === 1 ? 'space is' : 'spaces are'} reserved for original MIKLOL kitchen photography.</p>}
       {usesStock && <p className={s.notice}>Stock photographs illustrate kitchen traditions. The people pictured are not MIKLOL employees.</p>}
-      <div ref={track} id="kitchen-team-photos" className={s.grid} tabIndex={0} role="region" aria-label="Kitchen photographs. On phones, swipe or use the arrow keys to browse." onKeyDown={keyboard} data-lenis-prevent>
+      <div ref={track} id="kitchen-team-photos" className={s.grid} tabIndex={0} role="region" aria-label="Kitchen photographs. On phones, swipe or use the arrow keys to browse." onKeyDown={keyboard} onPointerDown={() => { navigationTarget.current = null; }} onWheel={() => { navigationTarget.current = null; }} data-lenis-prevent>
         {kitchenPhotos.map((photo, index) => <figure className={s.card} key={photo.id} aria-label={`${index + 1} of ${kitchenPhotos.length}`}>
           <div className={s.media}><KitchenPhoto photo={photo} sizes="(max-width: 600px) 85vw, (max-width: 900px) 44vw, (max-width: 1440px) 29vw, 380px" /></div>
           <figcaption className={s.caption}><span className={s.number} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><div><p>{photo.caption}</p>{photo.credit && !isKitchenPlaceholder(photo) && <small>Illustrative stock photograph · {photo.credit.photographer}</small>}</div></figcaption>

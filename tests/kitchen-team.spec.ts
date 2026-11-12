@@ -66,6 +66,15 @@ test('native phone swipe updates the active dot and the last slot is reachable',
   await page.getByRole('button', { name: /Show kitchen photo 6:/ }).tap();
   await expect(page.getByRole('button', { name: /Show kitchen photo 6:/ })).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('#kitchen-team').getByText('Photo 6 of 6', { exact: true })).toHaveText('Photo 6 of 6');
+  // A dot jump must not lock out the next native swipe.
+  await track.scrollIntoViewIfNeeded();
+  const lastBox = await track.boundingBox();
+  if (!lastBox) throw new Error('Kitchen carousel is missing');
+  const lastY = lastBox.y + 100;
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 65, y: lastY }] });
+  for (const x of [130, 200, 270, 315]) await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x, y: lastY }] });
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  await expect(page.getByRole('button', { name: /Show kitchen photo 6:/ })).toHaveAttribute('aria-pressed', 'false');
   await context.close();
 });
 
