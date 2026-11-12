@@ -7,7 +7,7 @@ Each image is stored locally as an optimized progressive JPEG. Exact source imag
 | Local file | Original image source | Photo page, where available |
 | --- | --- | --- |
 | `public/images/coffee/espresso.jpg` | [Unsplash source](https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=1100&q=82) | — |
-| `public/images/coffee/hero-coffee.jpg` | [Unsplash source](https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=82) | — |
+| `public/images/coffee/hero-coffee.jpg` | [Unsplash source](https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=82) | — |
 | `public/images/coffee/iced-latte.jpg` | [Unsplash source](https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1100&q=82) | — |
 | `public/images/coffee/matcha.jpg` | [Unsplash source](https://images.unsplash.com/photo-1791980225878-7082caf3a23b?auto=format&fit=crop&w=1100&q=82) | [Photo page](https://unsplash.com/photos/matcha-latte-in-glass-W4k6kSimSxY) |
 | `public/images/food/avocado-toast.jpg` | [Unsplash source](https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1100&q=82) | — |
@@ -16,12 +16,12 @@ Each image is stored locally as an optimized progressive JPEG. Exact source imag
 | `public/images/food/cake.jpg` | [Unsplash source](https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1100&q=82) | — |
 | `public/images/food/croissant.jpg` | [Unsplash source](https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1100&q=82) | — |
 | `public/images/food/dessert.jpg` | [Unsplash source](https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1100&q=82) | — |
-| `public/images/food/donut.jpg` | [Unsplash source](https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1100&q=82) | — |
+| `public/images/food/donut.jpg` | [Unsplash source](https://images.unsplash.com/photo-1516549445027-be9aebc57853?auto=format&fit=crop&w=1100&q=82) | [Photo page](https://unsplash.com/photos/macro-photography-of-chocolate-donuts-XjyH9_hXEyA) |
 | `public/images/food/pancakes.jpg` | [Unsplash source](https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=1100&q=82) | — |
 | `public/images/food/pasta.jpg` | [Unsplash source](https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1100&q=82) | — |
 | `public/images/food/pizza.jpg` | [Unsplash source](https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1100&q=82) | — |
 | `public/images/food/salmon.jpg` | [Unsplash source](https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1100&q=82) | — |
-| `public/images/food/steak.jpg` | [Unsplash source](https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1100&q=82) | — |
+| `public/images/food/steak.jpg` | [Unsplash source](https://images.unsplash.com/photo-1761138785048-9dae4abb0a0c?auto=format&fit=crop&w=1100&q=82) | [Photo page](https://unsplash.com/photos/grilled-steak-served-in-a-cast-iron-pan-with-wine-r67OB1KaI4A) |
 | `public/images/gallery/gallery-01.jpg` | [Unsplash source](https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1100&q=82) | — |
 | `public/images/gallery/gallery-02.jpg` | [Unsplash source](https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1100&q=82) | — |
 | `public/images/gallery/gallery-03.jpg` | [Unsplash source](https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=1100&q=82) | — |

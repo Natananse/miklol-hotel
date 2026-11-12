@@ -6,6 +6,8 @@ const display = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500', 
 const body = DM_Sans({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  alternates: { canonical: '/' },
   title: 'MIKLOL — Good food. Great company.',
   description: 'A little escape. A lot of flavour. Discover specialty coffee, beautiful plates, and slow moments at MIKLOL cafe & restaurant.',
   applicationName: 'MIKLOL Cafe & Restaurant',

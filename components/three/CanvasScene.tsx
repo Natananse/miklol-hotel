@@ -12,6 +12,7 @@ interface SceneProps {
   selection: number;
   onSelect: (index: number) => void;
   onReady: () => void;
+  onFailure: () => void;
 }
 
 function SceneCamera() {
@@ -43,6 +44,25 @@ function Steam() {
   return <group ref={steam}>{curves.map((curve, i) => <mesh key={i}><tubeGeometry args={[curve, 28, .018 + i * .003, 5, false]} /><meshBasicMaterial color="#f7e5ce" transparent opacity={.12} depthWrite={false} /></mesh>)}</group>;
 }
 
+function SteamParticles() {
+  const points = useRef<THREE.Points>(null);
+  const positions = useMemo(() => new Float32Array(18 * 3), []);
+  useFrame(({ clock }) => {
+    if (!points.current) return;
+    const t = clock.getElapsedTime();
+    const attribute = points.current.geometry.getAttribute('position');
+    for (let i = 0; i < 18; i++) {
+      const height = (t * .17 + i * .091) % 1.55;
+      attribute.setXYZ(i, Math.sin(t * .65 + i * 2.2) * (.08 + height * .07), .7 + height, Math.cos(i * 2.4) * .13);
+    }
+    attribute.needsUpdate = true;
+  });
+  return <points ref={points}>
+    <bufferGeometry><bufferAttribute attach="attributes-position" args={[positions, 3]} /></bufferGeometry>
+    <pointsMaterial color="#f7e5ce" size={.05} transparent opacity={.13} depthWrite={false} sizeAttenuation />
+  </points>;
+}
+
 function CoffeeCup() {
   const group = useRef<THREE.Group>(null);
   const points = useMemo(() => [
@@ -70,6 +90,7 @@ function CoffeeCup() {
       <mesh><latheGeometry args={[saucer, 64]} /><meshPhysicalMaterial color="#d7bea1" roughness={.32} clearcoat={.4} side={THREE.DoubleSide} /></mesh>
       <mesh position={[0, -.585, 0]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[1.43, .018, 8, 64]} /><meshStandardMaterial color="#f8e5c9" roughness={.3} /></mesh>
       <Steam />
+      <SteamParticles />
       {[[-1.5, -.33, .15], [1.5, .63, -.45], [-.95, 1.08, -.4]].map((position, i) => <Float key={i} speed={1.2} rotationIntensity={.6} floatIntensity={.25}><group position={position as [number, number, number]} rotation={[.4, .3, i * .7]}><mesh scale={[.12, .075, .19]}><sphereGeometry args={[1, 14, 10]} /><meshStandardMaterial color="#6d3720" roughness={.68} /></mesh><mesh position={[0, .066, 0]} rotation={[0, .05, .1]} scale={[.012, .012, .14]}><sphereGeometry args={[1, 8, 6]} /><meshStandardMaterial color="#29170e" /></mesh></group></Float>)}
     </group>
   );
@@ -135,19 +156,30 @@ function FoodItem({ index, selected, onSelect }: { index: number; selected: bool
     group.current.rotation.y = Math.sin(t * .35 + index) * .3;
     group.current.rotation.z = Math.sin(t * .4 + index) * .07;
     const size = selected ? 1.12 : .94;
-    group.current.scale.lerp(new THREE.Vector3(size, size, size), Math.min(delta * 4, 1));
+    group.current.scale.setScalar(THREE.MathUtils.damp(group.current.scale.x, size, 4, delta));
   });
   const select = (event: ThreeEvent<PointerEvent | MouseEvent>) => { event.stopPropagation(); onSelect(index); };
   return <group ref={group} position={positions[index]} onPointerOver={select} onClick={select}><Model /></group>;
 }
 
-export default function CanvasScene({ kind, active, selection, onSelect, onReady }: SceneProps) {
+function ResponsiveModels({ kind, selection, onSelect }: Pick<SceneProps, 'kind' | 'selection' | 'onSelect'>) {
+  const viewportWidth = useThree((state) => state.viewport.width);
+  // Keep the full arrangement inside narrow canvases, including the selected item's enlargement.
+  const scale = Math.min(1, viewportWidth / (kind === 'food' ? 6.25 : 4.6));
+  return <group scale={scale}>
+    {kind === 'coffee' ? <CoffeeCup /> : <group position={[0, .3, 0]}>
+      {models.map((_, index) => <FoodItem key={index} index={index} selected={selection === index} onSelect={onSelect} />)}
+    </group>}
+  </group>;
+}
+
+export default function CanvasScene({ kind, active, selection, onSelect, onReady, onFailure }: SceneProps) {
   return (
     <Canvas
       dpr={[1, 1.5]} frameloop={active ? 'always' : 'never'}
       camera={{ position: kind === 'coffee' ? [0, 2.3, 6.6] : [0, 1.6, 8], fov: kind === 'coffee' ? 40 : 43 }}
       gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
-      onCreated={({ gl }) => { gl.setClearColor('#211813', 0); onReady(); }}
+      onCreated={({ gl }) => { gl.setClearColor('#211813', 0); gl.domElement.addEventListener('webglcontextlost', onFailure, { once: true }); onReady(); }}
     >
       <SceneCamera />
       <ambientLight intensity={1.25} color="#fff1dc" />
@@ -155,7 +187,7 @@ export default function CanvasScene({ kind, active, selection, onSelect, onReady
       <directionalLight position={[3, 1, -2]} intensity={2.6} color="#ed9957" />
       <pointLight position={[0, -3, 3]} intensity={8} color="#b47a47" />
       <Suspense fallback={null}>
-        {kind === 'coffee' ? <CoffeeCup /> : <group position={[0, .3, 0]}>{models.map((_, index) => <FoodItem key={index} index={index} selected={selection === index} onSelect={onSelect} />)}</group>}
+        <ResponsiveModels kind={kind} selection={selection} onSelect={onSelect} />
       </Suspense>
     </Canvas>
   );

@@ -30,7 +30,7 @@ export function Header() {
     return () => { document.body.style.overflow = previous; document.removeEventListener('keydown', close); };
   }, [open]);
   return <>
-    <div className={styles.announcement}><span>A little pick-me-up, every day.</span><span><Clock3 size={11} /> Coffee, plates & good company <span className={styles.announcementStar}>✳</span></span></div>
+    <div className={styles.announcement}><span>A little pick-me-up, every day.</span><span><Clock3 size={11} /> Proposed hours · Every day, 08:00–22:00 <span className={styles.announcementStar}>✳</span></span></div>
     <header className={styles.header}>
       <div className={`container ${styles.nav}`}>
         <a className={styles.logo} href="#" aria-label="MIKLOL home">MIKLOL<span>CAFE & RESTAURANT</span></a>

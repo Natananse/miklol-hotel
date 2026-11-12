@@ -1,19 +1,140 @@
-.scene { position: relative; width: 100%; isolation: isolate; }
+@use '../styles/variables' as v;
+
+.scene {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
 .coffee { min-height: 560px; }
 .food { min-height: 475px; }
-.canvas { position: absolute; inset: 0; opacity: 0; transition: opacity .9s ease; }
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .9s ease;
+}
+
 .canvasReady { opacity: 1; }
-.fallback { position: absolute; inset: 8% 3%; border-radius: 48% 48% 45% 45%; overflow: hidden; opacity: 1; transition: opacity .9s ease; img { object-fit: cover; } &::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(33,24,19,.35), transparent 60%); } }
+
+.fallback {
+  position: absolute;
+  inset: 8% 3%;
+  border-radius: 48% 48% 45% 45%;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity .9s ease;
+
+  img { object-fit: cover; }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(v.$espresso, .35), transparent 60%);
+  }
+}
+
 .fallbackHidden { opacity: 0; pointer-events: none; }
 .food .fallback { inset: 0 14% 120px; border-radius: 160px; }
-.loader { position: absolute; inset: 0; display: grid; align-content: center; justify-items: center; gap: 16px; color: #e6c8a6; small { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; } span { display: block; width: 34px; height: 34px; border: 1px solid #e6c8a633; border-top-color: #e6c8a6; border-radius: 50%; animation: brewing 1s linear infinite; } }
-.coffeeNote { position: absolute; left: 6%; bottom: 7%; display: flex; gap: 12px; align-items: center; color: #dac8b8; font-size: 11px; line-height: 1.6; letter-spacing: .02em; pointer-events: none; }
-.sparkle { font-size: 37px; color: #e98950; line-height: 1; }
-.foodInterface { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; gap: 18px; }
-.foodDetail { display: flex; align-items: center; gap: 22px; border: 1px solid #f1ddc22b; border-radius: 30px; padding: 11px 23px; background: #ffffff08; backdrop-filter: blur(12px); font-size: 13px; color: #f4e8d7; strong { color: #f4a168; font-size: 12px; white-space: nowrap; } }
-.foodChoices { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; button { appearance: none; border: 1px solid transparent; padding: 8px 14px; background: transparent; color: #c7b5a4; border-radius: 22px; font: inherit; font-size: 11px; cursor: pointer; transition: color .2s, border-color .2s, background .2s; &:hover, &[aria-pressed='true'] { color: #fff1de; border-color: #e6c8a640; background: #ffffff08; } &:focus-visible { outline: 2px solid #f4a168; outline-offset: 3px; } } }
-@keyframes brewing { to { transform: rotate(360deg); } }
-@media (max-width: 700px) { .coffee { min-height: 390px; } .food { min-height: 410px; } .coffeeNote { bottom: 4%; left: 4%; font-size: 10px; } .foodDetail { font-size: 11px; gap: 14px; } .foodChoices { gap: 0; button { padding: 7px 10px; font-size: 10px; } } .food .fallback { inset: 0 8% 115px; } }
-@media (prefers-reduced-motion: reduce) { .canvas, .fallback, .foodChoices button { transition: none; } .loader span { animation: none; } }
 
-.failure { position: absolute; inset: 0; .fallback { opacity: 1; } }
+.loader {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: v.$space-sm;
+  color: v.$cream;
+
+  small { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+
+  span {
+    display: block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(v.$cream, .2);
+    border-top-color: v.$cream;
+    border-radius: 50%;
+    animation: brewing 1s linear infinite;
+  }
+}
+
+.foodInterface {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.foodDetail {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: 1px solid rgba(v.$cream, .17);
+  border-radius: 30px;
+  padding: 11px 23px;
+  background: rgba(v.$cream, .035);
+  backdrop-filter: blur(12px);
+  font-size: 13px;
+  color: v.$cream;
+
+  strong { color: v.$orange; font-size: 12px; white-space: nowrap; }
+}
+
+.foodChoices {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  button {
+    appearance: none;
+    border: 1px solid transparent;
+    padding: 8px 14px;
+    background: transparent;
+    color: v.$muted;
+    border-radius: 22px;
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition: color .2s, border-color .2s, background .2s;
+
+    &:hover, &[aria-pressed='true'] {
+      color: v.$cream;
+      border-color: rgba(v.$cream, .25);
+      background: rgba(v.$cream, .035);
+    }
+
+    &:focus-visible { outline: 2px solid v.$orange; outline-offset: 3px; }
+  }
+}
+
+.failure {
+  position: absolute;
+  inset: 0;
+  .fallback { opacity: 1; }
+}
+
+@keyframes brewing { to { transform: rotate(360deg); } }
+
+@media (max-width: v.$breakpoint-sm) {
+  .coffee { min-height: 390px; }
+  .food { min-height: 410px; }
+  .foodDetail { font-size: 11px; gap: 14px; }
+  .foodChoices {
+    gap: 0;
+    button { padding: 7px 10px; font-size: 10px; }
+  }
+  .food .fallback { inset: 0 8% 115px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas, .fallback, .foodChoices button { transition: none; }
+  .loader span { animation: none; }
+}

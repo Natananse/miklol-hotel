@@ -1,0 +1,91 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.hero { position: relative; overflow: hidden; background: radial-gradient(ellipse at 76% 45%, #50342155, transparent 46%), $espresso; }
+.heroInner { display: grid; grid-template-columns: 1.06fr 1fr; align-items: center; position: relative; }
+.heroCopy { padding: 85px 0 78px; z-index: 2; h1 { position: relative; font-family: $font-display; font-size: clamp(58px, 6.9vw, 102px); line-height: .97; letter-spacing: -.047em; font-weight: 400; white-space: nowrap; em { color: $orange; font-weight: 400; } } > p { margin-top: 28px; font-size: 12px; line-height: 1.9; color: $muted; } }
+.heroEyebrow { display: flex; align-items: center; gap: 9px; font-size: 8px; letter-spacing: .24em; margin-bottom: 24px; color: #d6c7b7; > span { width: 5px; height: 5px; border-radius: 50%; background: $orange; box-shadow: 0 0 14px #e77a36aa; } }
+.headingStar { position: absolute; top: -27px; right: 8%; color: $orange; font-size: 40px; font-family: serif; }
+.heroActions { display: flex; gap: 12px; margin-top: 32px; }
+.highlights { display: flex; align-items: center; gap: 21px; margin-top: 39px; > span { display: flex; align-items: center; gap: 7px; color: #c7b6a7; font-size: 8px; white-space: nowrap; svg { width: 13px; height: 13px; color: $orange; } } }
+.heroVisual { position: relative; align-self: stretch; display: flex; align-items: center; min-width: 0; > div:nth-of-type(4) { position: relative; width: 100%; z-index: 1; } }
+.heroOrbit, .heroOrbitSmall { position: absolute; width: 94%; aspect-ratio: 1; border: 1px solid rgba($cream, .07); border-radius: 50%; left: 5%; top: 10%; pointer-events: none; &::before { content: ''; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: $orange; left: 14%; top: 13%; } }
+.heroOrbitSmall { width: 75%; left: 14%; top: 18%; border-style: dashed; opacity: .5; transform: rotate(20deg); }
+.visualCaption { position: absolute; right: -5px; top: 55px; display: flex; flex-direction: column; transform: rotate(7deg); span:first-child { font-size: 7px; letter-spacing: .2em; } span:last-child { color: $orange; font-family: $font-display; font-style: italic; font-size: 27px; line-height: 1; } }
+.coffeeNote { position: absolute; z-index: 3; bottom: 55px; right: 0; width: 266px; display: flex; align-items: center; gap: 13px; padding: 15px; @include glass; border-radius: 4px; box-shadow: 0 12px 35px #0001; transform: rotate(-4deg); > div { font-size: 9px; line-height: 1.5; } small { display: block; font-size: 8px; color: $muted; } }
+.noteIcon { width: 35px; height: 35px; display: grid; place-items: center; border: 1px solid #f4eee42b; border-radius: 50%; color: $orange; }
+.noteStar { margin-left: auto; font-size: 20px; color: $orange; }
+.heroCoordinate { position: absolute; right: -20px; top: 45%; font-size: 6px; letter-spacing: .3em; writing-mode: vertical-rl; color: #b19d8880; }
+.heroBottom { grid-column: 1/-1; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba($cream, .1); padding-block: 18px 23px; > span { font-size: 7px; letter-spacing: .13em; color: $muted; span { color: $orange; margin-left: 6px; } } > a { display: flex; align-items: center; gap: 18px; font-size: 9px; } }
+.marquee { overflow: hidden; background: $orange; color: $espresso; padding: 14px 0; > div { display: flex; width: max-content; animation: marquee 32s linear infinite; } span { display: flex; align-items: center; font-size: 11px; letter-spacing: .13em; font-weight: 600; white-space: nowrap; } b { font-size: 20px; line-height: 1; margin: 0 42px; font-weight: 400; } }
+.foodShowcase { @include section; padding-bottom: 45px; background: radial-gradient(ellipse at 50% 70%, #55352455, transparent 60%), #251c16; }
+.foodHeading { display: flex; align-items: flex-end; gap: 50px; position: relative; > p { color: $muted; font-size: 12px; margin-left: auto; padding-right: 100px; padding-bottom: 10px; } }
+.tinyStar { position: absolute; right: 0; font-size: 60px; color: $orange; top: 30px; }
+.signatures { background: $cream; color: $ink; @include section; }
+.sectionTop { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 45px; > a { margin-bottom: 4px; } }
+.dishGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.dish { min-width: 0; &:hover img { transform: scale(1.045); } }
+.dishPhoto { position: relative; aspect-ratio: 1.18; overflow: hidden; border-radius: 3px; background: #c6b5a4; img { object-fit: cover; transition: transform .7s cubic-bezier(.2,.65,.3,1); } }
+.dishIndex { position: absolute; top: 17px; left: 17px; color: white; font-size: 9px; z-index: 1; text-shadow: 0 2px 8px #000; }
+.favorite { position: absolute; top: 13px; right: 13px; width: 34px; height: 34px; border: 0; border-radius: 50%; display: grid; place-items: center; background: $cream; color: $ink; transition: color .2s, background .2s; &:hover { background: $orange; } }
+.favorited { color: #b04622; }
+.dishInfo { padding: 23px 0 0; > span { font-size: 7px; letter-spacing: .17em; color: #8d6851; } h3 { font-family: $font-display; font-size: 29px; line-height: 1.15; margin-top: 7px; letter-spacing: -.025em; } > p { color: #7e7267; font-size: 10px; margin-top: 10px; } > div { display: flex; align-items: center; justify-content: space-between; margin-top: 19px; padding-top: 15px; border-top: 1px solid #2118131f; strong { font-weight: 500; font-size: 17px; small { font-size: 8px; margin-left: 3px; } } a { border: 1px solid #21181333; border-radius: 50%; width: 30px; height: 30px; display: grid; place-items: center; transition: background .2s; &:hover { background: $orange; border-color: $orange; } } } }
+.sampleNote { font-size: 9px; color: #7e7267; margin-top: 24px; }
+.ambience { position: relative; min-height: 710px; overflow: hidden; display: flex; justify-content: center; flex-direction: column; > img { object-fit: cover; } }
+.ambienceShade { position: absolute; inset: 0; background: linear-gradient(90deg, #17110be0 0%, #17110b80 45%, #17110b20 90%), linear-gradient(0deg, #17110bc9 0%, transparent 40%); }
+.ambienceContent { z-index: 1; padding-top: 70px; padding-bottom: 70px; h2 { font: 400 clamp(55px, 6.7vw, 90px)/.98 $font-display; letter-spacing: -.04em; em { color: #ef9c6a; } } > p { font-size: 12px; margin-top: 24px; color: #e2d6c7; } > a { margin-top: 29px; } }
+.stats { position: relative; z-index: 1; display: flex; align-items: center; gap: 65px; padding: 29px 0 35px; border-top: 1px solid #fff3; > div { display: flex; align-items: center; gap: 14px; strong { font: 400 47px/.9 $font-display; color: $orange; min-width: 42px; } span { font-size: 7px; letter-spacing: .13em; max-width: 70px; } } }
+.statsNote { font-family: $font-display; font-size: 22px; line-height: 1.1; font-style: italic; margin-left: auto; }
+.story { @include section; background: $cream; color: $ink; }
+.storyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+.storyVisual { position: relative; height: 590px; margin-top: 20px; > img { object-fit: cover; border-radius: 3px; filter: saturate(.7); } }
+.storyPhotoLabel { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, #211813bb); padding: 50px 26px 23px; color: $cream; display: flex; justify-content: space-between; align-items: center; font-size: 8px; letter-spacing: .1em; }
+.storyBadge { position: absolute; top: -25px; right: -34px; width: 120px; height: 120px; background: $orange; color: $ink; border: 6px solid $cream; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; transform: rotate(8deg); span { font-size: 7px; letter-spacing: .1em; text-align: center; } em { font-family: $font-display; font-size: 18px; letter-spacing: 0; } }
+.storyCopy { padding-top: 0; > p { color: #7e7267; font-size: 12px; line-height: 1.9; max-width: 390px; margin-top: 26px; } > a { margin-top: 25px; } }
+.storyChapter { margin-top: 28px; border-top: 1px solid #21181324; padding-top: 21px; > span { font-size: 7px; letter-spacing: .18em; color: #956c51; } h3 { font: 500 29px/1.2 $font-display; margin-top: 8px; } p { font-size: 11px; color: #7e7267; margin-top: 10px; max-width: 370px; } }
+.occasions { @include section; background: #eae2d6; color: $ink; }
+.occasionGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.accordion { margin-top: 30px; > div { border-bottom: 1px solid #21181329; } button { display: flex; align-items: center; gap: 15px; padding: 17px 0; width: 100%; background: none; border: 0; color: $ink; text-align: left; > span { flex: 1; font-size: 12px; } > svg:first-child { color: #8b6b50; } } div > div { padding: 0 0 18px 31px; p { font-size: 11px; color: #7c7064; } a { display: inline-flex; align-items: center; gap: 15px; font-size: 9px; margin-top: 12px; color: #9c4c22; } } }
+.accordionActive button > svg:first-child { color: #ad4f1e; }
+.occasionPhoto { height: 590px; position: relative; overflow: hidden; border-radius: 3px; > span { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; background: linear-gradient(transparent, #211813c9); padding: 50px 25px 25px; display: flex; align-items: center; gap: 14px; color: $cream; font-size: 8px; letter-spacing: .14em; } }
+.occasionImage { position: absolute; inset: 0; img { object-fit: cover; } }
+.testimonials { @include section; background: $cream; color: $ink; }
+.reviewGrid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 90px; align-items: center; }
+.reviewIntro { font-size: 11px; line-height: 1.9; color: #7e7267; margin-top: 23px; }
+.reviewControls { display: flex; align-items: center; gap: 21px; margin-top: 28px; > button { width: 36px; height: 36px; background: transparent; border: 1px solid #21181333; border-radius: 50%; color: $ink; display: grid; place-items: center; transition: background .2s, border-color .2s; &:hover { background: $orange; border-color: $orange; } } > span { font-size: 10px; > span { color: #9b9083; margin-left: 6px; } } }
+.reviewCard { position: relative; border: 1px solid #2118131c; padding: 46px 42px 34px; background: #eee7dc; min-height: 300px; h3 { font-size: 8px; letter-spacing: .08em; text-transform: uppercase; color: #98603c; } blockquote { margin: 16px 0 30px; font: 400 29px/1.25 $font-display; letter-spacing: -.01em; } }
+.quoteMark { position: absolute; top: -38px; right: 24px; font: 160px/1 $font-display; color: $orange; }
+.reviewAuthor { display: flex; gap: 12px; align-items: center; > span { display: grid; place-items: center; width: 39px; height: 39px; border: 1px solid #21181327; border-radius: 50%; color: #a36541; } > div { font-size: 10px; small { display: block; font-size: 8px; color: #8b7c6d; margin-top: 3px; } } > svg { margin-left: auto; color: #a36541; } }
+.footer { position: relative; overflow: hidden; background: #1b140f; padding-top: 70px; }
+.footerTop { display: grid; grid-template-columns: 1.2fr .65fr 1fr 1fr; gap: 45px; padding-bottom: 50px; > div:first-child > p { font-size: 10px; color: $muted; margin-top: 22px; } h3 { font-size: 8px; letter-spacing: .17em; margin-bottom: 23px; } }
+.footerLogo { font-size: 39px; line-height: 1; letter-spacing: -.075em; display: inline-block; span { display: block; text-align: center; font-size: 7px; letter-spacing: .23em; margin-top: 9px; } }
+.socials { display: flex; gap: 7px; margin-top: 22px; a, button { border: 1px solid #f4eee42b; background: transparent; color: $cream; display: grid; place-items: center; width: 31px; height: 31px; border-radius: 50%; transition: color .2s, border-color .2s; &:hover { color: $orange; border-color: $orange; } svg { width: 13px; height: 13px; } } }
+.footerLinks { display: flex; flex-direction: column; align-items: flex-start; a { font-size: 10px; color: $muted; padding: 4px 0; &:hover { color: $orange; } } }
+.footerDetails { p { color: $muted; font-size: 10px; margin-bottom: 18px; span { color: $cream; display: block; margin-top: 4px; } } > a, > button { font-size: 9px; background: none; color: $cream; border-top: none; border-left: none; border-right: none; padding-inline: 0; } }
+.map { min-height: 175px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; border: 1px solid #f4eee41c; border-radius: 3px; background: #2b241b; > svg { color: $orange; z-index: 1; } > span { font-family: $font-display; font-size: 18px; z-index: 1; } > small { font-size: 8px; color: $muted; z-index: 1; } > a { display: flex; align-items: center; gap: 8px; z-index: 1; font-size: 9px; } }
+.mapGrid { position: absolute; inset: -50px; transform: rotate(-25deg); opacity: .12; background: repeating-linear-gradient(0deg, transparent 0 40px, $cream 40px 42px, transparent 42px 90px), repeating-linear-gradient(90deg, transparent 0 55px, $cream 55px 58px, transparent 58px 140px); }
+.footerBottom { display: flex; align-items: center; justify-content: space-between; gap: 15px; border-top: 1px solid #f4eee41a; padding-block: 20px; font-size: 7px; color: #a99a8c; > a { color: $cream; letter-spacing: .1em; } }
+.footerWordmark { display: block; text-align: center; color: #f4eee409; font-size: clamp(50px, 14vw, 200px); font-weight: 600; letter-spacing: -.075em; line-height: .8; padding-top: 30px; white-space: nowrap; }
+.contactNotice { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); width: min(90vw, 510px); display: flex; align-items: center; gap: 14px; padding: 20px; background: $cream; color: $ink; box-shadow: 0 6px 50px #0006; border-radius: 4px; z-index: 90; p { font-size: 11px; } > svg { color: #8f562c; flex-shrink: 0; } button { border: 0; background: transparent; text-decoration: underline; font-size: 10px; color: $ink; } }
+
+@media (min-width: 1500px) { .heroCopy { padding-block: 100px; } }
+@include tablet {
+  .heroInner { grid-template-columns: 1.1fr 1fr; } .heroCopy { padding-block: 70px; h1 { font-size: clamp(58px, 7.7vw, 80px); } }
+  .heroActions { gap: 8px; :global(.button), :global(.button-outline) { padding: 14px; gap: 10px; font-size: 10px; } } .highlights { gap: 12px; flex-wrap: wrap; max-width: 300px; margin-top: 26px; }
+  .headingStar { right: -5%; font-size: 27px; top: -17px; } .coffeeNote { width: 230px; right: -15px; bottom: 70px; } .visualCaption { top: 45px; right: 0; } .heroCoordinate { right: -15px; }
+  .foodHeading > p { padding-right: 40px; max-width: 320px; } .tinyStar { font-size: 40px; } .dishGrid { gap: 18px; } .dishInfo h3 { font-size: 24px; } .dishInfo > p { min-height: 33px; }
+  .storyGrid, .occasionGrid { gap: 50px; } .storyVisual, .occasionPhoto { height: 550px; } .storyCopy > p { font-size: 11px; } .storyBadge { right: -20px; width: 100px; height: 100px; } .reviewGrid { gap: 45px; } .reviewCard { padding: 38px 25px 27px; blockquote { font-size: 26px; } }
+  .footerTop { grid-template-columns: 1fr 1fr; gap: 40px; } .map { min-height: 160px; }
+}
+@include mobile {
+  .heroInner { display: flex; flex-direction: column; } .heroCopy { padding: 55px 0 0; width: 100%; h1 { font-size: clamp(46px, 12.9vw, 77px); } > p { margin-top: 22px; font-size: 12px; } } .heroEyebrow { font-size: 7px; margin-bottom: 21px; } .headingStar { right: 10px; font-size: 32px; }
+  .heroActions { margin-top: 25px; :global(.button), :global(.button-outline) { padding: 15px 18px; gap: 16px; } } .highlights { max-width: none; margin-top: 28px; gap: 17px; > span { font-size: 7px; } }
+  .heroVisual { width: 100%; min-height: 365px; margin-top: -5px; } .heroOrbit { width: 85%; left: 8%; top: 8%; } .heroOrbitSmall { width: 69%; left: 15%; top: 15%; } .visualCaption { right: 0; top: 35px; } .visualCaption span:last-child { font-size: 25px; } .coffeeNote { bottom: 22px; width: 231px; padding: 12px; right: 10px; } .heroCoordinate { right: 0; } .heroBottom { width: 100%; padding-block: 14px 20px; > span { display: none; } }
+  .marquee { padding: 12px 0; span { font-size: 9px; } b { font-size: 17px; margin-inline: 24px; } }
+  .foodHeading { display: block; > p { margin-top: 24px; padding-right: 20px; font-size: 11px; } } .tinyStar { top: 40px; right: 10px; font-size: 50px; } .foodShowcase { padding-bottom: 35px; }
+  .sectionTop { display: block; margin-bottom: 30px; > a { margin-top: 25px; } } .dishGrid { grid-template-columns: 1fr; gap: 35px; } .dishPhoto { aspect-ratio: 1.2; } .dishInfo h3 { font-size: 31px; } .dishInfo > p { min-height: auto; font-size: 11px; } .sampleNote { font-size: 8px; }
+  .ambience { min-height: 680px; } .ambienceContent { padding-block: 60px; h2 { font-size: 64px; } } .ambienceShade { background: linear-gradient(90deg, #17110bd9, #17110b66), linear-gradient(0deg, #17110bba, transparent); } .stats { gap: 0; justify-content: space-between; align-items: flex-start; padding-block: 25px; > div { flex-direction: column; gap: 12px; align-items: flex-start; strong { font-size: 42px; } span { font-size: 7px; max-width: 84px; } } } .statsNote { display: none; }
+  .storyGrid, .occasionGrid { grid-template-columns: 1fr; gap: 45px; } .storyVisual { height: 440px; margin-top: 5px; max-width: calc(100% - 16px); } .storyBadge { right: -22px; } .storyCopy > p { font-size: 12px; } .storyChapter p { font-size: 12px; } .occasionPhoto { height: 420px; } .accordion button { padding-block: 20px; }
+  .reviewGrid { grid-template-columns: 1fr; gap: 45px; } .reviewCard { min-height: 290px; padding: 34px 25px; blockquote { font-size: 29px; } } .quoteMark { top: -24px; font-size: 120px; }
+  .footer { padding-top: 55px; } .footerTop { gap: 36px 28px; } .footerTop > div:first-child { grid-column: 1/-1; } .footerTop h3 { margin-bottom: 17px; } .footerLinks { grid-column: 1; } .footerDetails { grid-column: 2; } .map { grid-column: 1/-1; min-height: 190px; } .footerBottom { flex-wrap: wrap; gap: 11px; font-size: 7px; > span:nth-child(2) { order: 3; width: 100%; } } .footerWordmark { padding-top: 20px; padding-bottom: 3px; }
+}

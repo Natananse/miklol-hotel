@@ -20,12 +20,12 @@ SOURCES = {
     "food/burger.jpg": "photo-1568901346375-23c9450c58cd",
     "food/dessert.jpg": "photo-1488477181946-6428a0291777",
     "food/croissant.jpg": "photo-1555507036-ab1f4038808a",
-    "food/donut.jpg": "photo-1551024506-0bccd828d307",
+    "food/donut.jpg": "photo-1516549445027-be9aebc57853",
     "food/cake.jpg": "photo-1578985545062-69928b1d9587",
     "food/avocado-toast.jpg": "photo-1525351484163-7529414344d8",
     "food/pancakes.jpg": "photo-1528207776546-365bb710ee93",
     "food/salmon.jpg": "photo-1467003909585-2f8a72700288",
-    "food/steak.jpg": "photo-1546833999-b9f581a1996d",
+    "food/steak.jpg": "photo-1761138785048-9dae4abb0a0c",
     "interior/ambience.jpg": "photo-1552566626-52f8b828add9",
     "interior/cafe.jpg": "photo-1554118811-1e0d58224f24",
     "interior/date.jpg": "photo-1414235077428-338989a2e8c0",
@@ -42,11 +42,16 @@ SOURCES = {
     "gallery/gallery-07.jpg": "photo-1504754524776-8f4f37790ca0",
     "gallery/gallery-08.jpg": "photo-1498654896293-37aacf113fd9",
 }
+PHOTO_PAGES = {
+    "coffee/matcha.jpg": "https://unsplash.com/photos/matcha-latte-in-glass-W4k6kSimSxY",
+    "food/donut.jpg": "https://unsplash.com/photos/macro-photography-of-chocolate-donuts-XjyH9_hXEyA",
+    "food/steak.jpg": "https://unsplash.com/photos/grilled-steak-served-in-a-cast-iron-pan-with-wine-r67OB1KaI4A",
+}
 
 
 def download(entry):
     filename, source = entry
-    page = "https://unsplash.com/photos/matcha-latte-in-glass-W4k6kSimSxY" if filename == "coffee/matcha.jpg" else ""
+    page = PHOTO_PAGES.get(filename, "")
     if source.startswith("https:"):
         page = source
         response = requests.get(source, timeout=40)
@@ -59,7 +64,7 @@ def download(entry):
         source_url = html.unescape(match.group(1)).split("?")[0]
     else:
         source_url = f"https://images.unsplash.com/{source}"
-    width = 1600 if filename in {"interior/ambience.jpg", "coffee/hero-coffee.jpg"} else 1100
+    width = 1400 if filename == "coffee/hero-coffee.jpg" else (1600 if filename == "interior/ambience.jpg" else 1100)
     url = f"{source_url}?auto=format&fit=crop&w={width}&q=82"
     response = requests.get(url, timeout=60)
     response.raise_for_status()
