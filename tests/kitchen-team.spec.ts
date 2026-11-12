@@ -75,7 +75,9 @@ test('kitchen section is accessible and honours reduced motion', async ({ page }
   const result = await new AxeBuilder({ page }).include('#kitchen-team').withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
   expect(result.violations).toEqual([]);
   await expect(page.locator('#kitchen-team-photos > figure').first()).toHaveCSS('opacity', '1');
-  await expect(page.locator('#kitchen-team-photos > figure').first()).toHaveCSS('transition-duration', '0s');
+  const duration = await page.locator('#kitchen-team-photos > figure').first().evaluate(element => parseFloat(getComputedStyle(element).transitionDuration));
+  // The existing global reduced-motion rule uses .01ms rather than exact zero.
+  expect(duration).toBeLessThanOrEqual(.001);
 });
 
 test('cards reveal only once as they enter view', async ({ browser }) => {
