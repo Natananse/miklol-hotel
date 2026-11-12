@@ -138,7 +138,7 @@ export function Header() {
   const reservationButton = (closeMenu = false) => <a className={styles.reserve} href="#reservation" onClick={() => { setHidden(false); if (closeMenu) setOpen(false); }}><CalendarDays size={18} aria-hidden="true" /><span>Reserve a table</span></a>;
 
   return <>
-    <div className={styles.announcement} data-announcement data-calm-surface><p>Espresso, breakfast, pasta, pizza. <a href="#menu">See the menu.</a></p></div>
+    <div className={styles.announcement} data-announcement data-calm-surface><p>Buna, injera, and café favourites. <a href="#menu">See the menu.</a></p></div>
     <div className={styles.headerBackdrop}>
       <header ref={header} className={`${styles.header} ${compact ? styles.compact : ''} ${hidden && !open ? styles.hidden : ''}`} data-calm-surface onFocusCapture={() => { focused.current = true; setHidden(false); }} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) focused.current = false; }}>
         <div className={`container ${styles.nav}`}>
@@ -195,7 +195,7 @@ export function SiteEffects({ showIntro = true }: { showIntro?: boolean }) {
       Promise.all([import('lenis'), import('gsap'), import('gsap/ScrollTrigger')]).then(([{ default: Lenis }, { gsap }, { ScrollTrigger }]) => {
         if (!active || request !== revision || nativeScroll.matches) return;
         gsap.registerPlugin(ScrollTrigger);
-        const lenis = new Lenis({ duration: 1.05, smoothWheel: true, anchors: { offset: -90 } });
+        const lenis = new Lenis({ duration: 1.05, smoothWheel: true, anchors: true });
         lenis.on('scroll', ScrollTrigger.update);
         let frame = 0;
         const raf = (time: number) => { lenis.raf(time); frame = requestAnimationFrame(raf); };
@@ -209,10 +209,7 @@ export function SiteEffects({ showIntro = true }: { showIntro?: boolean }) {
             const value = { number: 0 };
             gsap.to(value, { number: target, duration: 1.6, ease: 'power2.out', scrollTrigger: { trigger: element, start: 'top 95%', once: true }, onUpdate: () => { element.textContent = String(Math.round(value.number)).padStart(2, '0'); } });
           });
-          const mm = gsap.matchMedia();
-          mm.add('(min-width: 901px)', () => {
-            gsap.to('[data-story-image]', { y: 24, ease: 'none', scrollTrigger: { trigger: '#story', start: 'top 15%', end: 'bottom 80%', pin: '[data-story-image]', pinSpacing: false, scrub: 1 } });
-          });
+
         });
         cleanup = () => { cancelAnimationFrame(frame); lenis.destroy(); context.revert(); };
       }).catch(() => { /* Native scroll remains available if optional animation loading fails. */ });

@@ -2,9 +2,10 @@
 @use 'mixins' as *;
 @use 'animations';
 
-:root { color-scheme: dark; --color-espresso: #{$espresso}; --color-cream: #{$cream}; --color-orange: #{$orange}; }
+:root { color-scheme: dark; --color-espresso: #{$espresso}; --color-cream: #{$cream}; --color-orange: #{$orange}; --section-scroll-offset: 112px; }
 * { box-sizing: border-box; }
-html { scroll-padding-top: 90px; }
+html { scroll-padding-top: 0; }
+section, footer, main[id] { scroll-margin-top: var(--section-scroll-offset); }
 body { margin: 0; color: $cream; background: $espresso; font-family: $font-body; font-size: 14px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 body::after { content: ''; position: fixed; inset: 0; z-index: 80; pointer-events: none; opacity: .035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath filter='url(%23n)' opacity='.65' d='M0 0h180v180H0z'/%3E%3C/svg%3E"); }
 ::selection { background: $orange; color: $espresso; }
@@ -38,8 +39,8 @@ button svg, a svg { flex-shrink: 0; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
 
 @media (max-width: 600px) {
-  :root { --mobile-header-height: 64px; --mobile-bottom-height: calc(80px + env(safe-area-inset-bottom)); }
-  html { scroll-padding-top: var(--mobile-header-height); overflow-x: clip; }
+  :root { --mobile-header-height: 64px; --mobile-bottom-height: calc(80px + env(safe-area-inset-bottom)); --section-scroll-offset: 80px; }
+  html { overflow-x: clip; }
   body { font-size: 16px; line-height: 1.5; padding-bottom: var(--mobile-bottom-height); }
   body::after { display: none; }
   main, section, footer { min-width: 0; }
@@ -53,7 +54,6 @@ button svg, a svg { flex-shrink: 0; }
   .text-link { min-height: 48px; font-size: 16px; line-height: 1.5; gap: 10px; }
   .eyebrow { font-size: 13px; line-height: 1.5; letter-spacing: .1em; margin-bottom: 16px; }
   .section-heading { font-size: clamp(36px, 9.7vw, 44px); line-height: 1.08; }
-  [id] { scroll-margin-top: 0; }
 }
 
 @media (hover: none) and (pointer: coarse) {

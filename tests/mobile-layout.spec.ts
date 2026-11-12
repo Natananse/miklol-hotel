@@ -34,12 +34,12 @@ for (const [width, height] of [[360, 800], [390, 844], [430, 932], [768, 1024], 
       await page.getByRole('button', { name: 'Open menu', exact: true }).tap();
       await page.getByRole('button', { name: 'Close menu', exact: true }).tap();
       await page.locator('#visit').scrollIntoViewIfNeeded();
-      await expect(page.locator('#visit').getByRole('link', { name: '0921282925', exact: true })).toBeVisible();
+      await expect(page.locator('#visit').getByRole('link', { name: '+251 92 128 2925', exact: true })).toBeVisible();
       await expect(page.locator('#visit').getByRole('link', { name: 'erminati085@gmail.com', exact: true })).toHaveAttribute('href', 'mailto:erminati085@gmail.com');
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
     }
     await page.evaluate(() => window.scrollTo(0, 0));
-    await page.screenshot({ path: testInfo.outputPath(`${width}px.png`), fullPage: true });
+    await page.screenshot({ path: testInfo.outputPath(`${width}px.png`), fullPage: true, caret: 'initial' });
     expect(errors).toEqual([]);
     await context.close();
   });

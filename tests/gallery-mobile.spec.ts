@@ -49,7 +49,7 @@ test('390px gallery stays in two columns and opens an accessible fullscreen ligh
   }
   await expect(page.locator('[data-mobile-actions]')).toHaveJSProperty('hidden', true);
   const screenshot = testInfo.outputPath('gallery-390-fullscreen.png');
-  await page.screenshot({ path: screenshot });
+  await page.screenshot({ path: screenshot, caret: 'initial' });
   await testInfo.attach('gallery-390-fullscreen', { path: screenshot, contentType: 'image/png' });
   await page.keyboard.press('Escape');
   await expect(dialog).not.toBeVisible();
@@ -87,13 +87,16 @@ test('real touch swipes change photos and an inward two-finger pinch closes the 
   await cdp.detach();
 });
 
-test('a weak phone on a slow connection uses selectable photos without WebGL downloads', async ({ page }) => {
+for (const device of [
+  { name: 'a weak phone on a slow connection', cores: 2, memory: 2, effectiveType: '3g', downlink: .5 },
+  { name: 'a powerful phone on a fast connection', cores: 12, memory: 12, effectiveType: '4g', downlink: 20 },
+]) test(`${device.name} shows real local-food photos without 3D downloads`, async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
-  await page.addInitScript(() => {
-    Object.defineProperty(navigator, 'hardwareConcurrency', { configurable: true, value: 2 });
-    Object.defineProperty(navigator, 'deviceMemory', { configurable: true, value: 2 });
+  await page.addInitScript(profile => {
+    Object.defineProperty(navigator, 'hardwareConcurrency', { configurable: true, value: profile.cores });
+    Object.defineProperty(navigator, 'deviceMemory', { configurable: true, value: profile.memory });
     const connection = new EventTarget();
-    Object.assign(connection, { effectiveType: '3g', downlink: .5, saveData: false });
+    Object.assign(connection, { effectiveType: profile.effectiveType, downlink: profile.downlink, saveData: false });
     Object.defineProperty(navigator, 'connection', { configurable: true, value: connection });
     const observedWindow = window as Window & { __webglCalls?: number };
     observedWindow.__webglCalls = 0;
@@ -102,18 +105,29 @@ test('a weak phone on a slow connection uses selectable photos without WebGL dow
       if (String(args[0]).startsWith('webgl')) observedWindow.__webglCalls = (observedWindow.__webglCalls || 0) + 1;
       return original.apply(this, args);
     } as typeof original;
-  });
+  }, device);
   const canvasDownloads: string[] = [];
   page.on('request', request => { if (/CanvasScene|react-three|three_module/.test(request.url())) canvasDownloads.push(request.url()); });
-  await page.goto('/');
-  const food = page.locator('section[aria-labelledby="food-heading"]');
+  await page.goto('/', { waitUntil: 'networkidle' });
+  const food = page.locator('#signatures');
   await food.scrollIntoViewIfNeeded();
-  await expect(food.getByRole('button', { name: 'Pizza', exact: true })).toBeVisible();
-  await food.getByRole('button', { name: 'Pizza', exact: true }).tap();
-  await expect(food.getByRole('img')).toHaveAttribute('alt', 'Pizza with cheese, mushrooms, tomatoes, and herbs');
-  await expect(food.getByText('550 ETB', { exact: true })).toBeVisible();
+  await expect(food.getByRole('heading', { name: 'Pass the injera.', exact: true })).toBeVisible();
+  await expect(food.getByRole('heading', { name: 'Beef Tibs', exact: true })).toBeVisible();
+  await expect(food.getByText('680 ETB', { exact: true })).toBeVisible();
+  await expect(food.getByRole('heading', { name: 'Yetsom Beyaynetu', exact: true })).toHaveCount(1);
+  await expect(food.getByRole('heading', { name: 'Jebena Buna', exact: true })).toHaveCount(1);
+  await expect(food.getByRole('region', { name: /Signature dishes/ })).toHaveCSS('scroll-snap-type', 'x mandatory');
+  const photos = food.getByRole('img');
+  await expect(photos).toHaveCount(6);
+  for (const photo of await photos.all()) {
+    await expect(photo).toHaveAttribute('src', /\/_next\/image\?.*url=%2Fimages%2Fmenu%2F/);
+    await expect(photo).toHaveAttribute('sizes', /max-width: 600px/);
+    expect((await photo.getAttribute('alt'))?.length).toBeGreaterThan(12);
+  }
+  await expect.poll(() => photos.first().evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-  await expect(food.locator('canvas')).toHaveCount(0);
+  await expect(page.locator('canvas')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: /Five dishes|in 3D/ })).toHaveCount(0);
   expect(await page.evaluate(() => (window as Window & { __webglCalls?: number }).__webglCalls)).toBe(0);
   expect(canvasDownloads).toEqual([]);
 });

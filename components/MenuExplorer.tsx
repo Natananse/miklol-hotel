@@ -8,37 +8,25 @@ import { categories, formatPrice, menuItems, type MenuCategory } from '@/data/me
 import { useFavorites } from '@/hooks/useFavorites';
 import styles from './InteractiveSections.module.scss';
 
-const categoryImages: Record<MenuCategory, string> = {
-  Coffee: '/images/coffee/espresso.jpg', Breakfast: '/images/food/breakfast.jpg',
-  Pasta: '/images/food/pasta.jpg', Pizza: '/images/food/pizza.jpg',
-  Burgers: '/images/food/burger.jpg', Desserts: '/images/food/dessert.jpg',
-};
-
-const categoryAlt: Record<MenuCategory, string> = {
-  "Coffee": "Espresso in a black cup on a dark table",
-  "Breakfast": "Fried eggs and toast with mushrooms and greens",
-  "Pasta": "Pesto farfalle with cherry tomatoes and basil",
-  "Pizza": "Cheese and mushroom pizza on a wooden board",
-  "Burgers": "Beef cheeseburger with lettuce, onion, pickles, and sauce",
-  "Desserts": "Creamy desserts topped with strawberries in glass jars"
-};
-
 // Static optimized props avoid per-thumbnail image hooks and remain identical when filters change.
-const categoryPhotoProps = Object.fromEntries(categories.map(category => [category, getImageProps({
-  src: categoryImages[category], alt: categoryAlt[category], fill: true, loading: 'lazy',
-  sizes: '(max-width: 600px) 44vw, (max-width: 900px) 28vw, 190px',
-}).props])) as Record<MenuCategory, ReturnType<typeof getImageProps>['props']>;
+const categoryPhotoProps = Object.fromEntries(categories.map(category => {
+  const dish = menuItems.find(item => item.category === category)!;
+  return [category, getImageProps({
+    src: dish.image, alt: dish.imageAlt, fill: true, loading: 'lazy',
+    sizes: '(max-width: 600px) 44vw, (max-width: 900px) 28vw, 190px',
+  }).props];
+})) as Record<MenuCategory, ReturnType<typeof getImageProps>['props']>;
 const menuPhotoProps = Object.fromEntries(menuItems.map(item => [item.id, getImageProps({
   src: item.image, alt: item.imageAlt, fill: true, loading: 'lazy', sizes: '80px',
 }).props]));
 
 export default function MenuExplorer() {
   const [category, setCategory] = useState<MenuCategory | 'All'>('All');
-  const [vegetarian, setVegetarian] = useState(false);
+  const [diet, setDiet] = useState<'all' | 'vegetarian' | 'fasting'>('all');
   const tabs = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
   const { isFavorite, toggleFavorite } = useFavorites();
-  const items = useMemo(() => menuItems.filter((item) => (category === 'All' || item.category === category) && (!vegetarian || item.vegetarian)), [category, vegetarian]);
+  const items = useMemo(() => menuItems.filter(item => (category === 'All' || item.category === category) && (diet === 'all' || (diet === 'vegetarian' ? item.vegetarian : item.fasting))), [category, diet]);
 
   useEffect(() => {
     const row = tabs.current;
@@ -54,8 +42,8 @@ export default function MenuExplorer() {
     <section className={styles.menu} id="menu" aria-labelledby="menu-heading">
       <div className="container">
         <div className={styles.sectionTop}>
-          <div><p className="eyebrow">COFFEE, BREAKFAST & THE FULL MENU</p><h2 className="section-heading" id="menu-heading">What are you<br />hungry for?</h2></div>
-          <p className={styles.sectionIntro}>Start with eggs or pancakes. Stay for pesto pasta,<br />pizza, burgers, and chocolate cake.</p>
+          <div><p className="eyebrow">ETHIOPIAN FOOD, BREAKFAST & BUNA</p><h2 className="section-heading" id="menu-heading">What are you<br />hungry for?</h2></div>
+          <p className={styles.sectionIntro}>Tibs, shiro, and injera to share.<br />Pasta, pizza, and buna from the jebena.</p>
         </div>
         <div className={styles.categories} aria-label="Choose a menu category">
           {categories.map((item, index) => (
@@ -69,9 +57,9 @@ export default function MenuExplorer() {
           <div ref={tabs} className={styles.menuTabs} aria-label="Filter dishes by category">
             {(['All', ...categories] as const).map((item) => <button key={item} type="button" onClick={() => setCategory(item)} aria-pressed={category === item} className={category === item ? styles.activeTab : ''}>{item === 'All' ? 'Full menu' : item}</button>)}
           </div>
-          <label className={styles.dietFilter}><SlidersHorizontal size={15} aria-hidden="true" /><span className={styles.srOnly}>Filter by diet</span><select value={vegetarian ? 'vegetarian' : 'all'} onChange={(event) => setVegetarian(event.target.value === 'vegetarian')}><option value="all">All dishes</option><option value="vegetarian">Vegetarian</option></select></label>
+          <label className={styles.dietFilter}><SlidersHorizontal size={15} aria-hidden="true" /><span className={styles.srOnly}>Filter by diet</span><select value={diet} onChange={event => setDiet(event.target.value as typeof diet)}><option value="all">All dishes</option><option value="vegetarian">Vegetarian</option><option value="fasting">Fasting (plant-based)</option></select></label>
         </div>
-        <p className={styles.srOnly} role="status" aria-atomic="true">{items.length} {items.length === 1 ? 'dish' : 'dishes'} shown{vegetarian ? ', vegetarian only' : ''}.</p>
+        <p className={styles.srOnly} role="status" aria-atomic="true">{items.length} {items.length === 1 ? 'dish' : 'dishes'} shown{diet === 'all' ? '' : `, ${diet} only`}.</p>
         <div className={styles.menuList}>
             {items.map((item) => <article key={item.id} className={styles.menuItem}>
               <div className={styles.menuItemImage}><img {...menuPhotoProps[item.id]} /></div>

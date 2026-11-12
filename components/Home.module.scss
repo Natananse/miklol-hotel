@@ -2,31 +2,12 @@
 @use '@/styles/mixins' as *;
 
 .marquee { overflow: hidden; background: $orange; color: $espresso; padding: 14px 0; > div { display: flex; width: max-content; animation: marquee 32s linear infinite; } span { display: flex; align-items: center; font-size: 11px; letter-spacing: .13em; font-weight: 600; white-space: nowrap; } b { font-size: 20px; line-height: 1; margin: 0 42px; font-weight: 400; } }
-.foodShowcase { @include section; padding-bottom: 45px; background: radial-gradient(ellipse at 50% 70%, #55352455, transparent 60%), #251c16; }
-.foodHeading { display: flex; align-items: flex-end; gap: 50px; position: relative; > p { color: $muted; font-size: 12px; margin-left: auto; padding-right: 100px; padding-bottom: 10px; } }
-.tinyStar { position: absolute; right: 0; font-size: 60px; color: $orange; top: 30px; }
-.signatures { background: $cream; color: $ink; @include section; }
 .sectionTop { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 45px; > a { margin-bottom: 4px; } }
-.dishGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
-.dish { min-width: 0; &:hover img { transform: scale(1.045); } }
-.dishPhoto { position: relative; aspect-ratio: 1.18; overflow: hidden; border-radius: 3px; background: #c6b5a4; img { object-fit: cover; transition: transform .7s cubic-bezier(.2,.65,.3,1); } }
-.dishIndex { position: absolute; top: 17px; left: 17px; color: white; font-size: 9px; z-index: 1; text-shadow: 0 2px 8px #000; }
-.favorite { position: absolute; top: 13px; right: 13px; width: 34px; height: 34px; border: 0; border-radius: 50%; display: grid; place-items: center; background: $cream; color: $ink; transition: color .2s, background .2s; &:hover { background: $orange; } }
-.favorited { color: #b04622; }
-.dishInfo { padding: 23px 0 0; > span { font-size: 7px; letter-spacing: .17em; color: #8d6851; } h3 { font-family: $font-display; font-size: 29px; line-height: 1.15; margin-top: 7px; letter-spacing: -.025em; } > p { color: #7e7267; font-size: 10px; margin-top: 10px; } > div { display: flex; align-items: center; justify-content: space-between; margin-top: 19px; padding-top: 15px; border-top: 1px solid #2118131f; strong { font-weight: 500; font-size: 17px; small { font-size: 8px; margin-left: 3px; } } a { border: 1px solid #21181333; border-radius: 50%; width: 30px; height: 30px; display: grid; place-items: center; transition: background .2s; &:hover { background: $orange; border-color: $orange; } } } }
-.sampleNote { font-size: 9px; color: #7e7267; margin-top: 24px; }
 .ambience { position: relative; min-height: 710px; overflow: hidden; display: flex; justify-content: center; flex-direction: column; > img { object-fit: cover; } }
 .ambienceShade { position: absolute; inset: 0; background: linear-gradient(90deg, #17110be0 0%, #17110b80 45%, #17110b20 90%), linear-gradient(0deg, #17110bc9 0%, transparent 40%); }
 .ambienceContent { z-index: 1; padding-top: 70px; padding-bottom: 70px; h2 { font: 400 clamp(55px, 6.7vw, 90px)/.98 $font-display; letter-spacing: -.04em; em { color: #ef9c6a; } } > p { font-size: 12px; margin-top: 24px; color: #e2d6c7; } > a { margin-top: 29px; } }
 .stats { position: relative; z-index: 1; display: flex; align-items: center; gap: 65px; padding: 29px 0 35px; border-top: 1px solid #fff3; > div { display: flex; align-items: center; gap: 14px; strong { font: 400 47px/.9 $font-display; color: $orange; min-width: 42px; } span { font-size: 7px; letter-spacing: .13em; max-width: 70px; } } }
 .statsNote { font-family: $font-display; font-size: 22px; line-height: 1.1; font-style: italic; margin-left: auto; }
-.story { @include section; background: $cream; color: $ink; }
-.storyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
-.storyVisual { position: relative; height: 590px; margin-top: 20px; > img { object-fit: cover; border-radius: 3px; filter: saturate(.7); } }
-.storyPhotoLabel { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, #211813bb); padding: 50px 26px 23px; color: $cream; display: flex; justify-content: space-between; align-items: center; font-size: 8px; letter-spacing: .1em; }
-.storyBadge { position: absolute; top: -25px; right: -34px; width: 120px; height: 120px; background: $orange; color: $ink; border: 6px solid $cream; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; transform: rotate(8deg); span { font-size: 7px; letter-spacing: .1em; text-align: center; } em { font-family: $font-display; font-size: 18px; letter-spacing: 0; } }
-.storyCopy { padding-top: 0; > p { color: #7e7267; font-size: 12px; line-height: 1.9; max-width: 390px; margin-top: 26px; } > a { margin-top: 25px; } }
-.storyChapter { margin-top: 28px; border-top: 1px solid #21181324; padding-top: 21px; > span { font-size: 7px; letter-spacing: .18em; color: #956c51; } h3 { font: 500 29px/1.2 $font-display; margin-top: 8px; } p { font-size: 11px; color: #7e7267; margin-top: 10px; max-width: 370px; } }
 .occasions { @include section; background: #eae2d6; color: $ink; }
 .occasionGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
 .accordion { margin-top: 30px; > div { border-bottom: 1px solid #21181329; } button { display: flex; align-items: center; gap: 15px; padding: 17px 0; width: 100%; background: none; border: 0; color: $ink; text-align: left; > span { flex: 1; font-size: 12px; } > svg:first-child { color: #8b6b50; } } div > div { padding: 0 0 18px 31px; p { font-size: 11px; color: #7c7064; } a { display: inline-flex; align-items: center; gap: 15px; font-size: 9px; margin-top: 12px; color: #9c4c22; } } }

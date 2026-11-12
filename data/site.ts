@@ -3,7 +3,7 @@ export const site = {
   name: 'MIKLOL',
   tagline: 'Coffee, breakfast, lunch, and dinner.',
   email: 'erminati085@gmail.com',
-  phone: '0921282925',
+  phone: '+251 92 128 2925',
   phoneHref: 'tel:+251921282925',
   address: 'Bahir Dar, Kebele 14, around Nock',
   mapUrl: 'https://www.google.com/maps/search/?api=1&query=MIKLOL%20Bahir%20Dar%20Kebele%2014%20around%20Nock',

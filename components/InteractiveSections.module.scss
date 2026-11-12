@@ -1,6 +1,6 @@
 @use '../styles/variables' as *;
 
-.menu { padding: $space-section 0 $space-xl; background: $cream; color: $espresso; color-scheme: light; scroll-margin-top: 90px; }
+.menu { padding: $space-section 0 $space-xl; background: $cream; color: $espresso; color-scheme: light; scroll-margin-top: var(--section-scroll-offset); }
 .sectionTop { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
 .sectionIntro { max-width: 300px; padding-bottom: 5px; color: #675b4f; font-size: 16px; line-height: 1.5; }
 .categories { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; margin-bottom: 45px; }
@@ -51,7 +51,7 @@
   &:active { transform: scale(.94); background: #e9dfd1; }
 }
 .menuFavorited { color: #a6491b; background: #e9dfd1; border-color: #a6491b; }
-.gallery { padding: $space-section 0; background: $espresso; color: $cream; scroll-margin-top: 90px;
+.gallery { padding: $space-section 0; background: $espresso; color: $cream; scroll-margin-top: var(--section-scroll-offset);
   .sectionTop { margin-bottom: 35px; }
 }
 .galleryHint { display: flex; align-items: center; gap: 16px; padding-bottom: 8px; color: #c8bbae; font-size: 12px; }
@@ -87,7 +87,7 @@
   }
   > div { display: flex; gap: 8px; }
 }
-.reservation { position: relative; padding: $space-section 0; background: #2b221c; color: $cream; scroll-margin-top: 90px;
+.reservation { position: relative; padding: $space-section 0; background: #2b221c; color: $cream; scroll-margin-top: var(--section-scroll-offset);
   &::before { content: ''; position: absolute; left: 50%; top: 0; height: 1px; width: calc(100% - 100px); transform: translateX(-50%); background: #514034; }
 }
 .reservationLayout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(35px, 6vw, 100px); align-items: center; }
@@ -218,7 +218,7 @@
 
 // Phone menus prioritize the dishes. Large category photography stays on wider screens.
 @media (max-width: 600px) {
-  .menu { padding-top: 48px; scroll-margin-top: 0; }
+  .menu { padding-top: 48px; scroll-margin-top: var(--section-scroll-offset); }
   .menu .sectionTop { gap: 20px; margin-bottom: 24px; }
   .sectionIntro { font-size: 16px; line-height: 1.5; }
   .categories { display: none; }
@@ -279,7 +279,7 @@
   .emptyState { padding: 24px 0; font-size: 16px; line-height: 1.5; }
   .menuItem:hover .menuItemImage img { transform: none; }
 
-  .reservation { padding-block: 48px; scroll-margin-top: 0; }
+  .reservation { padding-block: 48px; scroll-margin-top: var(--section-scroll-offset); }
   .reservationLayout { gap: 28px; }
   .reservationCopy > p:not(:first-child) { font-size: 16px; line-height: 1.5; }
   .reservationDetail { gap: 16px; align-items: center;

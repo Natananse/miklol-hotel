@@ -48,7 +48,7 @@ test('64px header remains reachable and opens a full-screen contact menu', async
     expect(await link.evaluate(element => parseFloat(getComputedStyle(element).fontSize))).toBeGreaterThanOrEqual(24);
   }
   await expect(dialog.getByRole('link', { name: 'Reserve a table' })).toBeVisible();
-  await expect(dialog.locator('a[href="tel:+251921282925"]')).toHaveText('0921282925');
+  await expect(dialog.locator('a[href="tel:+251921282925"]')).toHaveText('+251 92 128 2925');
   await expect(dialog.getByText('Bahir Dar, Kebele 14, around Nock')).toBeVisible();
   await expect(dialog.getByText(/Proposed hours.*08:00.*22:00/)).toBeInViewport();
   expect(await page.locator('main').evaluate(element => (element as HTMLElement).inert)).toBe(true);
@@ -75,7 +75,7 @@ test('bottom actions are large, directly connected, and hide at the reservation 
   for (let index = 1; index < boxes.length; index++) {
     expect(boxes[index]!.x - boxes[index - 1]!.x - boxes[index - 1]!.width).toBeGreaterThanOrEqual(7.9);
   }
-  await expect(bar.getByRole('link', { name: 'Call MIKLOL on 0921282925' })).toHaveAttribute('href', 'tel:+251921282925');
+  await expect(bar.getByRole('link', { name: 'Call MIKLOL on +251 92 128 2925' })).toHaveAttribute('href', 'tel:+251921282925');
   await expect(bar.getByRole('link', { name: 'Open MIKLOL directions in Google Maps' })).toHaveAttribute('href', /https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=MIKLOL%20Bahir%20Dar%20Kebele%2014%20around%20Nock/);
   expect(await bar.evaluate(element => parseFloat(getComputedStyle(element).paddingBottom))).toBeGreaterThanOrEqual(8);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

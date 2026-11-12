@@ -22,7 +22,7 @@ test('phone menu tabs stay reachable and filter the compact menu without page ov
   const tabs = page.locator('[aria-label="Filter dishes by category"]');
   await page.getByRole('navigation', { name: 'Quick actions' }).getByRole('link', { name: 'Menu', exact: true }).click();
   await expect(page).toHaveURL(/#menu$/);
-  await expect(menu.locator('article')).toHaveCount(12);
+  await expect(menu.locator('article')).toHaveCount(13);
   await expect.poll(() => tabs.evaluate(element => element.scrollWidth > element.clientWidth)).toBe(true);
   await page.evaluate(() => window.scrollBy(0, 500));
   await expect.poll(() => tabs.evaluate(element => Math.round(element.getBoundingClientRect().top))).toBe(64);
@@ -30,13 +30,18 @@ test('phone menu tabs stay reachable and filter the compact menu without page ov
   await tabs.getByRole('button', { name: 'Desserts', exact: true }).click();
   await expect(tabs.getByRole('button', { name: 'Desserts', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await expect(menu.locator('article')).toHaveCount(2);
-  await expect(menu.getByRole('heading', { name: 'Chocolate After Hours', exact: true })).toBeVisible();
+  await expect(menu.getByRole('heading', { name: 'Chocolate Cake', exact: true })).toBeVisible();
   await expect.poll(() => tabs.evaluate(element => element.scrollLeft)).toBeGreaterThan(0);
-  await tabs.getByRole('button', { name: 'Burgers', exact: true }).click();
-  await menu.getByRole('combobox', { name: 'Filter by diet' }).selectOption('vegetarian');
-  await expect(menu.locator('article')).toHaveCount(1);
-  await expect(menu.getByRole('heading', { name: 'The Garden Burger', exact: true })).toBeVisible();
-  await expect(menu.getByRole('heading', { name: 'The MIKLOL Burger', exact: true })).toHaveCount(0);
+  await tabs.getByRole('button', { name: 'Ethiopian', exact: true }).click();
+  await menu.getByRole('combobox', { name: 'Filter by diet' }).selectOption('fasting');
+  await expect(menu.locator('article')).toHaveCount(2);
+  await expect(menu.getByRole('heading', { name: 'Yetsom Beyaynetu', exact: true })).toBeVisible();
+  await expect(menu.getByRole('heading', { name: 'Shiro', exact: true })).toBeVisible();
+  await expect(menu.getByRole('heading', { name: 'Beef Tibs', exact: true })).toHaveCount(0);
+  // Vegetarian cheese dishes are not fasting dishes: the combined filters must exclude them.
+  await tabs.getByRole('button', { name: 'Pasta & Pizza', exact: true }).click();
+  await expect(menu.locator('article')).toHaveCount(0);
+  await expect(menu.getByText('No dishes match. Choose another category.', { exact: true })).toBeVisible();
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 
