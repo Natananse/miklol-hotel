@@ -1,0 +1,6 @@
+@use 'variables' as *;
+@mixin mobile { @media (max-width: $breakpoint-sm) { @content; } }
+@mixin tablet { @media (max-width: $breakpoint-md) { @content; } }
+@mixin section { padding-block: $space-section; }
+@mixin glass { background: rgba(244, 238, 228, .045); border: 1px solid rgba(244, 238, 228, .12); backdrop-filter: blur(12px); }
+@mixin focus-ring { outline: 2px solid $orange; outline-offset: 5px; }
