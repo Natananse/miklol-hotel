@@ -1,5 +1,6 @@
-import Image from 'next/image';
+import { getImageProps } from 'next/image';
 import { heroImages } from '@/data/hero-images';
+import { mobilePastaSrc } from '@/data/hero-mobile';
 import { categories } from '@/data/menu';
 import styles from './Hero.module.scss';
 
@@ -8,6 +9,19 @@ const tablePhotos = [
   { image: heroImages.salmon, label: 'Salmon' },
   { image: heroImages.dessert, label: 'Cake' },
 ];
+
+// Next's server utility supplies optimized responsive URLs without client image hooks.
+// A static image cannot dismiss a blur placeholder, so the SCSS frame is the placeholder.
+function photoProps(image: { src: string; alt: string }, sizes: string, critical = false) {
+  return getImageProps({
+    src: image.src,
+    alt: image.alt,
+    fill: true,
+    sizes,
+    loading: critical ? 'eager' : 'lazy',
+    fetchPriority: critical ? 'high' : undefined,
+  }).props;
+}
 
 export default function Hero() {
   return (
@@ -30,17 +44,20 @@ export default function Hero() {
 
         <div className={styles.collage} aria-label="Pasta, pizza, coffee, and cafe seating">
           <figure className={`${styles.photo} ${styles.mainPhoto}`}>
-            <Image {...heroImages.pasta} fill preload sizes="(max-width: 600px) 53vw, (max-width: 850px) 70vw, (max-width: 1200px) 40vw, 510px" placeholder="blur" />
+            <picture>
+              <source media="(max-width: 600px)" type="image/avif" srcSet={mobilePastaSrc} />
+              <img {...photoProps(heroImages.pasta, '(max-width: 600px) 53vw, (max-width: 850px) 70vw, (max-width: 1200px) 40vw, 510px', true)} />
+            </picture>
           </figure>
           <figure className={`${styles.photo} ${styles.pizzaPhoto}`}>
-            <Image {...heroImages.pizza} fill sizes="(max-width: 850px) 28vw, (max-width: 1200px) 16vw, 200px" placeholder="blur" />
+            <img {...photoProps(heroImages.pizza, '(max-width: 850px) 28vw, (max-width: 1200px) 16vw, 200px')} />
           </figure>
           <figure className={`${styles.photo} ${styles.coffeePhoto}`}>
-            <Image {...heroImages.coffee} fill sizes="(max-width: 850px) 25vw, (max-width: 1200px) 14vw, 180px" placeholder="blur" />
+            <img {...photoProps(heroImages.coffee, '(max-width: 850px) 25vw, (max-width: 1200px) 14vw, 180px')} />
           </figure>
           <figure className={styles.interior}>
             <div className={`${styles.photo} ${styles.interiorPhoto}`}>
-              <Image {...heroImages.interior} fill sizes="(max-width: 600px) 35vw, (max-width: 850px) 65vw, (max-width: 1200px) 35vw, 450px" placeholder="blur" />
+              <img {...photoProps(heroImages.interior, '(max-width: 600px) 35vw, (max-width: 850px) 65vw, (max-width: 1200px) 35vw, 450px')} />
             </div>
             <figcaption>Daylight, plants, and woven chairs.</figcaption>
           </figure>
@@ -50,7 +67,7 @@ export default function Hero() {
           {tablePhotos.map(({ image, label }) => (
             <figure className={styles.tablePhoto} key={image.src}>
               <div className={styles.thumbnail}>
-                <Image {...image} fill sizes="(max-width: 600px) 28vw, 72px" placeholder="blur" />
+                <img {...photoProps(image, '(max-width: 600px) 28vw, 72px')} />
               </div>
               <figcaption>{label}</figcaption>
             </figure>

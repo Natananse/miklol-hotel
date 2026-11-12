@@ -1,0 +1,7 @@
+.page { min-width: 0; }
+
+@media (min-width: 601px) and (prefers-reduced-motion: no-preference) {
+  .page { animation: page-enter .3s ease-out; }
+}
+
+@keyframes page-enter { from { opacity: .8; } to { opacity: 1; } }

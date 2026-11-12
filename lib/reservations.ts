@@ -26,6 +26,6 @@ export function validateReservation(fields: ReservationFields, now = addisNow())
   else if (fields.date === now.date && fields.time <= now.time) errors.time = 'That time has passed. Choose a later time or another date.';
   if (!/^[1-8]$/.test(fields.guests)) errors.guests = 'Choose between 1 and 8 guests.';
   if (fields.name.trim().length < 2) errors.name = 'Please enter your name (at least 2 characters).';
-  if (!validPhone(fields.phone)) errors.phone = 'Enter a valid phone number, such as 0921282925 or +251921282925.';
+  if (!validPhone(fields.phone)) errors.phone = 'Use a valid 09… or 07… number, or include a country code.';
   return errors;
 }

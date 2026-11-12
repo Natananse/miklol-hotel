@@ -1,0 +1,35 @@
+MIKLOL GRAPHIC LOGO — V1
+
+Created with the built-in image_gen tool.
+
+Files:
+- miklol-graphic-logo-v1.png: transparent PNG logo for banners, menus and social graphics.
+- miklol-banner-v1.png: cream banner with owner phone and address.
+
+Palette: terracotta #A44B36, charcoal #252923, warm cream #FAF6F0.
+Concept: expressive rounded MIKLOL lettering; the O combines a coffee cup, dinner plate and fork.
+These are raster PNG assets. The existing website wordmark has not been replaced.
+
+FINAL LOGO PROMPT
+
+Use case: logo-brand
+Asset type: original graphic logo for MIKLOL Cafe & Restaurant, suitable for a large outdoor banner, social graphics, menus and stickers.
+Primary request: Create one striking, professionally art-directed, playful premium restaurant wordmark. The personality comes from confident bespoke lettering, with an expressive sculptural silhouette and superb readability. Make it feel like an independent restaurant with a memorable identity.
+Composition: Wide horizontal lockup, centered, generous clear transparent margin on all sides. The huge word MIKLOL dominates. Beneath it, a smaller but clearly legible single line CAFE & RESTAURANT. One unified logo, not a brand board, not a mockup.
+Typography: Hand-drawn custom chunky rounded display lettering, exceptionally bold, tightly composed but each letter clearly separated, subtly bouncing curves and interesting sculpted counters. MIKLOL spelled M-I-K-L-O-L, six letters, no other letters. Use restrained flat offset charcoal depth and a clean warm cream keyline to give the main terracotta lettering powerful graphic impact. Solid ink shapes, precise smooth edges, vector-like graphic quality. No photographic 3D.
+Distinctive detail: Integrate a top-down coffee cup nested inside a dinner plate as the O, with a small clear cup handle and a simple fork detail aligned at the plate's edge. The O must still read unmistakably as the O in MIKLOL. The rest of the letters are typographic, not pictograms. Food and coffee in one intelligent detail.
+Palette: Only terracotta #A44B36, charcoal #252923 and warm cream #FAF6F0. Transparent background.
+Text verbatim: "MIKLOL" and "CAFE & RESTAURANT". No other text.
+Constraints: Actual transparent alpha background; no paper background, no rectangle around artwork. Strong balanced silhouette, clean enough to reproduce at small size. Do not use generic clip art, mascots, sparkles, stars, coffee beans, loose floating decorations, gradients, glows, photorealism, texture damage, watermarks or slogans. All lettering and the cup/plate detail fully visible with ample breathing room.
+
+FINAL BANNER PROMPT
+
+Use case: compositing
+Asset type: wide horizontal restaurant banner for MIKLOL.
+Input image 1: the finalized MIKLOL transparent logo, which is the identity to preserve.
+Primary request: Put this exact logo into a finished clean wide horizontal banner. Preserve the logo's MIKLOL spelling, distinctive chunky letter shapes, terracotta/cream/charcoal colors, cup-and-plate O, outlines, shadow, and CAFE & RESTAURANT tagline. Do not redesign the logo.
+Composition: Landscape approximately 3:1 banner, ample breathing room, warm cream #FAF6F0 solid background, original logo large and centered in the upper main field with generous margins. Bottom of the banner a neat full-width terracotta #A44B36 band occupying about 15 percent of the height. On this band use simple high-contrast cream sans-serif type: the address on the left half and the phone number on the right half, balanced with generous padding. No contact icons necessary. The logo and these useful business details should be the entire design.
+Text in the original logo: "MIKLOL", "CAFE & RESTAURANT".
+Bottom band text verbatim: "Bahir Dar, Kebele 14, around Nock" and "092 128 2925".
+Style: confident restaurant identity, bold graphic design, precise lettering, clean smooth reproduction. No scenery, no food photos, no photographic mockup, no paper folds, no extra ornaments, no stars or sparkles, no other text. All elements fully visible within safe margins.
+

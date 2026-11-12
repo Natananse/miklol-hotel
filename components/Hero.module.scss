@@ -272,3 +272,29 @@
   .photo img, .thumbnail img, .primary, .secondary { transition: none; }
   .photo:hover img, .tablePhoto:hover img { transform: none; }
 }
+
+@media (max-width: 600px) {
+  .hero { overflow: clip; }
+  .inner { grid-template-areas: 'copy' 'collage'; gap: 16px; padding-block: 20px 24px; }
+  .eyebrow { font-size: 12px; line-height: 1.5; letter-spacing: .09em; margin-bottom: 8px; }
+  .copy h1 { font-size: clamp(36px, 10.4vw, 44px); line-height: 1.02; }
+  .intro { font-size: 16px; line-height: 1.5; margin-top: 12px; max-width: 100%; }
+  .actions { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 16px; }
+  .primary, .secondary { width: 100%; min-height: 48px; padding: 11px 16px; font-size: 16px; line-height: 1.5; }
+  .trustPoints, .tablePhotos, .pizzaPhoto, .coffeePhoto { display: none; }
+  .collage { display: grid; grid-template-columns: 1.5fr 1fr; gap: 8px; aspect-ratio: auto; height: clamp(110px, 20svh, 175px); }
+  .mainPhoto, .interior { position: relative; inset: auto; width: auto; height: 100%; }
+  .mainPhoto { border-radius: 12px; }
+  .interiorPhoto { border: 0; border-radius: 12px; }
+  .interior figcaption { display: none; }
+  .photo { animation: none; }
+  .photo img { transition: none; }
+  .primary:active, .secondary:active { transform: scale(.98); }
+}
+
+@media (max-width: 600px) and (max-height: 700px) {
+  .inner { padding-block: 14px 18px; gap: 12px; }
+  .eyebrow { display: none; }
+  .copy h1 { font-size: 36px; }
+  .collage { height: 96px; }
+}

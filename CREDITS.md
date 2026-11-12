@@ -55,3 +55,9 @@ The light hero uses these locally optimized derivatives of the credited Unsplash
 | `public/images/hero/dessert.jpg` | Optimized derivative of `public/images/food/cake.jpg` | [Unsplash source](https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1100&q=82) |
 | `public/images/hero/coffee.jpg` | Optimized derivative of `public/images/coffee/hero-coffee.jpg` | [Unsplash source](https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=82) |
 | `public/images/hero/interior.jpg` | Optimized derivative of `public/images/interior/cafe.jpg` | [Unsplash source](https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1100&q=82) |
+
+### Phone first-screen pasta image
+
+`public/images/hero/pasta-mobile.avif` is a 480 × 320 AVIF derivative of the same credited pasta photograph, encoded at quality 50. Its pixels and crop come from `public/images/hero/pasta.jpg`; the original files are unchanged. A base64 copy in `data/hero-mobile.ts` is embedded by the server-rendered hero only for AVIF-capable phone viewports, avoiding an extra first-screen image request. Desktop and unsupported browsers retain the responsive Next.js-optimized original.
+
+Source: [Unsplash pasta photograph](https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1100&q=82), under the same Unsplash License documented above.

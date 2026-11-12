@@ -6,7 +6,7 @@
 .mobileLightbox button:active { background: #4d3524; }
 
 @media (max-width: 600px) {
-  .gallery.gallery { scroll-margin-top: var(--mobile-header-height, 64px); }
+  .gallery.gallery { scroll-margin-top: 0; }
   .gallery :global(.eyebrow) { font-size: 14px; line-height: 1.5; }
   .gallery :global(.section-heading) { line-height: 1.1; }
   .hint.hint { font-size: 16px; line-height: 1.5; }

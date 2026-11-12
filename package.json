@@ -6,7 +6,9 @@
     "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start --hostname 0.0.0.0",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "assets:hero": "node scripts/optimize-hero.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -22,11 +24,13 @@
     "three": "^0.181.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@playwright/test": "^1.65.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@types/three": "^0.181.0",
+    "lighthouse": "^13.6.0",
     "typescript": "^5.9.3"
   }
 }

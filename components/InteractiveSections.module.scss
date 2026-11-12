@@ -2,7 +2,7 @@
 
 .menu { padding: $space-section 0 $space-xl; background: $cream; color: $espresso; color-scheme: light; scroll-margin-top: 90px; }
 .sectionTop { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
-.sectionIntro { max-width: 300px; padding-bottom: 5px; color: #796d60; font-size: 14px; line-height: 1.8; }
+.sectionIntro { max-width: 300px; padding-bottom: 5px; color: #675b4f; font-size: 16px; line-height: 1.5; }
 .categories { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; margin-bottom: 45px; }
 .category { display: block; padding: 0; background: transparent; text-align: left; color: $espresso; border: 0; border-radius: 6px; cursor: pointer; }
 .categoryImage { position: relative; width: 100%; aspect-ratio: .92; overflow: hidden; border-radius: 4px; background: #d9c8b5;
@@ -11,19 +11,19 @@
 }
 .category:hover .categoryImage img { transform: scale(1.07); }
 .categoryNumber { position: absolute; z-index: 1; top: 12px; left: 13px; color: white; font-size: 10px; letter-spacing: .1em; }
-.categoryLabel { display: flex; justify-content: space-between; align-items: center; padding: 16px 1px; border-bottom: 1px solid #d6cbbb; font-size: 15px; transition: color .2s, border-color .2s; }
+.categoryLabel { display: flex; justify-content: space-between; align-items: center; padding: 16px 1px; border-bottom: 1px solid #d6cbbb; font-size: 16px; transition: color .2s, border-color .2s; }
 .categoryActive .categoryLabel { color: #a6491b; border-bottom-color: $orange; }
 .category:focus-visible { outline: 2px solid #9a451d; outline-offset: 5px; }
 .menuToolbar { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 16px 0 23px; border-bottom: 1px solid #d6cbbb; }
 .menuTabs { display: flex; gap: 6px; flex-wrap: wrap;
-  button { padding: 10px 13px; background: transparent; border: 0; border-radius: 100px; color: #75685b; font-size: 12px; cursor: pointer; transition: background .2s, color .2s; white-space: nowrap;
+  button { min-height: 48px; padding: 10px 13px; background: transparent; border: 0; border-radius: 100px; color: #675b4f; font-size: 16px; cursor: pointer; transition: background .2s, color .2s; white-space: nowrap;
     &:hover { color: $espresso; background: #e9dfd1; }
     &:focus-visible { outline: 2px solid $orange; outline-offset: 3px; }
     &.activeTab { color: $cream; background: $espresso; }
   }
 }
 .dietFilter { display: flex; align-items: center; gap: 8px; flex-shrink: 0; color: #675b4f;
-  select { min-height: 44px; border: 0; background: transparent; font: inherit; font-size: 11px; color: inherit; cursor: pointer; }
+  select { min-height: 48px; border: 0; background: transparent; font: inherit; font-size: 16px; color: inherit; cursor: pointer; }
 }
 .menuList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; margin-top: 12px; }
 .menuItem { display: flex; align-items: center; gap: 17px; min-height: 120px; padding: 22px 0; border-bottom: 1px solid #dfd5c7; }
@@ -32,17 +32,17 @@
 }
 .menuItem:hover .menuItemImage img { transform: scale(1.12); }
 .menuItemCopy { flex: 1; min-width: 0;
-  p { margin: 5px 0 0; max-width: 310px; color: #796d60; font-size: 11px; line-height: 1.75; }
+  p { margin: 5px 0 0; max-width: 310px; color: #675b4f; font-size: 16px; line-height: 1.5; }
 }
 .menuItemHeading { display: flex; align-items: center; gap: 8px;
-  h3 { margin: 0; font-size: 15px; font-weight: 500; line-height: 1.4; }
+  h3 { margin: 0; font-size: 16px; font-weight: 500; line-height: 1.5; }
   svg { color: #617045; flex-shrink: 0; }
 }
-.price { align-self: flex-start; padding-top: 3px; white-space: nowrap; font-size: 13px; font-weight: 600; }
+.price { align-self: flex-start; padding-top: 3px; white-space: nowrap; font-size: 16px; font-weight: 600; }
 .itemNote { display: inline-block; margin-top: 7px; color: #a94c1d; font-size: 8px; letter-spacing: .1em; }
 .menuFootnote { display: flex; gap: 20px; justify-content: space-between; padding-top: 27px; color: #796d60;
   > span { font-size: 9px; letter-spacing: .11em; }
-  p { margin: 0; font-size: 10px; }
+  p { margin: 0; font-size: 16px; line-height: 1.5; }
 }
 .emptyState { grid-column: 1 / -1; padding: 30px; text-align: center; }
 .menuItemMeta { display: flex; align-items: center; gap: 8px; align-self: flex-start; flex-shrink: 0; }
@@ -92,11 +92,11 @@
 }
 .reservationLayout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(35px, 6vw, 100px); align-items: center; }
 .reservationCopy {
-  > p:not(:first-child) { margin-top: 24px; color: #bcae9f; font-size: 13px; line-height: 1.9; }
+  > p:not(:first-child) { margin-top: 24px; color: #bcae9f; font-size: 16px; line-height: 1.5; }
   h2 { font-size: clamp(42px, 5.3vw, 76px); }
 }
 .reservationDetail { display: flex; gap: 18px; align-items: center; margin-top: 45px;
-  > div > span { font-size: 8px; letter-spacing: .11em; color: $orange; }
+  > div > span { font-size: 14px; letter-spacing: .06em; color: $orange; }
   p { font-family: $font-display; font-size: 23px; margin: 8px 0 0; }
 }
 .reservationPhoto { position: relative; height: 75px; width: 75px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
@@ -105,36 +105,36 @@
 .reservationPanel { background: rgba(244, 238, 228, .035); border: 1px solid #574336; padding: clamp(25px, 3vw, 40px); border-radius: 7px; backdrop-filter: blur(14px); }
 .formHeading { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 30px;
   h3 { font-family: $font-display; font-size: 28px; font-weight: 400; margin: 0; }
-  > span { color: #ac9787; font-size: 8px; letter-spacing: .1em; white-space: nowrap; }
+  > span { color: #c8bbae; font-size: 14px; letter-spacing: .06em; white-space: nowrap; }
 }
 .formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 21px 17px; }
 .formField { min-width: 0;
-  label { display: block; margin-bottom: 10px; color: #c8bbae; font-size: 11px;
-    small { font-size: 8px; color: #ab9b8b; }
+  label { display: block; margin-bottom: 8px; color: $cream; font-size: 16px; line-height: 1.5;
+    small { font-size: 14px; color: #c8bbae; }
   }
-  input, select { display: block; width: 100%; min-width: 0; height: 48px; padding: 0 13px; border: 1px solid #624e3d; border-radius: 3px; background: #30251e; color: $cream; font-family: inherit; font-size: 11px; color-scheme: dark;
-    &::placeholder { color: #ae9c8b; }
+  input, select { display: block; width: 100%; min-width: 0; height: 52px; min-height: 52px; padding: 0 13px; border: 1px solid rgba($cream, .52); border-radius: 3px; background: #30251e; color: $cream; font-family: inherit; font-size: 16px; line-height: 1.5; color-scheme: dark;
+    &::placeholder { color: #c8bbae; }
     &:focus { outline: 1px solid $orange; border-color: $orange; }
     &[aria-invalid='true'] { border-color: #f1a68e; }
   }
   select { cursor: pointer; }
 }
 .inputIcon { position: relative;
-  > svg { pointer-events: none; position: absolute; left: 13px; top: 16px; color: #bca58e; }
+  > svg { pointer-events: none; position: absolute; left: 13px; top: 17px; color: #bca58e; }
   input, select { padding-left: 38px; }
 }
 .guestField { grid-column: 1 / -1; }
-.fieldError { display: block; margin-top: 7px; color: #ffc2a9; font-size: 10px; line-height: 1.5; }
+.fieldError { display: block; margin-top: 7px; color: #ffc2a9; font-size: 16px; line-height: 1.5; }
 .submitButton { display: flex; justify-content: space-between; width: 100%; margin-top: 26px; min-height: 52px; }
-.formDisclaimer { margin: 14px 0 0; color: #baa997; text-align: center; font-size: 9px; }
+.formDisclaimer { margin: 14px 0 0; color: #baa997; text-align: center; font-size: 16px; line-height: 1.5; }
 .success { text-align: center; padding: 20px 2px;
   &:focus { outline: 0; }
-  > p { color: #c8bbae; font-size: 13px; line-height: 1.8; }
+  > p { color: #c8bbae; font-size: 16px; line-height: 1.5; }
   h3 { font-family: $font-display; margin: 18px 0; font-size: 58px; line-height: 1.05; font-weight: 400;
     em { color: $orange; font-weight: 400; }
   }
   button { margin-top: 20px; }
-  .previewNotice { padding: 15px; border: 1px solid #614b3b; font-size: 11px; }
+  .previewNotice { padding: 15px; border: 1px solid #614b3b; font-size: 16px; }
 }
 .successIcon { display: inline-grid; place-items: center; height: 65px; width: 65px; border-radius: 50%; border: 1px solid $orange; color: $orange; margin-bottom: 20px; }
 .successActions { display: flex; flex-direction: column; gap: 12px; margin-top: 24px;
@@ -157,9 +157,9 @@
   .categoryImage { aspect-ratio: 1.2; }
   .menuItem { gap: 11px; }
   .menuItemImage { width: 50px; height: 50px; }
-  .menuItemHeading h3 { font-size: 13px; }
-  .price { font-size: 11px; }
-  .menuItemCopy p { font-size: 10px; }
+  .menuItemHeading h3 { font-size: 16px; }
+  .price { font-size: 16px; }
+  .menuItemCopy p { font-size: 16px; }
   .menuTabs { gap: 3px;
     button { padding: 10px 12px; }
   }
@@ -323,4 +323,8 @@
   .category:hover .categoryImage img, .menuItem:hover .menuItemImage img { transform: none; }
   .category:active .categoryImage img { transform: scale(.98); }
   .menuFavorite:active { background: #dfd5c7; }
+}
+
+@media (max-width: 600px) {
+  .menuFootnote { color: $espresso; }
 }

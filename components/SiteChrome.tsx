@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
 import { createPortal } from 'react-dom';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, m as motion } from 'framer-motion';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { CalendarDays, Facebook, Instagram, MapPin, Menu, Phone, X } from 'lucide-react';
 import { site } from '@/data/site';
 import BrandWordmark from './BrandWordmark';
@@ -141,7 +142,7 @@ export function Header() {
     <div className={styles.headerBackdrop}>
       <header ref={header} className={`${styles.header} ${compact ? styles.compact : ''} ${hidden && !open ? styles.hidden : ''}`} data-calm-surface onFocusCapture={() => { focused.current = true; setHidden(false); }} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) focused.current = false; }}>
         <div className={`container ${styles.nav}`}>
-          <a className={styles.logo} href="#top" onClick={goToTop} aria-label="MIKLOL — back to top"><BrandWordmark /></a>
+          <a className={styles.logo} href="#top" onClick={goToTop} aria-label="MIKLOL Cafe & Restaurant — back to top"><BrandWordmark /></a>
           <nav className={styles.desktopNav} aria-label="Main navigation">{links.map((link) => <a key={link.href} href={link.href} className={active === link.href.slice(1) ? styles.activeLink : ''} aria-current={active === link.href.slice(1) ? 'location' : undefined} onClick={() => setActive(link.href.slice(1))}>{link.label}</a>)}</nav>
           <div className={styles.headerActions}>{site.phone ? <a className={styles.openingStatus} href={site.phoneHref}>{status}</a> : <span className={styles.openingStatus}>{status}</span>}{reservationButton()}</div>
           <button ref={menuButton} className={styles.menuButton} onClick={() => setOpen(true)} aria-expanded={open} aria-controls="mobile-navigation" aria-label="Open menu"><Menu size={24} /></button>
@@ -149,7 +150,7 @@ export function Header() {
       </header>
     </div>
     {mounted && createPortal(<AnimatePresence>{open && <motion.div ref={panel} id="mobile-navigation" role="dialog" aria-modal="true" aria-label="MIKLOL navigation" className={styles.mobileNav} data-lenis-prevent data-calm-surface initial={reduced ? false : { opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: reduced ? 0 : -10 }} transition={{ duration: reduced ? 0 : .28 }}>
-      <div className={`container ${styles.mobileMasthead}`}><a className={styles.logo} href="#top" onClick={goToTop} aria-label="MIKLOL — back to top"><BrandWordmark /></a><button type="button" className={styles.closeMenu} onClick={() => setOpen(false)} aria-label="Close menu"><X size={25} /></button></div>
+      <div className={`container ${styles.mobileMasthead}`}><a className={styles.logo} href="#top" onClick={goToTop} aria-label="MIKLOL Cafe & Restaurant — back to top"><BrandWordmark /></a><button type="button" className={styles.closeMenu} onClick={() => setOpen(false)} aria-label="Close menu"><X size={25} /></button></div>
       <div className={`container ${styles.mobileContents}`}>
         <p className={styles.mobileEyebrow}>COFFEE, BREAKFAST, LUNCH & DINNER</p>
         <nav aria-label="Mobile navigation">{links.map((link) => <a key={link.href} href={link.href} className={active === link.href.slice(1) ? styles.activeLink : ''} aria-current={active === link.href.slice(1) ? 'location' : undefined} onClick={() => { setActive(link.href.slice(1)); setOpen(false); }}>{link.label}</a>)}</nav>

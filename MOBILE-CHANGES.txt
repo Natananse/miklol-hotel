@@ -1,0 +1,202 @@
+MIKLOL — PHONE CHANGES
+=====================
+
+Design and review scope
+-----------------------
+- The 390px phone screen is the primary design target.
+- Responsive browser checks cover 360, 390, 430, 768, and 1024px widths.
+- The existing photos, cream/charcoal/terracotta branding, menu names, prices,
+  and the new section copy were retained. The photo assets were not edited.
+- Desktop keeps the larger collage and navigation; the phone experience has
+  its own compact presentation and touch interactions.
+
+One-tap actions from the page
+----------------------------
+- Added a phone-only fixed bottom bar: Reserve, Menu, Call, and Directions.
+- Reserve uses the accent color and the widest button.
+- All four actions have large touch areas, with 8px gaps between buttons.
+- Reserve jumps to the reservation section; Menu jumps to the menu.
+- Call opens the dialer for +251921282925, displayed as 0921282925.
+- Directions opens a Google Maps search for MIKLOL in Bahir Dar, Kebele 14,
+  around Nock. No unverified map coordinates are invented.
+- The bar includes the iPhone bottom safe area and has matching page padding
+  so it does not cover the footer or final controls.
+- The bar hides when the reservation form is visible, the virtual keyboard
+  occupies the visual viewport, or a menu/lightbox is open.
+- A focus fallback handles browsers without visualViewport keyboard geometry.
+
+Phone header and fullscreen menu
+--------------------------------
+- Reduced the phone header to 64px, including its scrolled state.
+- Kept the custom SVG wordmark clear at 170px wide, left-aligned.
+- The right-hand hamburger and close controls are 48px square.
+- The phone header stays visible while scrolling; desktop retains its
+  directional hide/show and compact-header behavior.
+- Hid the announcement strip and desktop header actions on phones to save
+  first-screen space. The persistent bottom bar supplies the Reserve action.
+- The hamburger opens a fullscreen menu with large navigation links and a
+  full-width Reserve button.
+- The menu exposes the phone number, Google Maps address, and opening hours
+  in the same panel, one hamburger tap away from the page.
+- Keyboard focus is trapped inside the open menu. Escape and the close
+  button restore focus, scrolling, and the previously inert page content.
+- Missing social-profile URLs are represented as disabled social icons;
+  no made-up Instagram or Facebook profiles are linked.
+
+Phone hero
+----------
+- Kept the existing headline and its three-line structure.
+- The phone headline scales between 36px and 44px.
+- The two primary buttons are stacked and full-width: Reserve a table and
+  View the menu.
+- Kept only two visible phone photos: pesto pasta and the dining interior.
+- Hid the extra collage photos, caption, thumbnail strip, and trust row on
+  phones. The desktop collage remains available at larger widths.
+- Used small-viewport units for the photo strip and a shorter treatment for
+  screens below 700px tall so the hero fits inside the first small viewport.
+- Increased introductory text and button labels to phone-readable sizes and
+  removed the phone photo entrance animation.
+
+Menu and favorites
+------------------
+- Replaced the phone category-photo grid with a horizontal swipeable tab row.
+- Category tabs stay below the 64px phone header and show the active choice.
+- Selecting a category keeps its active tab inside the swipe row.
+- Retained the vegetarian filter and added an announced dish-result count.
+- Menu items use compact cards with a small side photo, name, short
+  description, price, and a 48px heart button.
+- Favorite hearts work in both the menu and signature dishes. Favorites
+  persist locally and stay synchronized between those sections.
+- Kept the menu-to-table link and all existing menu prices and category names.
+
+Signature dishes, occasions, and reviews
+---------------------------------------
+- Signature dishes use large photos in a horizontal phone carousel with
+  scroll-snap, rather than a long stack of oversized cards.
+- Signature favorite and table-link controls have large touch targets.
+- The occasions accordion has larger rows and text, keeps one item open at
+  a time, and retains its direct table-planning links.
+- The review/menu-suggestion card supports horizontal touch swipes.
+- Added three tappable pagination dots, with an announced active state.
+- Kept keyboard navigation and the desktop previous/next controls.
+- Guest reviews are not fabricated: the current cards remain clearly
+  attributed menu suggestions while published guest reviews are unavailable.
+
+Photo gallery and lightbox
+-------------------------
+- The phone gallery is a two-column grid with readable captions.
+- Tapping a photo opens a fullscreen small-viewport lightbox.
+- Swipe left or right on the image to move between photos.
+- A two-finger inward pinch closes the lightbox.
+- Previous/next buttons, Escape, and a 48px close button remain available.
+- Closing restores the gallery opener's focus and the page's scroll state.
+- Lightbox spacing respects the iPhone top, bottom, left, and right safe areas.
+
+Reservation form
+----------------
+- Shortened the form to date, time, guests, name, and phone, in that order.
+- Removed the email field from the table-planning form.
+- Date uses the native date control, guests uses a numeric keyboard, and
+  phone uses type=tel, inputMode=tel, and telephone autocomplete.
+- Inputs are at least 52px high, use 16px text, and have labels above them.
+- Validation handles missing/invalid fields, past dates and times in the
+  Africa/Addis_Ababa timezone, party sizes outside 1–8, and invalid phones.
+- The large submit button reads Preview my table.
+- The success panel summarizes the table plan and offers Call to confirm,
+  which opens the owner's phone number in the dialer.
+- The form is still an honest preview: no table is automatically booked and
+  no booking details are transmitted to a server.
+
+Footer and business details
+--------------------------
+- The phone footer stacks its sections into one readable column.
+- Added a tappable 0921282925 phone number and the supplied Bahir Dar address.
+- The address and Directions link open Google Maps.
+- Opening hours are easy to read and can be tapped to call for confirmation.
+- The currently configured 08:00–22:00 hours remain labelled proposed;
+  the owner has supplied contact/location details but has not confirmed hours.
+- Added the owner-supplied erminati085@gmail.com email with a direct mailto link.
+- Added larger footer links and spacing, and enough bottom padding for the
+  fixed quick-action bar.
+
+Touch, readability, and accessibility
+------------------------------------
+- Phone body and input text use at least 16px with a 1.5 line height.
+- Increased interactive controls to a minimum 48px touch area and added
+  space between grouped controls.
+- Improved caption and body contrast using the existing palette; retained
+  visible keyboard focus indicators and semantic form labels.
+- Added tap/pressed feedback instead of relying on hover states.
+- Removed the custom circle cursor and decorative grain overlay on phones.
+- Prevented horizontal page overflow while keeping intentional swipe rows
+  inside the menu, signature carousel, and image viewer.
+- Added viewport-fit=cover for iPhone safe-area support without disabling
+  browser zoom.
+
+Phone performance and motion
+----------------------------
+- Phones and coarse-pointer devices use native scrolling. Lenis, GSAP
+  reveals, story pinning, and animated counters are not loaded for them.
+- Resizing a desktop view to phone mode cleans up those desktop effects and
+  restores full, static counter values.
+- Reduced phone animations and retained prefers-reduced-motion support.
+- Added an SSR-stable motion-preference hook and removed initial-motion
+  mismatches that produced hydration errors and development warnings.
+- Weak devices, slow/data-saving connections, reduced-motion settings,
+  unknown phone capabilities, and WebGL failures use static food photos.
+- Only explicitly powerful phones with a fast connection can load the 3D
+  showcase; WebGL checking and Canvas loading wait until the section is near
+  and visible. Its render loop pauses out of view.
+- Static showcase photos still change with the selected food button, keeping
+  every food name and price available without 3D.
+- Retained next/image WebP/AVIF optimization and adjusted image sizes for
+  the actual phone slots. Below-the-fold images remain lazy-loaded.
+- Reduced the display-font download to the normal 400/500 weights in use.
+- Deferred distant phone section layout with content-visibility and an
+  intrinsic-size estimate while retaining content in the document.
+
+Validation coverage
+-------------------
+- Browser viewport checks and screenshots: 360, 390, 430, 768, and 1024px.
+- Navigation checks: slim sticky header, fullscreen menu, contact links,
+  touch targets, bottom-bar sizing, keyboard/form/modal hiding, focus/inert
+  restoration, and page overflow.
+- Menu and form checks: filtering, favorites, touch sizing, validation, and
+  the preview/call-to-confirm flow.
+- Gesture checks use real browser touch events for gallery swipes, inward
+  pinch closing, signature scrolling, and review-card swipes.
+- Accessibility checks include automated WCAG A/AA scans of the phone page,
+  open menu, and lightbox. A production mobile Lighthouse run is part of the
+  final validation; scores are not asserted in this inventory.
+
+Final validation: all 21 Playwright/browser and reservation validation checks passed.
+The Chrome checks covered 360, 390, 430, 768, and 1024px.
+The main page, full-screen navigation, and gallery modal had zero axe WCAG A/AA violations.
+Production build and TypeScript checks passed. Lighthouse scores are listed in the final handoff.
+
+Additional startup work
+-----------------------
+- Prioritized the hero dish image and reduced unused font variants.
+- Deferred layout of distant phone sections with content-visibility.
+- Removed unnecessary Motion wrappers from menu cards and category controls.
+- Used the lighter LazyMotion feature bundle for the remaining animations.
+- Fixed reduced-motion hydration mismatches and kept touch carousel controls stable.
+
+Static photo delivery
+---------------------
+- The hero is rendered on the server and passed into the interactive page.
+- The phone hero dish uses an 11.5KB AVIF in the initial HTML, with an optimized-original fallback.
+- Static hero photos and compact menu thumbnails use official next/image getImageProps output.
+- This avoids unnecessary client image hooks while retaining optimized URLs, sizes, lazy loading, and alt text.
+- Original photo files remain unchanged. Run npm run assets:hero after replacing the main hero photo.
+
+Final production Lighthouse Mobile lab run
+-----------------------------------------
+Performance: 93/100
+Accessibility: 100/100
+Largest Contentful Paint: 2.8 s
+Total Blocking Time: 180 ms
+Cumulative Layout Shift: 0
+Reports: reports/lighthouse-mobile.html and reports/lighthouse-mobile.json
+
+Limits: Chrome mobile emulation and real touch-event tests were used; a physical iPhone/Safari was not available. Lighthouse reported that this host CPU is slower than its reference; scores are local lab measurements and may vary on other hardware and networks.

@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import Image from 'next/image';
 import { ArrowUpRight, CalendarDays, Check, Clock3, Phone, Users } from 'lucide-react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, m as motion } from 'framer-motion';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { site } from '@/data/site';
 import { addisNow, reservationTimes, validateReservation, type ReservationErrors, type ReservationFields } from '@/lib/reservations';
 import styles from './InteractiveSections.module.scss';

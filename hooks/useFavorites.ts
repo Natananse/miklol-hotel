@@ -7,11 +7,12 @@ const changed = 'miklol-favorites-changed';
 let cachedValue = '';
 let cachedFavorites: string[] = [];
 let memoryValue = '[]';
+let memoryOnly = false;
 const aliases: Record<string, string> = { burger: 'house-burger', pasta: 'pesto-pasta' };
 
 function snapshot() {
   let raw = memoryValue;
-  try { raw = localStorage.getItem(storageKey) || memoryValue; } catch { /* Keep favorites usable without storage. */ }
+  try { if (!memoryOnly) raw = localStorage.getItem(storageKey) || memoryValue; } catch { memoryOnly = true; }
   if (raw !== cachedValue) {
     cachedValue = raw;
     try {
@@ -33,7 +34,7 @@ export function useFavorites() {
   const toggleFavorite = useCallback((id: string) => {
     const current = snapshot();
     memoryValue = JSON.stringify(current.includes(id) ? current.filter(value => value !== id) : [...current, id]);
-    try { localStorage.setItem(storageKey, memoryValue); } catch { /* Retain this visit's favorites in memory. */ }
+    try { localStorage.setItem(storageKey, memoryValue); } catch { memoryOnly = true; }
     window.dispatchEvent(new Event(changed));
   }, []);
   return { favorites, toggleFavorite, isFavorite: (id: string) => favorites.includes(id) };

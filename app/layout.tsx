@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google';
 import '@/styles/globals.scss';
+import MotionProvider from '@/components/MotionProvider';
 
-const display = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500', '600'], style: ['normal', 'italic'], variable: '--font-display', display: 'swap' });
+const display = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500'], style: 'normal', variable: '--font-display', display: 'swap' });
 const body = DM_Sans({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
 
 export const metadata: Metadata = {
@@ -18,5 +19,5 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: '#211813', width: 'device-width', initialScale: 1, viewportFit: 'cover' };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={`${display.variable} ${body.variable}`}><body><a href="#main" className="skip-link">Skip to content</a>{children}</body></html>;
+  return <html lang="en" className={`${display.variable} ${body.variable}`}><body><a href="#main" className="skip-link">Skip to content</a><MotionProvider>{children}</MotionProvider></body></html>;
 }

@@ -1,8 +1,5 @@
-'use client';
-
-import { motion, useReducedMotion } from 'framer-motion';
+import styles from './template.module.scss';
 
 export default function Template({ children }: { children: React.ReactNode }) {
-  const reduced = useReducedMotion();
-  return <motion.div initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .3 }}>{children}</motion.div>;
+  return <div className={styles.page}>{children}</div>;
 }
