@@ -77,7 +77,7 @@ export default function ThreeScene({ kind }: { kind: SceneKind }) {
     <div ref={wrapper} className={`${styles.scene} ${styles[kind]}`}>
       {fallback}
       {capable && nearby && (
-        <SceneBoundary fallback={fallback}>
+        <SceneBoundary fallback={<div className={styles.failure}>{fallback}</div>}>
           <div className={`${styles.canvas} ${ready ? styles.canvasReady : ''}`} aria-hidden="true">
             <CanvasScene kind={kind} active={visible} selection={selection} onSelect={setSelection} onReady={() => setReady(true)} />
           </div>
