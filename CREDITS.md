@@ -1,5 +1,53 @@
 # Image credits
 
+## Kitchen team collection — checked 12 November 2026
+
+**0 qualifying real stock photographs selected; 6 unique placeholder slots.**
+
+No result could be verified against all criteria together: a real Ethiopian/Habesha woman, actively preparing or serving food or coffee, in a chef uniform, with commercial website use permitted by Unsplash, Pexels, or Pixabay. This is a record of this search, not a claim that no suitable photograph exists. No ethnicity was inferred from a face or skin tone. No AI images, face edits, generative fills, or unrelated people were used. The AI-edited image from the earlier conversation is not included.
+
+The former generic chef photograph is no longer rendered in the story section. The story reuses the first kitchen slot (a repeated placement, not a seventh unique slot). The existing food-only hero and gallery remain while no qualifying photo is available; changing a kitchen filename automatically reuses genuine photos there.
+
+### Placeholder inventory
+
+These are original, hand-coded SVG camera symbols, not photographs or simulated people. There is no photographer or third-party photo license to attribute.
+
+| File in `public/images/team/` | Intended photograph | Source | Photographer / photo license |
+| --- | --- | --- | --- |
+| `injera.placeholder.svg` | Woman in chef uniform making injera | Original project placeholder | Not applicable |
+| `buna.placeholder.svg` | Woman in chef uniform pouring buna from a jebena | Original project placeholder | Not applicable |
+| `doro-wat.placeholder.svg` | Woman in chef uniform stirring doro wat | Original project placeholder | Not applicable |
+| `ingredients.placeholder.svg` | Woman in chef uniform chopping vegetables | Original project placeholder | Not applicable |
+| `plating.placeholder.svg` | Woman in chef uniform plating food | Original project placeholder | Not applicable |
+| `serving.placeholder.svg` | Woman in chef uniform serving a meal | Original project placeholder | Not applicable |
+
+### Sources reviewed, not used
+
+Searches included “Ethiopian woman chef”, “Habesha woman cooking”, “Ethiopian kitchen”, “injera cooking”, “Ethiopian coffee ceremony woman”, “African woman chef kitchen”, and “Black woman chef cooking”, scoped to the three permitted sources. Broad search pages often returned unrelated results and were not treated as evidence about a person.
+
+| Photographer / uploader | Source page | License checked | Reason not selected |
+| --- | --- | --- | --- |
+| JALO HOTEL | [Traditional coffee, Shashemene](https://unsplash.com/photos/a-woman-in-a-red-and-white-striped-shirt-pouring-tea-into-a-teapot-g3WSATud3o4) | [Unsplash License](https://unsplash.com/license) | Ethiopian location documented; source describes a striped shirt, not a chef uniform. |
+| Gift Habeshaw | [Traditional Ethiopian woman in cultural dress](https://www.pexels.com/photo/traditional-ethiopian-woman-in-cultural-dress-33609158/) | [Pexels License](https://www.pexels.com/license/) | Traditional dress; metadata does not verify chef uniform or the required cooking action. |
+| Getafric | [Woman, Habesha, Ethiopian](https://pixabay.com/photos/woman-habesha-ethiopian-africa-8182443/) | [Pixabay Content License](https://pixabay.com/service/license-summary/) | Street/lifestyle photograph; no verified cooking action. |
+| August de Richelieu | [Woman preparing food](https://www.pexels.com/photo/woman-preparing-food-4262014/) | [Pexels License](https://www.pexels.com/license/) | Cooking action documented, but Ethiopian identity and chef uniform not verified. |
+| Andres Ayrton | [Woman preparing batter](https://www.pexels.com/photo/black-woman-preparing-batter-for-pastry-6579080/) | [Pexels License](https://www.pexels.com/license/) | Source describes an African American cook; not evidence of an Ethiopian subject. |
+
+License pages permit website use subject to their terms; this does not establish a model’s ethnicity, employment at MIKLOL, or endorsement. No reviewed-but-rejected photo was downloaded into the project.
+
+### Replacing a slot
+
+1. Put the original, authorized photograph in `public/images/team/`. Prefer JPEG/WebP, approximately 1200–1600 px on the long edge; use ordinary resizing/compression only, never AI face or skin changes.
+2. In `data/kitchen-team.ts`, replace the `.placeholder.svg` filename with that photo’s filename. There is no separate boolean to change. The placeholder label disappears automatically.
+3. The existing alt text and caption describe the planned shot; change them if the supplied photo depicts a different action. The story, hero and gallery all use this config and update automatically.
+4. If using stock, add `credit: { photographer, source, license }` to its config entry and record the photographer, photo-page URL, license URL and check date here. The site then labels it illustrative stock and disclaims MIKLOL employment. Never add invented names or biographies.
+
+`next/image` (and `getImageProps` in the existing server-rendered hero) supplies responsive optimized images. People are displayed without tinting, filters, face edits, or text overlays.
+
+---
+
+## Existing preview photographs (pre-existing inventory)
+
 The photographs in this design preview come from [Unsplash](https://unsplash.com/) and are used under the [Unsplash License](https://unsplash.com/license). They are illustrative stock photographs, not photographs of the actual MIKLOL premises, staff, or dishes.
 
 Each image is stored locally as an optimized progressive JPEG. Exact source image links are retained below; these identify the original images even when a photographer name was not supplied by the CDN. No Unsplash+ images were selected.

@@ -4,13 +4,16 @@ import Image from 'next/image';
 import { useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { AnimatePresence, m as motion } from 'framer-motion';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { ArrowLeft, ArrowRight, ArrowUpRight, CakeSlice, CalendarDays, Check, ChefHat, Coffee, Heart, Instagram, MapPin, Minus, Plus, Sparkles, Users, Wine } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, CakeSlice, CalendarDays, Check, Coffee, Heart, Instagram, MapPin, Minus, Plus, Sparkles, Users, Wine } from 'lucide-react';
 import { Header, SiteEffects } from './SiteChrome';
 import MobileActions from './MobileActions';
 import { useFavorites } from '@/hooks/useFavorites';
 import ThreeScene from './ThreeScene';
 import MenuExplorer from './MenuExplorer';
 import Gallery from './Gallery';
+import KitchenTeam from './KitchenTeam';
+import KitchenPhoto from './KitchenPhoto';
+import { storyKitchenPhoto, isKitchenPlaceholder } from '@/data/kitchen-team';
 import Reservation from './Reservation';
 import { site } from '@/data/site';
 import s from './Home.module.scss';
@@ -71,7 +74,9 @@ export default function Home({ hero }: { hero: React.ReactNode }) {
 
       <section className={s.ambience} aria-labelledby="ambience-heading"><Image src="/images/interior/ambience.jpg" alt="Restaurant tables, upholstered chairs, and pendant lights around a central bar" fill sizes="100vw" placeholder="blur" blurDataURL={blur} /><div className={s.ambienceShade} /><div className={`container ${s.ambienceContent}`} data-reveal><span className="eyebrow">LUNCH AT MIKLOL</span><h2 id="ambience-heading">Stay for<br />lunch.</h2><p>Coffee by the window.<br />Pizza and conversation at the table.</p><a href="#reservation" className="button">Plan your lunch <ArrowUpRight size={15} /></a></div><div className={`container ${s.stats}`}><div><strong data-count="12">12</strong><span>MENU ITEMS</span></div><div><strong data-count="6">06</strong><span>CATEGORIES</span></div><div><strong data-count="5">05</strong><span>3D DISHES</span></div><span className={s.statsNote}>Coffee, lunch,<br />or dinner.</span></div></section>
 
-      <section id="story" className={s.story}><div className={`container ${s.storyGrid}`}><div className={s.storyVisual} data-story-image><Image src="/images/people/chef.jpg" alt="Chef adding the finishing touches to a plate beneath copper heat lamps" fill sizes="(max-width: 900px) 90vw, 42vw" placeholder="blur" blurDataURL={blur} /><span className={s.storyPhotoLabel}>FROM THE KITCHEN <ChefHat size={17} /></span><div className={s.storyBadge}><Sparkles size={20} /><span>COFFEE<br />AND A FULL MENU</span></div></div><div className={s.storyCopy}><span className="eyebrow" data-reveal>OUR KITCHEN & COFFEE BAR</span><h2 className="section-heading" data-reveal>Inside the<br />MIKLOL kitchen.</h2><p data-reveal>Espresso and pancakes. Pesto pasta and pizza. There’s room for both on this menu.</p><div className={s.storyChapter} data-reveal><span>01 / THE COFFEE BAR</span><h3>Start with espresso.</h3><p>The House Espresso or a caramel latte. Add avocado toast or pancakes.</p></div><div className={s.storyChapter} data-reveal><span>02 / THE KITCHEN</span><h3>Lunch has options.</h3><p>Basil pesto in the pasta. Mozzarella on the Margherita. Cheddar in the burger.</p></div><a className="text-link" href="#menu">Choose a dish <ArrowUpRight size={15} /></a></div></div></section>
+      <section id="story" className={s.story}><div className={`container ${s.storyGrid}`}><figure className={s.storyVisual} data-story-image><div className={s.storyMedia}><KitchenPhoto photo={storyKitchenPhoto} sizes="(max-width: 900px) 90vw, 42vw" /></div><figcaption className={s.storyPhotoLabel}>{isKitchenPlaceholder(storyKitchenPhoto) ? 'ORIGINAL KITCHEN PHOTO COMING SOON' : 'OUR KITCHEN'}{storyKitchenPhoto.credit && <span>Illustrative stock photograph</span>}</figcaption></figure><div className={s.storyCopy}><span className="eyebrow" data-reveal>OUR KITCHEN & COFFEE BAR</span><h2 className="section-heading" data-reveal>Inside the<br />MIKLOL kitchen.</h2><p data-reveal>A warm Ethiopian welcome, fresh ingredients, and food prepared with care. There’s always a place for you at our table.</p><div className={s.storyChapter} data-reveal><span>01 / THE COFFEE BAR</span><h3>Start with espresso.</h3><p>The House Espresso or a caramel latte. Add avocado toast or pancakes.</p></div><div className={s.storyChapter} data-reveal><span>02 / THE KITCHEN</span><h3>Lunch has options.</h3><p>Basil pesto in the pasta. Mozzarella on the Margherita. Cheddar in the burger.</p></div><a className="text-link" href="#kitchen-team">Meet our kitchen team <ArrowUpRight size={15} /></a></div></div></section>
+
+      <KitchenTeam />
 
       <section className={s.occasions}><div className={`container ${s.occasionGrid}`}><div className={s.occasionCopy}><span className="eyebrow">MAKE PLANS AROUND THE TABLE</span><h2 className="section-heading" data-reveal>Dates, birthdays,<br />and family lunch.</h2><div className={s.accordion}>{occasions.map((item, index) => <div className={occasion === index ? s.accordionActive : ''} key={item.title}><button onClick={() => setOccasion(occasion === index ? null : index)} aria-expanded={occasion === index} aria-controls={`occasion-${index}`}><item.icon size={16} /><span>{item.title}</span>{occasion === index ? <Minus size={15} /> : <Plus size={15} />}</button><div id={`occasion-${index}`} hidden={occasion !== index}><p>{item.text}</p><a href="#reservation">Plan this visit <ArrowUpRight size={13} /></a></div></div>)}</div></div><div className={s.occasionPhoto}><AnimatePresence mode="wait"><motion.div key={occasion ?? 0} className={s.occasionImage} initial={false} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : .25 }}><Image src={occasions[occasion ?? 0].image} alt={occasions[occasion ?? 0].alt} fill sizes="(max-width: 900px) 90vw, 45vw" placeholder="blur" blurDataURL={blur} /></motion.div></AnimatePresence><span><Wine size={18} /> PIZZA TO SHARE. COFFEE TO FOLLOW.</span></div></div></section>
 
@@ -94,7 +99,7 @@ export default function Home({ hero }: { hero: React.ReactNode }) {
             </div>
           </div>
           <div className={s.footerLinks}>
-            <h3>EXPLORE MIKLOL</h3><a href="#menu">Menu</a><a href="#story">Our kitchen</a><a href="#gallery">Photos</a><a href="#reservation">Plan a table</a>
+            <h3>EXPLORE MIKLOL</h3><a href="#menu">Menu</a><a href="#story">Our kitchen</a><a href="#kitchen-team">Kitchen team</a><a href="#gallery">Photos</a><a href="#reservation">Plan a table</a>
           </div>
           <div className={s.footerDetails}>
             <h3>FIND US. COME HUNGRY.</h3>

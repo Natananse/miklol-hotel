@@ -108,3 +108,14 @@ npx lighthouse http://localhost:3000 --only-categories=performance,accessibility
 ```
 
 Measured results and changes from this mobile pass are recorded in `MOBILE-CHANGES.txt`. Lighthouse is a lab measurement; scores can vary by hardware, browser version, server, and network.
+
+
+## Kitchen team photographs
+
+The kitchen section is in `components/KitchenTeam.tsx`, styled in its SCSS module with the existing palette and typography. Six original photo placeholders are configured in `data/kitchen-team.ts`; no qualifying real stock photos were selected. See `CREDITS.md` for the source review and exact counts.
+
+To add your own image, place it in `public/images/team/` and replace only the filename in the config. The `.placeholder.svg` suffix controls the empty state. Verify the planned alt/caption still describes your image. The first supplied image appears in the story; the buna image (or first supplied image) also appears in the hero; available photos populate the gallery. All share the same file paths. Stock images require credits and are labeled as illustrative, never as employees.
+
+Desktop uses three columns, tablet uses two, and phones use a native scroll-snap track with 44px dot controls, arrow/Home/End key support and a live slide count. Cards reveal once as they enter view; reduced-motion users see them immediately. Images and captions occupy separate areas.
+
+Focused checks: `npm run typecheck`, `npm run build`, and `npm run test:e2e -- tests/kitchen-team.spec.ts`.
