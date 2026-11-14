@@ -112,10 +112,10 @@ for (const device of [
   const food = page.locator('#signatures');
   await food.scrollIntoViewIfNeeded();
   await expect(food.getByRole('heading', { name: 'Pass the injera.', exact: true })).toBeVisible();
-  await expect(food.getByRole('heading', { name: 'Beef Tibs', exact: true })).toBeVisible();
-  await expect(food.getByText('680 ETB', { exact: true })).toBeVisible();
-  await expect(food.getByRole('heading', { name: 'Yetsom Beyaynetu', exact: true })).toHaveCount(1);
-  await expect(food.getByRole('heading', { name: 'Jebena Buna', exact: true })).toHaveCount(1);
+  await expect(food.getByRole('heading', { name: 'Tibs', exact: true })).toBeVisible();
+  await expect(food.getByText('390 ETB', { exact: true })).toBeVisible();
+  await expect(food.getByRole('heading', { name: 'Beyaynetu', exact: true })).toHaveCount(1);
+  await expect(food.getByRole('heading', { name: 'Spaghetti Bolognese', exact: true })).toHaveCount(1);
   await expect(food.getByRole('region', { name: /Signature dishes/ })).toHaveCSS('scroll-snap-type', 'x mandatory');
   const photos = food.getByRole('img');
   await expect(photos).toHaveCount(6);

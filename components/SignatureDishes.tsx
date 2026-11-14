@@ -38,8 +38,8 @@ export default function SignatureDishes() {
   return <section id="signatures" className={s.section} aria-labelledby="signature-heading">
     <div className="container">
       <div className={s.heading}>
-        <div><span className="eyebrow">ETHIOPIAN PLATES & CAFÉ FAVOURITES</span><h2 id="signature-heading" className="section-heading">Pass the injera.</h2><p>Local plates, café favourites,<br/>and buna to finish.</p></div>
-        <a className="text-link" href="#menu">See the full menu <ArrowUpRight size={17} aria-hidden="true"/></a>
+        <div><span className="eyebrow">ETHIOPIAN PLATES & CAFÉ FAVOURITES</span><h2 id="signature-heading" className="section-heading">Pass the injera.</h2><p>Local plates, café favourites,<br/>and a fresh juice to finish.</p></div>
+        <a className="text-link" href="#menu">Explore the menu <ArrowUpRight size={17} aria-hidden="true"/></a>
       </div>
       <div ref={track} className={s.track} tabIndex={0} role="region" aria-label="Signature dishes. Swipe to see more." onKeyDown={event => {
         if (event.target !== event.currentTarget) return;
@@ -54,7 +54,7 @@ export default function SignatureDishes() {
           <span className={s.srOnly}>{index + 1} of {dishes.length}</span>
         </article>)}
       </div>
-      <div className={s.controls}><p>Sample menu and prices in ETB. Please call to confirm.</p><div><button type="button" aria-label="Previous signature dishes" onClick={() => move(-1)} disabled={edges.start}><ArrowLeft size={21} aria-hidden="true"/></button><button type="button" aria-label="Next signature dishes" onClick={() => move(1)} disabled={edges.end}><ArrowRight size={21} aria-hidden="true"/></button></div></div>
+      <div className={s.controls}><p>From our menu · prices in ETB · representative photos.</p><div><button type="button" aria-label="Previous signature dishes" onClick={() => move(-1)} disabled={edges.start}><ArrowLeft size={21} aria-hidden="true"/></button><button type="button" aria-label="Next signature dishes" onClick={() => move(1)} disabled={edges.end}><ArrowRight size={21} aria-hidden="true"/></button></div></div>
     </div>
   </section>;
 }

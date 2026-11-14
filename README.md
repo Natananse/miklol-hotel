@@ -1,6 +1,6 @@
 # MIKLOL Cafe & Restaurant
 
-A warm, playful restaurant website with an espresso-and-cream palette, burnt-orange accents, editorial typography, and real food photography. Built with Next.js 16 App Router, React 19, and TypeScript. The menu combines Ethiopian plates, jebena buna, and café favourites.
+A warm, playful restaurant website with an espresso-and-cream palette, burnt-orange accents, editorial typography, and real food photography. Built with Next.js 16 App Router, React 19, and TypeScript. The menu features 36 selections from the owner’s printed menu, with four items in each of nine categories and prices in ETB.
 
 ## Run locally
 
@@ -48,7 +48,7 @@ styles/
   _animations.scss        Reusable motion definitions
   globals.scss            Global styles and accessibility defaults
 public/images/             Local coffee, food, interior, people, gallery photos
-  menu/                   14 optimized WebP menu/coffee assets
+  menu/                   Optimized WebP menu and coffee photographs
 scripts/download-images.py Photo download/optimization helper
 CREDITS.md                 Exact photo sources and license links
 ```
@@ -73,7 +73,7 @@ CREDITS.md                 Exact photo sources and license links
 | Colors, spacing, fonts, responsive breakpoints | `styles/_variables.scss` |
 | Google Font selection, page title, description, social previews | `app/layout.tsx` |
 
-The signature carousel reads `signatureMenuItems` from `data/menu.ts`, so its names, descriptions, photographs, and prices stay consistent with the full menu. The current Ethiopian preview includes Beef Tibs, Shiro, Yetsom Beyaynetu, and Jebena Buna alongside pasta, pizza, burgers, breakfast, and desserts. Categories and vegetarian/fasting filters come from the same data. All displayed menu prices use ETB and remain clearly labelled samples until the owner confirms them.
+The signature carousel reads `signatureMenuItems` from `data/menu.ts`, so its names, descriptions, photographs, and prices stay consistent with the full menu. The menu has four selections under each of nine headings: Breakfast, Juices & Shakes, Mocktails, Salads, Italian Dishes, Non-fasting, Fasting Dishes, Pizza, and Extras. Names, descriptions, and ETB prices were transcribed from the owner’s uploaded menu photographs. Handwritten price updates take precedence: Vegetable Wrap 250 ETB, Chechebsa 200 ETB, Beef Pizza 420 ETB, and Margherita Pizza 400 ETB. The menu groups selections under their headings, and the category and vegetarian/fasting filters use the same data. Food photographs are representative stock images; they are not presented as photographs of MIKLOL’s actual dishes.
 
 To replace a photograph, put the new image in the relevant `public/images/` folder and update its path and alt text in the component or data record. Public image paths start with `/images/`; do not include `public/`. Preserve the component's image dimensions or `fill` container, responsive `sizes`, and placeholder behavior.
 
@@ -92,7 +92,7 @@ The owner chose to provide the chef photo link. While that source is pending, th
 
 The reservation form is a **client-side preview**. It validates the date, time, party size, name, and phone number, rejects past visits using the `Africa/Addis_Ababa` timezone, and shows a confirmation summary. It does **not** create a booking, send a message, reserve capacity, or transmit guest details. After a valid preview, the guest can call the owner to confirm the table. Connect a booking provider or server endpoint and wait for its successful response before presenting a real reservation confirmation.
 
-The menu, prices, guest impressions, proposed hours, and venue/staff photography are illustrative. Replace them with verified MIKLOL information before launch. The owner’s phone (**+251 92 128 2925**, linked as `tel:+251921282925`) and address (**Bahir Dar, Kebele 14, around Nock**) are configured in `data/site.ts`. Directions use a Google Maps search for that description, without an invented map pin. The footer email is **erminati085@gmail.com**. Add verified social profile URLs when available. Opening hours remain labelled proposed until confirmed.
+Menu items and prices come from the owner’s uploaded menu photos. Guest impressions, proposed hours, and venue/staff photography remain illustrative. Replace those remaining placeholders with verified MIKLOL information before launch. The owner’s phone (**+251 92 128 2925**, linked as `tel:+251921282925`) and address (**Bahir Dar, Kebele 14, around Nock**) are configured in `data/site.ts`. Directions use a Google Maps search for that description, without an invented map pin. The footer email is **erminati085@gmail.com**. Add verified social profile URLs when available. Opening hours remain labelled proposed until confirmed.
 
 Vercel can auto-detect this project as Next.js and use `npm run build`; no custom output directory is needed. Canonical and social-image URLs use Vercel's production domain automatically, with the deployment domain as a fallback. Set `NEXT_PUBLIC_SITE_URL` only when you want to override that origin, such as for a preferred custom domain (see `.env.example`). Local builds fall back to `http://localhost:3000`.
 

@@ -22,24 +22,33 @@ test('phone menu tabs stay reachable and filter the compact menu without page ov
   const tabs = page.locator('[aria-label="Filter dishes by category"]');
   await page.getByRole('navigation', { name: 'Quick actions' }).getByRole('link', { name: 'Menu', exact: true }).click();
   await expect(page).toHaveURL(/#menu$/);
-  await expect(menu.locator('article')).toHaveCount(13);
+  await expect(menu.locator('article')).toHaveCount(36);
+  await expect(menu.getByRole('group')).toHaveCount(9);
+  for (const group of await menu.getByRole('group').all()) await expect(group.locator('article')).toHaveCount(4);
+  // Owner's handwritten menu corrections replace the old printed prices.
+  for (const [name, price] of [['Vegetable Wrap', '250 ETB'], ['Chechebsa', '200 ETB'], ['Beef Pizza', '420 ETB'], ['Margherita Pizza', '400 ETB']]) {
+    await expect(menu.locator('article').filter({ has: page.getByRole('heading', { name, exact: true }) }).getByText(price, { exact: true })).toHaveCount(1);
+  }
   await expect.poll(() => tabs.evaluate(element => element.scrollWidth > element.clientWidth)).toBe(true);
   await page.evaluate(() => window.scrollBy(0, 500));
   await expect.poll(() => tabs.evaluate(element => Math.round(element.getBoundingClientRect().top))).toBe(64);
   await tabs.evaluate(element => { element.scrollLeft = element.scrollWidth; });
-  await tabs.getByRole('button', { name: 'Desserts', exact: true }).click();
-  await expect(tabs.getByRole('button', { name: 'Desserts', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await tabs.getByRole('button', { name: 'Pizza', exact: true }).click();
+  await expect(tabs.getByRole('button', { name: 'Pizza', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(menu.locator('article')).toHaveCount(4);
+  await expect(menu.getByRole('heading', { name: 'Beef Pizza', exact: true })).toBeVisible();
+  await menu.getByRole('combobox', { name: 'Filter by diet' }).selectOption('vegetarian');
   await expect(menu.locator('article')).toHaveCount(2);
-  await expect(menu.getByRole('heading', { name: 'Chocolate Cake', exact: true })).toBeVisible();
+  await expect(menu.getByRole('heading', { name: 'Margherita Pizza', exact: true })).toBeVisible();
   await expect.poll(() => tabs.evaluate(element => element.scrollLeft)).toBeGreaterThan(0);
-  await tabs.getByRole('button', { name: 'Ethiopian', exact: true }).click();
+  await tabs.getByRole('button', { name: 'Fasting Dishes', exact: true }).click();
   await menu.getByRole('combobox', { name: 'Filter by diet' }).selectOption('fasting');
-  await expect(menu.locator('article')).toHaveCount(2);
-  await expect(menu.getByRole('heading', { name: 'Yetsom Beyaynetu', exact: true })).toBeVisible();
+  await expect(menu.locator('article')).toHaveCount(4);
+  await expect(menu.getByRole('heading', { name: 'Beyaynetu', exact: true })).toBeVisible();
   await expect(menu.getByRole('heading', { name: 'Shiro', exact: true })).toBeVisible();
-  await expect(menu.getByRole('heading', { name: 'Beef Tibs', exact: true })).toHaveCount(0);
-  // Vegetarian cheese dishes are not fasting dishes: the combined filters must exclude them.
-  await tabs.getByRole('button', { name: 'Pasta & Pizza', exact: true }).click();
+  await expect(menu.getByRole('heading', { name: 'Tibs', exact: true })).toHaveCount(0);
+  // The combined filters must exclude meat dishes from the fasting selection.
+  await tabs.getByRole('button', { name: 'Non-fasting', exact: true }).click();
   await expect(menu.locator('article')).toHaveCount(0);
   await expect(menu.getByText('No dishes match. Choose another category.', { exact: true })).toBeVisible();
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -48,8 +57,8 @@ test('phone menu tabs stay reachable and filter the compact menu without page ov
 test('menu favorites sync with signature dishes and survive a page reload', async ({ page }) => {
   const menu = page.locator('#menu');
   const signature = page.locator('#signatures');
-  const save = 'Save The MIKLOL Burger to favorites';
-  const remove = 'Remove The MIKLOL Burger from favorites';
+  const save = 'Save Tibs to favorites';
+  const remove = 'Remove Tibs from favorites';
   await menu.getByRole('button', { name: save, exact: true }).click();
   await expect(menu.getByRole('button', { name: remove, exact: true })).toHaveAttribute('aria-pressed', 'true');
   await expect(signature.getByRole('button', { name: remove, exact: true })).toHaveAttribute('aria-pressed', 'true');
@@ -58,7 +67,7 @@ test('menu favorites sync with signature dishes and survive a page reload', asyn
   await expect(signature.getByRole('button', { name: remove, exact: true })).toHaveAttribute('aria-pressed', 'true');
   await signature.getByRole('button', { name: remove, exact: true }).click();
   await expect(menu.getByRole('button', { name: save, exact: true })).toHaveAttribute('aria-pressed', 'false');
-  await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem('miklol-favorites') || '[]').includes('house-burger'))).toBe(false);
+  await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem('miklol-favorites') || '[]').includes('lamb-tibs'))).toBe(false);
 });
 
 test('phone table planner validates five fields and offers a real call to confirm', async ({ page }) => {

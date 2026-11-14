@@ -3,9 +3,9 @@
 .menu { padding: $space-section 0 $space-xl; background: $cream; color: $espresso; color-scheme: light; scroll-margin-top: var(--section-scroll-offset); }
 .sectionTop { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
 .sectionIntro { max-width: 300px; padding-bottom: 5px; color: #675b4f; font-size: 16px; line-height: 1.5; }
-.categories { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; margin-bottom: 45px; }
+.categories { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; margin-bottom: 30px; }
 .category { display: block; padding: 0; background: transparent; text-align: left; color: $espresso; border: 0; border-radius: 6px; cursor: pointer; }
-.categoryImage { position: relative; width: 100%; aspect-ratio: .92; overflow: hidden; border-radius: 4px; background: #d9c8b5;
+.categoryImage { position: relative; width: 100%; aspect-ratio: 1.5; overflow: hidden; border-radius: 4px; background: #d9c8b5;
   &::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba($espresso, .25)); }
   img { object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.3,1); }
 }
@@ -25,6 +25,12 @@
 .dietFilter { display: flex; align-items: center; gap: 8px; flex-shrink: 0; color: #675b4f;
   select { min-height: 48px; border: 0; background: transparent; font: inherit; font-size: 16px; color: inherit; cursor: pointer; }
 }
+.menuGroups { display: grid; gap: 32px; margin-top: 28px; }
+.menuGroup { min-width: 0; }
+.menuGroupHeading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid #c7b8a6;
+  h3 { margin: 0; font-family: $font-display; font-size: 32px; font-weight: 500; }
+  span { color: #675b4f; font-size: 14px; white-space: nowrap; }
+}
 .menuList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; margin-top: 12px; }
 .menuItem { display: flex; align-items: center; gap: 17px; min-height: 120px; padding: 22px 0; border-bottom: 1px solid #dfd5c7; }
 .menuItemImage { position: relative; width: 66px; height: 66px; flex-shrink: 0; border-radius: 50%; overflow: hidden; background: #d9c8b5;
@@ -35,7 +41,7 @@
   p { margin: 5px 0 0; max-width: 310px; color: #675b4f; font-size: 16px; line-height: 1.5; }
 }
 .menuItemHeading { display: flex; align-items: center; gap: 8px;
-  h3 { margin: 0; font-size: 16px; font-weight: 500; line-height: 1.5; }
+  h4 { margin: 0; font-size: 16px; font-weight: 500; line-height: 1.5; }
   svg { color: #617045; flex-shrink: 0; }
 }
 .price { align-self: flex-start; padding-top: 3px; white-space: nowrap; font-size: 16px; font-weight: 600; }
@@ -157,7 +163,7 @@
   .categoryImage { aspect-ratio: 1.2; }
   .menuItem { gap: 11px; }
   .menuItemImage { width: 50px; height: 50px; }
-  .menuItemHeading h3 { font-size: 16px; }
+  .menuItemHeading h4 { font-size: 16px; }
   .price { font-size: 16px; }
   .menuItemCopy p { font-size: 16px; }
   .menuTabs { gap: 3px;
@@ -182,7 +188,7 @@
   .menuList { grid-template-columns: 1fr; }
   .menuItem { min-height: 105px; gap: 15px; padding: 18px 0; }
   .menuItemImage { width: 58px; height: 58px; }
-  .menuItemHeading h3 { font-size: 14px; }
+  .menuItemHeading h4 { font-size: 14px; }
   .menuItemCopy p { font-size: 11px; }
   .price { font-size: 12px; }
   .galleryGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 85px; gap: 9px; }
@@ -265,7 +271,7 @@
     p { margin-top: 7px; font-size: 16px; line-height: 1.5; color: #675b4f; }
   }
   .menuItemHeading { align-items: flex-start; gap: 8px;
-    h3 { font-size: 16px; line-height: 1.5; font-weight: 600; }
+    h4 { font-size: 16px; line-height: 1.5; font-weight: 600; }
     svg { margin-top: 5px; }
   }
   .itemNote { display: none; }

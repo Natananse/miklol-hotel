@@ -83,7 +83,7 @@ These real stock photographs support the Ethiopian menu update. The files are st
 - **Shiro:** Biruk Gashawbeza’s source identifies Ethiopian food photographed in Addis Ababa, without naming the exact dish. The creamy stew in earthenware visually matches shiro; the alt text deliberately describes the visible stew rather than claiming a verified recipe.
 - **Buna:** Amanuel Kebede’s source explicitly describes Ethiopian coffee, with a clay jebena visible. Zeynep S.’s source describes an Ethiopian coffee ceremony. The people in the ceremony photograph are not identified as MIKLOL staff, and their ethnicity is not inferred from appearance.
 
-The menu’s ETB prices and proposed recipes remain preview content. A photograph does not establish the complete ingredients or the restaurant’s final offering.
+Current menu items and ETB prices are transcribed from the owner’s menu photographs. The stock photographs remain representative: a photograph does not establish the restaurant’s exact presentation or ingredients.
 
 ### International menu WebP derivatives
 
@@ -101,7 +101,7 @@ These nine files reuse the original credited website photographs above, re-encod
 | `public/images/menu/espresso.webp` | `public/images/coffee/espresso.jpg` | [Source image](https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=1100&q=82) | [Unsplash](https://unsplash.com/license) |
 | `public/images/menu/iced-latte.webp` | `public/images/coffee/iced-latte.jpg` | [Source image](https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1100&q=82) | [Unsplash](https://unsplash.com/license) |
 
-All 14 files under `public/images/menu/` are listed above. `coffee-ceremony.webp` is also the current story-section image while the owner's chef photo source is pending.
+The original 14 menu and coffee-story WebPs are listed above. Additional owner-menu selections are credited below. `coffee-ceremony.webp` is also the current story-section image while the owner's chef photo source is pending.
 
 ### Coffee-story photograph and chef portrait status
 

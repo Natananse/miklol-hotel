@@ -18,9 +18,9 @@ import s from './Home.module.scss';
 
 const blur = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzYxNGIzZSIgZD0iTTAgMGgxNnYxNkgweiIvPjwvc3ZnPg==';
 const reviews = [
-  { text: 'Jebena Buna. A Butter Croissant.', name: 'From the MIKLOL team', detail: 'Menu suggestion', title: 'BUNA & A CROISSANT' },
-  { text: 'Beef Tibs, with onion and peppers.', name: 'From the MIKLOL team', detail: 'Menu suggestion', title: 'TIBS FOR LUNCH' },
-  { text: 'Chocolate Cake, finished with ganache.', name: 'From the MIKLOL team', detail: 'Menu suggestion', title: 'CHOCOLATE TO FINISH' },
+  { text: 'Special Omelet, with meat, cheese, and vegetables.', name: 'From the MIKLOL team', detail: 'Menu suggestion', title: 'START WITH BREAKFAST' },
+  { text: 'Lamb Tibs, with onion, green pepper, and rosemary.', name: 'From the MIKLOL team', detail: 'Menu suggestion', title: 'TIBS FOR LUNCH' },
+  { text: 'Fresh Mango Juice. A bright finish to your meal.', name: 'From the MIKLOL team', detail: 'Menu suggestion', title: 'SOMETHING REFRESHING' },
 ];
 
 export default function Home({ hero }: { hero: React.ReactNode }) {
@@ -62,7 +62,7 @@ export default function Home({ hero }: { hero: React.ReactNode }) {
 
       <SignatureDishes />
 
-      <section className={s.ambience} aria-labelledby="ambience-heading"><Image src="/images/interior/ambience.jpg" alt="Restaurant tables, upholstered chairs, and pendant lights around a central bar" fill sizes="100vw" placeholder="blur" blurDataURL={blur} /><div className={s.ambienceShade} /><div className={`container ${s.ambienceContent}`} data-reveal><span className="eyebrow">LUNCH AT MIKLOL</span><h2 id="ambience-heading">Stay for<br />lunch.</h2><p>Coffee by the window.<br />Pizza and conversation at the table.</p><a href="#reservation" className="button">Plan your lunch <ArrowUpRight size={15} /></a></div><div className={`container ${s.stats}`}><div><strong data-count={menuItems.length}>{menuItems.length}</strong><span>MENU ITEMS</span></div><div><strong data-count={categories.length}>{String(categories.length).padStart(2, '0')}</strong><span>CATEGORIES</span></div><div><strong data-count={menuItems.filter(item => item.category === 'Ethiopian').length}>{String(menuItems.filter(item => item.category === 'Ethiopian').length).padStart(2, '0')}</strong><span>ETHIOPIAN PLATES</span></div><span className={s.statsNote}>Coffee, lunch,<br />or dinner.</span></div></section>
+      <section className={s.ambience} aria-labelledby="ambience-heading"><Image src="/images/interior/ambience.jpg" alt="Restaurant tables, upholstered chairs, and pendant lights around a central bar" fill sizes="100vw" placeholder="blur" blurDataURL={blur} /><div className={s.ambienceShade} /><div className={`container ${s.ambienceContent}`} data-reveal><span className="eyebrow">LUNCH AT MIKLOL</span><h2 id="ambience-heading">Stay for<br />lunch.</h2><p>Coffee by the window.<br />Pizza and conversation at the table.</p><a href="#reservation" className="button">Plan your lunch <ArrowUpRight size={15} /></a></div><div className={`container ${s.stats}`}><div><strong data-count={menuItems.length}>{menuItems.length}</strong><span>MENU ITEMS</span></div><div><strong data-count={categories.length}>{String(categories.length).padStart(2, '0')}</strong><span>CATEGORIES</span></div><div><strong data-count={menuItems.filter(item => item.category === 'Non-fasting' || item.category === 'Fasting Dishes').length}>{String(menuItems.filter(item => item.category === 'Non-fasting' || item.category === 'Fasting Dishes').length).padStart(2, '0')}</strong><span>ETHIOPIAN PLATES</span></div><span className={s.statsNote}>Coffee, lunch,<br />or dinner.</span></div></section>
 
       <KitchenStory />
 
@@ -101,7 +101,7 @@ export default function Home({ hero }: { hero: React.ReactNode }) {
             <a href={site.mapUrl} target="_blank" rel="noreferrer">Get directions <ArrowUpRight size={16} /></a>
           </div>
         </div>
-        <div className={s.footerBottom}><span>© {new Date().getFullYear()} MIKLOL. Cafe & Restaurant.</span><span>Website preview · sample menu and stock photography</span><a href="#top">TOP ↑</a></div>
+        <div className={s.footerBottom}><span>© {new Date().getFullYear()} MIKLOL. Cafe & Restaurant.</span><span>Menu highlights · representative stock photography</span><a href="#top">TOP ↑</a></div>
         {contactNotice && <div className={s.contactNotice} role="status"><Check size={17} /><p>{contactNotice}</p><button onClick={() => setContactNotice('')} aria-label="Close contact notice">Close</button></div>}
       </div>
       <span className={s.footerWordmark} aria-hidden="true">COME HUNGRY.</span>
