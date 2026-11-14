@@ -6,8 +6,13 @@ import MotionProvider from '@/components/MotionProvider';
 const display = Cormorant_Garamond({ subsets: ['latin'], weight: ['400', '500'], style: 'normal', variable: '--font-display', display: 'swap' });
 const body = DM_Sans({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  || (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
+  || (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`)
+  || 'http://localhost:3000';
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(siteUrl),
   alternates: { canonical: '/' },
   title: 'MIKLOL Cafe & Restaurant — Coffee, Breakfast, Lunch & Dinner',
   description: 'Tibs, shiro, injera, jebena buna, and café favourites in Bahir Dar. Browse the MIKLOL menu and plan your table in Kebele 14, around Nock.',

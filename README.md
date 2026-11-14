@@ -94,7 +94,9 @@ The reservation form is a **client-side preview**. It validates the date, time, 
 
 The menu, prices, guest impressions, proposed hours, and venue/staff photography are illustrative. Replace them with verified MIKLOL information before launch. The owner’s phone (**+251 92 128 2925**, linked as `tel:+251921282925`) and address (**Bahir Dar, Kebele 14, around Nock**) are configured in `data/site.ts`. Directions use a Google Maps search for that description, without an invented map pin. The footer email is **erminati085@gmail.com**. Add verified social profile URLs when available. Opening hours remain labelled proposed until confirmed.
 
-Deploy to a host that supports Next.js, with `npm run build` as the build command and `npm start` as the start command. Set `NEXT_PUBLIC_SITE_URL` to the public deployment URL (see `.env.example`); metadata, the canonical URL, and social image URLs use it in `app/layout.tsx`. Update the Open Graph image and copy as needed.
+Vercel can auto-detect this project as Next.js and use `npm run build`; no custom output directory is needed. Canonical and social-image URLs use Vercel's production domain automatically, with the deployment domain as a fallback. Set `NEXT_PUBLIC_SITE_URL` only when you want to override that origin, such as for a preferred custom domain (see `.env.example`). Local builds fall back to `http://localhost:3000`.
+
+`.vercelignore` excludes local configuration, environment files, reports, and test artifacts from uploads. Vercel's local project link is stored in `.vercel/`, which is excluded from Git. On another Next.js host, use `npm run build`, `npm start`, and an explicit `NEXT_PUBLIC_SITE_URL`.
 
 ## Phone behavior and browser checks
 
