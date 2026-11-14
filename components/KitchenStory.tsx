@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import localFont from 'next/font/local';
 import { ArrowUpRight, Coffee } from 'lucide-react';
-import { chefPhoto } from '@/data/chef-photo';
+import { storyPhoto } from '@/data/story-photo';
 import s from './KitchenStory.module.scss';
 
+const ethiopic = localFont({ src: '../public/fonts/NotoSansEthiopic-Regular.ttf', weight: '400', display: 'swap', preload: false });
 const blur = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iIzYxNGIzZSIgZD0iTTAgMGgxNnYxNkgweiIvPjwvc3ZnPg==';
 
 /** CSS sticky stays inside this section, so it cannot pin over the next heading. */
@@ -25,10 +27,10 @@ export default function KitchenStory() {
           <p>Buna from the jebena. Small cups, conversation, and a shared welcome.</p>
         </div>
 
-        <div className={s.chefPlaceholder}>
-          <span>CHEF PROFILE · OWNER TO COMPLETE</span>
-          <h3>[Chef name]</h3>
-          <p>[Chef quote — add the owner-approved words here.]</p>
+        <div className={s.welcome}>
+          <span>THE HEART OF HABESHA HOSPITALITY</span>
+          <h3>Selam <span aria-hidden="true">·</span> <span lang="am" className={ethiopic.className}>ሰላም</span></h3>
+          <p>Good food, a shared plate, and buna poured with care. Make yourself at home at the MIKLOL table.</p>
         </div>
         <a className={s.menuLink} href="#menu">Explore the menu <ArrowUpRight size={18} aria-hidden="true" /></a>
       </div>
@@ -36,17 +38,17 @@ export default function KitchenStory() {
       <figure className={s.visual}>
         <div className={s.photo}>
           <Image
-            src={chefPhoto.src}
-            alt={chefPhoto.alt}
+            src={storyPhoto.src}
+            alt={storyPhoto.alt}
             fill
             sizes="(max-width: 600px) calc(100vw - 32px), (max-width: 1023px) 88vw, (max-width: 1440px) 41vw, 580px"
             placeholder="blur"
             blurDataURL={blur}
-            style={{ objectPosition: chefPhoto.objectPosition }}
+            style={{ objectPosition: storyPhoto.objectPosition }}
           />
         </div>
         <figcaption className={s.caption}>
-          <p>{chefPhoto.caption}</p>
+          <p>{storyPhoto.caption}</p>
           <span className={s.badge} aria-hidden="true"><Coffee size={25} /><span>BUNA</span></span>
         </figcaption>
       </figure>

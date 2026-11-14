@@ -41,7 +41,7 @@ components/                Page sections, interactions, and SCSS modules
 data/
   menu.ts                 Menu categories, items, prices, dietary labels
   site.ts                 Business and contact details
-  chef-photo.ts           Story photo, accurate alt text, caption, crop
+  story-photo.ts          Story photo, accurate alt text, caption, crop
 styles/
   _variables.scss         Colors, fonts, spacing, breakpoints
   _mixins.scss            Shared responsive and styling helpers
@@ -62,8 +62,8 @@ CREDITS.md                 Exact photo sources and license links
 | Hero headline, buttons, and collage | `components/Hero.tsx` and `components/Hero.module.scss` |
 | Hero photo paths, alt text, and blur placeholders | `data/hero-images.ts` |
 | Hero and navigation palette | `styles/_hero-tokens.scss` |
-| Story copy and `[Chef name]` / chef-quote placeholders | `components/KitchenStory.tsx` |
-| Story photo, alt text, stock caption, crop position | `data/chef-photo.ts` |
+| Story copy and Selam / ሰላም welcome card | `components/KitchenStory.tsx` |
+| Story photo, alt text, stock caption, crop position | `data/story-photo.ts` |
 | Signature-card selection | `signature: true` on items in `data/menu.ts` |
 | Signature-carousel layout and controls | `components/SignatureDishes.tsx` and its SCSS module |
 | Occasions, sample guest notes, footer copy | `components/Home.tsx` |
@@ -88,7 +88,7 @@ python3 scripts/download-images.py
 
 This legacy helper requires internet access and overwrites the original stock images and credits file; it does not rebuild the newer menu WebPs or staged people photograph. Preserve the added credits when using it. Keep credits for any replacement photographs. The small phone hero image is an inline AVIF generated from `public/images/hero/pasta.jpg`. After replacing that photo, run `npm run assets:hero` to regenerate `pasta-mobile.avif` and `data/hero-mobile.ts`. This preserves the desktop image and removes an extra critical image request on phones.
 
-The owner chose to provide the chef photo link. While that source is pending, the story uses Zeynep S.’s Ethiopian coffee-ceremony photograph (`/images/menu/coffee-ceremony.webp`) with a caption stating that the chef portrait is pending. It is not presented as MIKLOL’s chef. A matching freely licensed, source-verified Habesha woman chef photo in a white jacket/apron was not found. Replace `src`, `alt`, `caption`, and `objectPosition` in `data/chef-photo.ts` when the owner supplies the photo, then replace `[Chef name]` and the clearly marked quote in `KitchenStory.tsx`. No chef identity or quotation has been invented, and no AI-generated face is used.
+The story section includes a finished **Selam / ሰላም** welcome card celebrating Habesha hospitality. Its copy speaks in MIKLOL’s house voice. The Amharic heading uses a locally bundled Noto Sans Ethiopic font, with its SIL Open Font License retained in `public/fonts/`. Zeynep S.’s Ethiopian coffee-ceremony photograph (`/images/menu/coffee-ceremony.webp`) accompanies the story with a finished buna caption. Update its `src`, `alt`, `caption`, and `objectPosition` in `data/story-photo.ts` to change the image. Photo attribution remains in `CREDITS.md`.
 
 ## Reservations and launch details
 

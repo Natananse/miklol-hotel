@@ -101,13 +101,11 @@ These nine files reuse the original credited website photographs above, re-encod
 | `public/images/menu/espresso.webp` | `public/images/coffee/espresso.jpg` | [Source image](https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=1100&q=82) | [Unsplash](https://unsplash.com/license) |
 | `public/images/menu/iced-latte.webp` | `public/images/coffee/iced-latte.jpg` | [Source image](https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1100&q=82) | [Unsplash](https://unsplash.com/license) |
 
-The original 14 menu and coffee-story WebPs are listed above. Additional owner-menu selections are credited below. `coffee-ceremony.webp` is also the current story-section image while the owner's chef photo source is pending.
+The original 14 menu and coffee-story WebPs are listed above. Additional owner-menu selections are credited below. `coffee-ceremony.webp` also illustrates the Habesha hospitality story section.
 
-### Coffee-story photograph and chef portrait status
+### Coffee-story photograph
 
-The current story section uses `public/images/menu/coffee-ceremony.webp` by **Zeynep S.**, credited in the Ethiopian food and coffee table above. The source describes an Ethiopian coffee ceremony. The on-page caption states that the chef portrait is pending; the photograph is not presented as a portrait of MIKLOL's chef or another named employee.
-
-**Requested chef portrait remains pending:** a real, freely licensed Unsplash/Pexels photo of a source-verified Habesha woman chef in a white chef jacket or apron was not found. The owner will provide the chef photograph source link. `data/chef-photo.ts` controls the displayed image, alt text, caption, and crop. `[Chef name]` and the marked chef quote remain placeholders for owner-approved details. No generic stock model has been labelled Ethiopian, and no AI-generated chef face is used.
+The story section uses `public/images/menu/coffee-ceremony.webp` by **Zeynep S.**, credited in the Ethiopian food and coffee table above. The source describes an Ethiopian coffee ceremony. It accompanies the Selam / ሰላም hospitality card and the caption “Buna from the jebena, shared with a warm Habesha welcome.” It remains representative stock photography, without attribution to a named MIKLOL employee. `data/story-photo.ts` controls the displayed image, alt text, caption, and crop.
 
 <!-- OWNER-MENU-PHOTO-CREDITS -->
 ## Owner menu selection photographs
