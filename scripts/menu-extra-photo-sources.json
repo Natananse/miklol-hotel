@@ -1,0 +1,112 @@
+[
+  {
+    "sourceURL": "https://upload.wikimedia.org/wikipedia/commons/4/48/Kitfo_%28%E1%8A%AD%E1%89%B5%E1%8D%8E%29.jpg",
+    "pageURL": "https://commons.wikimedia.org/wiki/File:Kitfo_(%E1%8A%AD%E1%89%B5%E1%8D%8E).jpg",
+    "photographer": "Vipon8",
+    "license": "CC0 1.0",
+    "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "imageAlt": "Kitfo served in bowls with ayib, greens, and rolls of injera.",
+    "changes": "Resized to 900 pixels maximum and converted to WebP.",
+    "file": "public/images/menu/kitfo.webp",
+    "dimensions": [
+      900,
+      675
+    ],
+    "bytes": 152378,
+    "visuallyVerified": true
+  },
+  {
+    "sourceURL": "https://upload.wikimedia.org/wikipedia/commons/6/60/Taita_fit-fit.jpg",
+    "pageURL": "https://commons.wikimedia.org/wiki/File:Taita_fit-fit.jpg",
+    "photographer": "Temesgen Woldezion (edited by Merhawie Woldezion)",
+    "license": "CC BY-SA 2.5",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "imageAlt": "Spiced shredded injera fit-fit with green jalapeño peppers on a red plate.",
+    "changes": "Resized to 900 pixels maximum and converted to WebP.",
+    "identificationNote": "Source identifies Eritrean taita fit-fit; illustrative photograph of the shredded-injera dish family shared with firfir.",
+    "file": "public/images/menu/firfir.webp",
+    "dimensions": [
+      900,
+      899
+    ],
+    "bytes": 89840,
+    "visuallyVerified": true
+  },
+  {
+    "sourceURL": "https://images.pexels.com/photos/8250283/pexels-photo-8250283.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/close-up-of-cooked-vegetables-8250283/",
+    "photographer": "Julia Filirovska",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Grilled zucchini, peppers, eggplant, and tomatoes with browned edges.",
+    "identificationNote": "Illustrative photograph of cooked vegetables; the source does not identify this as Ethiopian preparation.",
+    "file": "public/images/menu/cooked-vegetables.webp",
+    "dimensions": [
+      900,
+      600
+    ],
+    "bytes": 88370,
+    "visuallyVerified": true
+  },
+  {
+    "sourceURL": "https://images.pexels.com/photos/6935682/pexels-photo-6935682.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/sliced-bread-on-a-surface-6935682/",
+    "photographer": "Alexas Fotos",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "A slice of crusty artisan bread showing its airy crumb.",
+    "file": "public/images/menu/bread.webp",
+    "dimensions": [
+      900,
+      584
+    ],
+    "bytes": 100078,
+    "visuallyVerified": true
+  },
+  {
+    "sourceURL": "https://upload.wikimedia.org/wikipedia/commons/4/44/Injera_1.jpg",
+    "pageURL": "https://commons.wikimedia.org/wiki/File:Injera_1.jpg",
+    "photographer": "Edsel Little",
+    "license": "CC BY-SA 2.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "imageAlt": "Rolled injera flatbreads stacked in a woven Ethiopian basket.",
+    "changes": "Resized to 900 pixels maximum and converted to WebP.",
+    "file": "public/images/menu/injera.webp",
+    "dimensions": [
+      900,
+      506
+    ],
+    "bytes": 88048,
+    "visuallyVerified": true
+  },
+  {
+    "sourceURL": "https://images.pexels.com/photos/40247255/pexels-photo-40247255.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/freshly-cut-boiled-eggs-in-white-bowl-40247255/",
+    "photographer": "Muhammad Khawar Nazir",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Hard-boiled egg pieces sprinkled with black pepper in a white bowl.",
+    "file": "public/images/menu/boiled-egg.webp",
+    "dimensions": [
+      900,
+      507
+    ],
+    "bytes": 48342,
+    "visuallyVerified": true
+  },
+  {
+    "sourceURL": "https://images.pexels.com/photos/32356157/pexels-photo-32356157.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/cubes-of-feta-cheese-with-fresh-basil-and-tomatoes-32356157/",
+    "photographer": "Gundula Vogel",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "White cheese cubes with herbs and basil on a dark serving board.",
+    "file": "public/images/menu/cheese.webp",
+    "dimensions": [
+      600,
+      900
+    ],
+    "bytes": 35256,
+    "visuallyVerified": true
+  }
+]

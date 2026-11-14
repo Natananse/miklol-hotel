@@ -25,8 +25,8 @@ test('phone menu tabs stay reachable and filter the compact menu without page ov
   await expect(menu.locator('article')).toHaveCount(36);
   await expect(menu.getByRole('group')).toHaveCount(9);
   for (const group of await menu.getByRole('group').all()) await expect(group.locator('article')).toHaveCount(4);
-  // Owner's handwritten menu corrections replace the old printed prices.
-  for (const [name, price] of [['Vegetable Wrap', '250 ETB'], ['Chechebsa', '200 ETB'], ['Beef Pizza', '420 ETB'], ['Margherita Pizza', '400 ETB']]) {
+  // Owner's menu prices include handwritten corrections to the printed amounts.
+  for (const [name, price] of [['Vegetable Wrap', '250 ETB'], ['Scrambled Eggs', '190 ETB'], ['Beef Pizza', '420 ETB'], ['Margherita Pizza', '400 ETB']]) {
     await expect(menu.locator('article').filter({ has: page.getByRole('heading', { name, exact: true }) }).getByText(price, { exact: true })).toHaveCount(1);
   }
   await expect.poll(() => tabs.evaluate(element => element.scrollWidth > element.clientWidth)).toBe(true);

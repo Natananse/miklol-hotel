@@ -1,0 +1,184 @@
+[
+  {
+    "file": "public/images/menu/omelet.webp",
+    "sourceURL": "https://images.pexels.com/photos/1437268/pexels-photo-1437268.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/selective-focus-photography-of-omelette-with-toppings-1437268/",
+    "photographer": "Engin Akyurt",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Omelette topped with tomatoes, olives, and cheese on a plate.",
+    "dimensions": [
+      900,
+      600
+    ]
+  },
+  {
+    "file": "public/images/menu/vegetable-wrap.webp",
+    "sourceURL": "https://images.pexels.com/photos/36268502/pexels-photo-36268502.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/delicious-grilled-vegetable-wraps-on-plate-36268502/",
+    "photographer": "Kunal Lakhotia",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Grilled vegetable wraps arranged on a white plate.",
+    "dimensions": [
+      900,
+      601
+    ]
+  },
+  {
+    "file": "public/images/menu/tomato-salad.webp",
+    "sourceURL": "https://images.pexels.com/photos/8318231/pexels-photo-8318231.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/tomatoes-and-food-on-table-8318231/",
+    "photographer": "Gül Işık",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Fresh tomato salad with herbs and pumpkin seeds.",
+    "dimensions": [
+      600,
+      900
+    ]
+  },
+  {
+    "file": "public/images/menu/avocado-salad.webp",
+    "sourceURL": "https://images.pexels.com/photos/26756795/pexels-photo-26756795.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/salad-with-avocado-served-in-a-restaurant-26756795/",
+    "photographer": "Nadin Sh",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Avocado slices and lettuce in a salad bowl.",
+    "dimensions": [
+      674,
+      900
+    ]
+  },
+  {
+    "file": "public/images/menu/spaghetti-bolognese.webp",
+    "sourceURL": "https://images.pexels.com/photos/6287520/pexels-photo-6287520.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/appetizing-spaghetti-pasta-with-bolognese-sauce-served-in-kitchen-6287520/",
+    "photographer": "Klaus Nielsen",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Spaghetti topped with Bolognese sauce and parsley.",
+    "dimensions": [
+      900,
+      600
+    ]
+  },
+  {
+    "file": "public/images/menu/spaghetti-carbonara.webp",
+    "sourceURL": "https://images.pexels.com/photos/31779533/pexels-photo-31779533.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/delicious-creamy-spaghetti-carbonara-dish-31779533/",
+    "photographer": "Adriano Bragi",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Spaghetti carbonara with creamy sauce and bacon pieces.",
+    "dimensions": [
+      900,
+      600
+    ]
+  },
+  {
+    "file": "public/images/menu/fruit-salad.webp",
+    "sourceURL": "https://images.pexels.com/photos/15832882/pexels-photo-15832882.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/fruit-salad-in-a-bowl-15832882/",
+    "photographer": "Dextar Studio ™",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Fruit salad with kiwi, pineapple, and strawberries.",
+    "dimensions": [
+      900,
+      600
+    ]
+  },
+  {
+    "file": "public/images/menu/chicken-salad.webp",
+    "sourceURL": "https://images.pexels.com/photos/31136886/pexels-photo-31136886.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/fresh-grilled-chicken-salad-on-wooden-plate-31136886/",
+    "photographer": "KI Lee",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Grilled chicken pieces with fresh salad vegetables and dressing.",
+    "dimensions": [
+      900,
+      649
+    ]
+  },
+  {
+    "file": "public/images/menu/vegetable-rice.webp",
+    "sourceURL": "https://images.pexels.com/photos/16659408/pexels-photo-16659408.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/bowl-of-rice-with-chilli-16659408/",
+    "photographer": "Sameer Singh",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Mixed vegetable rice served in a bowl.",
+    "dimensions": [
+      506,
+      900
+    ]
+  },
+  {
+    "file": "public/images/menu/margherita-pizza.webp",
+    "sourceURL": "https://images.pexels.com/photos/14590497/pexels-photo-14590497.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/photo-of-margherita-pizza-14590497/",
+    "photographer": "Jonathan Borba",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Margherita pizza with melted cheese, tomato sauce, and basil.",
+    "dimensions": [
+      600,
+      900
+    ]
+  },
+  {
+    "file": "public/images/menu/chicken-pizza.webp",
+    "sourceURL": "https://images.pexels.com/photos/33592992/pexels-photo-33592992.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/delicious-gourmet-chicken-pizza-with-toppings-33592992/",
+    "photographer": "Anhelina Vasylyk",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Pizza topped with chicken, olives, and broccoli on a wooden table.",
+    "dimensions": [
+      900,
+      600
+    ]
+  },
+  {
+    "file": "public/images/menu/vegetable-pizza.webp",
+    "sourceURL": "https://images.pexels.com/photos/1527602/pexels-photo-1527602.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/pizza-with-vegetables-and-spices-1527602/",
+    "photographer": "Engin Akyurt",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Pizza topped with basil, tomato, and eggplant.",
+    "dimensions": [
+      900,
+      600
+    ]
+  },
+  {
+    "file": "public/images/menu/beef-pizza.webp",
+    "sourceURL": "https://images.pexels.com/photos/3915830/pexels-photo-3915830.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/pizza-with-cheese-and-green-leaves-3915830/",
+    "photographer": "Horizon Content",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Beef and cheese pizza topped with olives and sauce.",
+    "dimensions": [
+      900,
+      600
+    ]
+  },
+  {
+    "file": "public/images/menu/vegetable-macaroni.webp",
+    "sourceURL": "https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "pageURL": "https://www.pexels.com/photo/closes-up-photo-of-macaroni-1437267/",
+    "photographer": "Engin Akyurt",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/",
+    "imageAlt": "Short penne pasta with tomato sauce and herbs.",
+    "dimensions": [
+      900,
+      600
+    ]
+  }
+]

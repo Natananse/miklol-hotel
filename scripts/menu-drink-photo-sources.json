@@ -1,0 +1,90 @@
+[
+  {
+    "file": "public/images/menu/avocado-juice.webp",
+    "source": "https://images.pexels.com/photos/11009209/pexels-photo-11009209.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "page": "https://www.pexels.com/photo/avocado-milk-shake-in-glass-with-straw-11009209/",
+    "photographer": "Shameel mukkath",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "imageAlt": "Pale green avocado drink in a glass with a straw beside fresh avocado.",
+    "identificationNote": "Illustrative stock photograph; presentation and ingredients at MIKLOL may differ.",
+    "maxDimension": 900
+  },
+  {
+    "file": "public/images/menu/mango-juice.webp",
+    "source": "https://images.pexels.com/photos/5817624/pexels-photo-5817624.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "page": "https://www.pexels.com/photo/yellow-juice-in-clear-drinking-glass-5817624/",
+    "photographer": "Shameel mukkath",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "imageAlt": "Golden mango drink in a clear glass garnished with mango slices.",
+    "identificationNote": "Illustrative stock photograph; presentation and ingredients at MIKLOL may differ.",
+    "maxDimension": 900
+  },
+  {
+    "file": "public/images/menu/mixed-juice.webp",
+    "source": "https://images.pexels.com/photos/8679371/pexels-photo-8679371.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "page": "https://www.pexels.com/photo/mango-juice-on-clear-drinking-glasses-8679371/",
+    "photographer": "Timur Weber",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "imageAlt": "Mango and orange fruit juice in clear glasses beside fresh fruit.",
+    "identificationNote": "The source identifies mango and orange juice; illustrative stock photograph, not MIKLOL's exact mixed-fruit recipe.",
+    "maxDimension": 900
+  },
+  {
+    "file": "public/images/menu/strawberry-milkshake.webp",
+    "source": "https://images.pexels.com/photos/26346626/pexels-photo-26346626.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "page": "https://www.pexels.com/photo/milkshake-with-strawberries-26346626/",
+    "photographer": "Oğuzhan Karataş",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "imageAlt": "Creamy strawberry milkshake in a glass topped with strawberry pieces.",
+    "identificationNote": "Illustrative stock photograph; presentation and ingredients at MIKLOL may differ.",
+    "maxDimension": 900
+  },
+  {
+    "file": "public/images/menu/orange-mocktail.webp",
+    "source": "https://images.pexels.com/photos/29002944/pexels-photo-29002944.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "page": "https://www.pexels.com/photo/refreshing-citrus-mocktail-with-mint-garnish-29002944/",
+    "photographer": "Mathias Yoba",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "imageAlt": "Orange citrus drink in a tall glass with orange slices and mint.",
+    "identificationNote": "Illustrative stock photograph; presentation and ingredients at MIKLOL may differ.",
+    "maxDimension": 900
+  },
+  {
+    "file": "public/images/menu/watermelon-mocktail.webp",
+    "source": "https://images.pexels.com/photos/18142607/pexels-photo-18142607.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "page": "https://www.pexels.com/photo/watermelon-cocktail-in-a-glass-18142607/",
+    "photographer": "Denys Gromov",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "imageAlt": "Pink watermelon drink with crushed ice and a fresh watermelon wedge.",
+    "identificationNote": "Illustrative stock photograph; presentation and ingredients at MIKLOL may differ.",
+    "maxDimension": 900
+  },
+  {
+    "file": "public/images/menu/lemon-mocktail.webp",
+    "source": "https://images.pexels.com/photos/5472320/pexels-photo-5472320.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "page": "https://www.pexels.com/photo/refreshing-lemonade-served-with-lemon-and-mint-5472320/",
+    "photographer": "Ryutaro Tsukata",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "imageAlt": "Iced lemon drink in a glass with fresh lemon slices and mint.",
+    "identificationNote": "Illustrative stock photograph; presentation and ingredients at MIKLOL may differ.",
+    "maxDimension": 900
+  },
+  {
+    "file": "public/images/menu/strawberry-mocktail.webp",
+    "source": "https://images.pexels.com/photos/17321336/pexels-photo-17321336.jpeg?auto=compress&cs=tinysrgb&w=900",
+    "page": "https://www.pexels.com/photo/a-glass-of-strawberry-and-lime-drink-with-lime-and-mint-17321336/",
+    "photographer": "Shameel mukkath",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "imageAlt": "Iced strawberry and lime drink in a tall glass garnished with fresh mint.",
+    "identificationNote": "Illustrative stock photograph; presentation and ingredients at MIKLOL may differ.",
+    "maxDimension": 900
+  }
+]

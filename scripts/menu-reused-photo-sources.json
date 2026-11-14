@@ -1,0 +1,33 @@
+[
+  {
+    "file": "public/images/menu/tibs.webp",
+    "sourceURL": "https://images.pexels.com/photos/36984977/pexels-photo-36984977.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    "pageURL": "https://www.pexels.com/photo/delicious-traditional-ethiopian-meal-served-hot-36984977/",
+    "photographer": "Mohamed Olwy",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/"
+  },
+  {
+    "file": "public/images/menu/beyaynetu.webp",
+    "sourceURL": "https://images.pexels.com/photos/17486836/pexels-photo-17486836.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    "pageURL": "https://www.pexels.com/photo/meal-on-plate-17486836/",
+    "photographer": "Deane Bayas",
+    "license": "Pexels License",
+    "licenseURL": "https://www.pexels.com/license/"
+  },
+  {
+    "file": "public/images/menu/shiro.webp",
+    "sourceURL": "https://images.unsplash.com/photo-1634650947274-0c3fa9d8ee8a?auto=format&fit=crop&w=1000&q=82",
+    "pageURL": "https://unsplash.com/photos/a-close-up-of-a-bowl-of-food-on-a-table-Fq-5Sd64p0Q",
+    "photographer": "Biruk Gashawbeza",
+    "license": "Unsplash License",
+    "licenseURL": "https://unsplash.com/license"
+  },
+  {
+    "file": "public/images/menu/pancakes.webp",
+    "sourceURL": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=1100&q=82",
+    "photographer": "See original source photograph",
+    "license": "Unsplash License",
+    "licenseURL": "https://unsplash.com/license"
+  }
+]

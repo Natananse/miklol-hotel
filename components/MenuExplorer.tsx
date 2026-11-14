@@ -74,7 +74,7 @@ export default function MenuExplorer() {
           </div>)}
           {items.length === 0 && <p className={styles.emptyState}>No dishes match. Choose another category.</p>}
         </div>
-        <div className={styles.menuFootnote}><span><a className="text-link" href="#reservation">Choose a table <ArrowUpRight size={13} aria-hidden="true" /></a></span><p>Prices in ETB · photos are representative · ask your server about allergens.</p></div>
+        <div className={styles.menuFootnote}><span><a className="text-link" href="#reservation">Choose a table <ArrowUpRight size={13} aria-hidden="true" /></a></span><p>Prices in ETB · photos are representative · ask your server about allergens. <a href="/photo-credits.html">Photo credits</a></p></div>
       </div>
     </section>
   );
