@@ -17,8 +17,9 @@ One-tap actions from the page
 - All four actions have large touch areas, with 8px gaps between buttons.
 - Reserve jumps to the reservation section; Menu jumps to the menu.
 - Call opens the dialer for +251975154415, displayed as 0975154415.
-- Directions opens a Google Maps search for MIKLOL in Bahir Dar, Kebele 14,
-  around Nock. No unverified map coordinates are invented.
+- Directions opens the restaurant pin from the owner-supplied Maps route:
+  https://www.google.com/maps/dir/?api=1&destination=11.5853942%2C37.3752582
+  Visitors choose their own starting point; the university origin is omitted.
 - The bar includes the iPhone bottom safe area and has matching page padding
   so it does not cover the footer or final controls.
 - The bar hides when the reservation form is visible, the virtual keyboard

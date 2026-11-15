@@ -76,7 +76,7 @@ test('bottom actions are large, directly connected, and hide at the reservation 
     expect(boxes[index]!.x - boxes[index - 1]!.x - boxes[index - 1]!.width).toBeGreaterThanOrEqual(7.9);
   }
   await expect(bar.getByRole('link', { name: 'Call MIKLOL on +251 97 515 4415' })).toHaveAttribute('href', 'tel:+251975154415');
-  await expect(bar.getByRole('link', { name: 'Open MIKLOL directions in Google Maps' })).toHaveAttribute('href', /https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=MIKLOL%20Bahir%20Dar%20Kebele%2014%20around%20Nock/);
+  await expect(bar.getByRole('link', { name: 'Open MIKLOL directions in Google Maps' })).toHaveAttribute('href', 'https://www.google.com/maps/dir/?api=1&destination=11.5853942%2C37.3752582');
   expect(await bar.evaluate(element => parseFloat(getComputedStyle(element).paddingBottom))).toBeGreaterThanOrEqual(8);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 
