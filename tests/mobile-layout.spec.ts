@@ -29,12 +29,12 @@ for (const [width, height] of [[360, 800], [390, 844], [430, 932], [768, 1024], 
       const actions = page.getByRole('navigation', { name: 'Quick actions' });
       await expect(actions).toBeVisible();
       await expect(actions.getByRole('link', { name: 'Reserve', exact: true })).toHaveAttribute('href', '#reservation');
-      await expect(actions.getByRole('link', { name: /Call MIKLOL/ })).toHaveAttribute('href', 'tel:+251921282925');
+      await expect(actions.getByRole('link', { name: /Call MIKLOL/ })).toHaveAttribute('href', 'tel:+251975154415');
       // A real visitor interaction ends first-paint tracking before testing later sections.
       await page.getByRole('button', { name: 'Open menu', exact: true }).tap();
       await page.getByRole('button', { name: 'Close menu', exact: true }).tap();
       await page.locator('#visit').scrollIntoViewIfNeeded();
-      await expect(page.locator('#visit').getByRole('link', { name: '+251 92 128 2925', exact: true })).toBeVisible();
+      await expect(page.locator('#visit').getByRole('link', { name: '+251 97 515 4415', exact: true })).toBeVisible();
       await expect(page.locator('#visit').getByRole('link', { name: 'erminati085@gmail.com', exact: true })).toHaveAttribute('href', 'mailto:erminati085@gmail.com');
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
     }

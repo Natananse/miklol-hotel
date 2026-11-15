@@ -100,7 +100,7 @@ test('phone table planner validates five fields and offers a real call to confir
   await expect(reservation.getByRole('heading', { name: 'Your table plan is ready.' })).toBeVisible();
   await expect(reservation.getByText(/Phone, your preview is for 4 on/)).toBeVisible();
   await expect(reservation.getByText('No table is booked yet. Call us to confirm your date and time.', { exact: true })).toBeVisible();
-  await expect(reservation.getByRole('link', { name: 'Call to confirm', exact: true })).toHaveAttribute('href', 'tel:+251921282925');
+  await expect(reservation.getByRole('link', { name: 'Call to confirm', exact: true })).toHaveAttribute('href', 'tel:+251975154415');
   await reservation.getByRole('button', { name: 'Change my table plan', exact: true }).click();
   await expect(form.getByLabel('Date', { exact: true })).toHaveValue(futureDate);
   await expect(form.getByLabel('Phone', { exact: true })).toHaveValue('0912345678');

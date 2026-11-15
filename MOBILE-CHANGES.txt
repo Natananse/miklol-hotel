@@ -16,7 +16,7 @@ One-tap actions from the page
 - Reserve uses the accent color and the widest button.
 - All four actions have large touch areas, with 8px gaps between buttons.
 - Reserve jumps to the reservation section; Menu jumps to the menu.
-- Call opens the dialer for +251921282925, displayed as 0921282925.
+- Call opens the dialer for +251975154415, displayed as 0975154415.
 - Directions opens a Google Maps search for MIKLOL in Bahir Dar, Kebele 14,
   around Nock. No unverified map coordinates are invented.
 - The bar includes the iPhone bottom safe area and has matching page padding
@@ -110,7 +110,7 @@ Reservation form
 Footer and business details
 --------------------------
 - The phone footer stacks its sections into one readable column.
-- Added a tappable 0921282925 phone number and the supplied Bahir Dar address.
+- Added a tappable 0975154415 phone number and the supplied Bahir Dar address.
 - The address and Directions link open Google Maps.
 - Opening hours are easy to read and can be tapped to call for confirmation.
 - The currently configured 08:00–22:00 hours remain labelled proposed;
