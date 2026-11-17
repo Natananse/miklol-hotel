@@ -1,7 +1,9 @@
 import { getImageProps } from 'next/image';
+import { ArrowUpRight, MapPin } from 'lucide-react';
 import { heroImages } from '@/data/hero-images';
 import { mobilePastaSrc } from '@/data/hero-mobile';
 import { categories } from '@/data/menu';
+import { site } from '@/data/site';
 import styles from './Hero.module.scss';
 
 const tablePhotos = [
@@ -40,6 +42,17 @@ export default function Hero() {
             <li>Vegetarian options</li>
             <li>1–8 guests</li>
           </ul>
+          <a
+            href={site.mapUrl}
+            className={styles.location}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Get directions to MIKLOL at ${site.address} (opens in a new tab)`}
+          >
+            <MapPin size={16} aria-hidden="true" />
+            <span>{site.address}</span>
+            <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
         </div>
 
         <div className={styles.collage} aria-label="Pasta, pizza, coffee, and cafe seating">
